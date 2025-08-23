@@ -1,14 +1,16 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import HttpBackend, { type HttpBackendOptions } from 'i18next-http-backend';
+import HttpBackend from 'i18next-http-backend';
 import { DateTime } from 'luxon';
 
 i18n
   .use(HttpBackend)
   .use(LanguageDetector)
   .use(initReactI18next)
-  .init<HttpBackendOptions>({
+  .init({
+    ns: ['common'],
+    defaultNS: 'common',
     backend: {
       loadPath: '/locales/{{lng}}/common.json',
     },

@@ -4,17 +4,25 @@ import '@styles/index.scss';
 import { Provider } from 'react-redux';
 import { setupStore } from '@store/store.ts';
 import { BrowserRouter } from 'react-router-dom';
+import { ConfigProvider } from 'antd';
 import App from './App';
+import './i18n';
 
 const store = setupStore();
+
+const theme = {
+  token: { colorPrimary: '#f7a348' },
+};
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
       <Suspense fallback="...is loading">
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <ConfigProvider theme={theme} componentSize="large">
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ConfigProvider>
       </Suspense>
     </Provider>
   </React.StrictMode>,

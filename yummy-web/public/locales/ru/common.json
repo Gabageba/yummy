@@ -1,3 +1,8 @@
 {
-  "test": "test"
+  "loginToSystem": "Вход в систему",
+  "login": "Логин",
+  "password": "Пароль",
+  "enter": "Войти",
+  "register": "Зарегистрироваться",
+  "forgotPassword": "Забыли пароль?"
 }
