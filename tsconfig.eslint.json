@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    // repeated from base config's "include" setting
+    "src",
+    "./.storybook/main.ts",
+    "./.storybook/preview.ts",
+    // these are the eslint-only inclusions
+    ".eslintrc.cjs",
+  ],
+}

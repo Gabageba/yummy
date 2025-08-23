@@ -1,0 +1,9 @@
+!.*
+node_modules
+/build
+/dist
+*.json
+package-lock.json
+checkit-web/src/assets
+yarn.lock
+*.svg
