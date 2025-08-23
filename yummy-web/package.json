@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "fix": "eslint --ext ts,tsx --fix ",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "prepare": "husky install",
+    "prepare": "cd .. && husky install yummy-web/.husky",
     "preview": "vite preview --port 3000",
     "start": "vite"
   },
@@ -21,17 +21,23 @@
     ],
     "package.json": "sort-package-json"
   },
+  "husky": {
+    "gitDir": "../.git"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "2.8.2",
     "@types/react-redux": "^7.1.26",
+    "antd": "^5.27.1",
     "i18next": "^23.5.1",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.2.2",
     "luxon": "^3.4.3",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.2.2",
     "react-redux": "9.0.1",
+    "react-router-dom": "^7.8.2",
     "sass": "^1.66.1"
   },
   "devDependencies": {
