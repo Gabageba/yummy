@@ -36,7 +36,8 @@ export default defineConfig({
       '@svg': '/src/svg',
       '@utils': '/src/utils',
       '@hooks': '/src/hooks',
-      '@store': '/src/store',
+      '@api': '/src/api',
+      '@routes': '/src/routes',
     },
   },
 });

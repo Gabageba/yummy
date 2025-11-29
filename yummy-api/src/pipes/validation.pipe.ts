@@ -1,7 +1,18 @@
-import { ArgumentMetadata, Injectable, PipeTransform } from '@nestjs/common';
+import type { ArgumentMetadata, PipeTransform } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { plainToClass } from 'class-transformer';
 import { validate } from 'class-validator';
 import { ValidationException } from '../exception/validation.exception';
+
+export interface ValidationErrorCode {
+  code: string;
+  value?: number | string;
+}
+
+export interface ValidationErrorItem {
+  field: string;
+  codes: ValidationErrorCode[];
+}
 
 @Injectable()
 export class ValidationPipe implements PipeTransform<any> {
@@ -16,15 +27,34 @@ export class ValidationPipe implements PipeTransform<any> {
     }
 
     const obj = plainToClass(metadata.metatype as new () => unknown, value);
-
     const errors = await validate(obj as object);
 
     if (errors.length) {
-      const messages = errors.map(
-        (err) =>
-          `${err.property} - ${Object.values(err.constraints ?? {}).join(', ')}`,
-      );
-      throw new ValidationException(messages);
+      const items: ValidationErrorItem[] = errors.map((err) => {
+        const constraints = err.constraints ?? {};
+        const codes: ValidationErrorCode[] = Object.entries(constraints).map(
+          ([type, message]) => {
+            if (type === 'minLength') {
+              const match = message.match(/\d+/);
+              if (match) {
+                return {
+                  code: type,
+                  value: Number(match[0]),
+                };
+              }
+            }
+
+            return { code: type };
+          },
+        );
+
+        return {
+          field: err.property,
+          codes,
+        };
+      });
+
+      throw new ValidationException(items);
     }
 
     return obj;

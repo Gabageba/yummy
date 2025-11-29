@@ -21,6 +21,9 @@ export class RegisterUserDto {
     description: 'Пароль',
   })
   @IsString()
-  @MinLength(6)
+  @MinLength(6, {
+    message:
+      'Пароль должен содержать минимум 6 символов / Password must be at least 6 characters long',
+  })
   password: string;
 }

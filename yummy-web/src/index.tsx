@@ -2,9 +2,9 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import '@styles/index.scss';
 import { Provider } from 'react-redux';
-import { setupStore } from '@store/store.ts';
 import { BrowserRouter } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
+import { setupStore } from '@api/store';
 import App from './App';
 import './i18n';
 

@@ -3,6 +3,7 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { UsersModule } from 'src/users/users.module';
 import { JwtModule } from '@nestjs/jwt';
+import { ValidationService } from '../services/validation.service';
 
 @Module({
   imports: [
@@ -12,7 +13,7 @@ import { JwtModule } from '@nestjs/jwt';
       signOptions: { expiresIn: '24h' }, // срок жизни токена
     }),
   ],
-  providers: [AuthService],
+  providers: [AuthService, ValidationService],
   controllers: [AuthController],
   exports: [AuthService],
 })

@@ -28,6 +28,7 @@
     "@reduxjs/toolkit": "2.8.2",
     "@types/react-redux": "^7.1.26",
     "antd": "^5.27.1",
+    "axios": "^1.13.2",
     "i18next": "^23.5.1",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.7.3",
@@ -41,6 +42,7 @@
     "sass": "^1.66.1"
   },
   "devDependencies": {
+    "@types/axios": "^0.9.36",
     "@types/luxon": "^3.3.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",

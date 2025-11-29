@@ -1,0 +1,8 @@
+{
+  "minLength": "Минимум {{value}} символов",
+  "fillField": "Заполните поле",
+  "invalidEmailFormat": "Неверный формат email",
+  "unique": "Значение должно быть уникальным",
+  "userNotFound": "Пользователь не найден",
+  "passwordInvalid": "Неверный пароль"
+}

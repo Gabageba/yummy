@@ -1,4 +1,4 @@
-.login-page {
+.auth-page {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +9,7 @@
   &::before {
     content: "";
     position: absolute;
-    inset: -5%; /* фон выходит за края блока */
+    inset: -5%;
     background: url('../../assets/login-background.png') center/cover no-repeat;
     z-index: -1;
   }

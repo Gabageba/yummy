@@ -1,14 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { postApi } from '@store/services/PostService';
+import rootApi from './rootApi';
 
 const rootReducer = combineReducers({
-  [postApi.reducerPath]: postApi.reducer,
+  [rootApi.reducerPath]: rootApi.reducer,
 });
 
 export const setupStore = () =>
   configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(postApi.middleware),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rootApi.middleware),
   });
 
 export type RootState = ReturnType<typeof rootReducer>;

@@ -1,12 +1,8 @@
-import {
-  forwardRef,
-  Inject,
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from 'src/users/users.service';
 import * as bcrypt from 'bcrypt';
+import { ValidationService } from '../services/validation.service';
 
 @Injectable()
 export class AuthService {
@@ -14,6 +10,7 @@ export class AuthService {
     @Inject(forwardRef(() => UsersService))
     private usersService: UsersService,
     private jwtService: JwtService,
+    private validationService: ValidationService,
   ) {}
 
   async register(username: string, email: string, password: string) {
@@ -27,15 +24,18 @@ export class AuthService {
     return { token };
   }
 
-  async login(email: string, password: string) {
-    const user = await this.usersService.findByEmail(email);
+  async login(username: string, password: string) {
+    const user = await this.usersService.findByUsername(username);
     if (!user) {
-      throw new UnauthorizedException('Пользователь с таким email не найден');
+      this.validationService.throwValidationError('username', 'userNotFound');
     }
 
     const valid = await bcrypt.compare(password, user.password);
     if (!valid) {
-      throw new UnauthorizedException('Неверный пароль');
+      this.validationService.throwValidationError(
+        'password',
+        'passwordInvalid',
+      );
     }
 
     const token = this.jwtService.sign({ id: user._id });

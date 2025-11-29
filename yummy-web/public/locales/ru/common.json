@@ -1,8 +1,10 @@
 {
   "loginToSystem": "Вход в систему",
-  "login": "Логин",
   "password": "Пароль",
   "enter": "Войти",
   "register": "Зарегистрироваться",
-  "forgotPassword": "Забыли пароль?"
+  "forgotPassword": "Забыли пароль?",
+  "registerToSystem": "Регистрация в системе",
+  "username": "Имя пользователя",
+  "email": "Электронная почта"
 }

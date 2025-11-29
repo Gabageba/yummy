@@ -1,9 +1,9 @@
 import type { FormItemProps, InputProps } from 'antd';
 import { Form, Input } from 'antd';
 
-type Props = FormItemProps & {
+interface Props extends Omit<FormItemProps, 'validateTrigger'> {
   inputProps?: InputProps;
-};
+}
 
 function InputFormItem({ inputProps = {}, ...restProps }: Props) {
   return (

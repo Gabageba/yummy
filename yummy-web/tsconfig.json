@@ -27,7 +27,8 @@
       "@svg/*": ["svg/*"],
       "@utils/*": ["utils/*"],
       "@hooks/*": ["hooks/*"],
-      "@store/*": ["store/*"]
+      "@api/*": ["api/*"],
+      "@routes/*": ["routes/*"]
     },
 
     /* Linting */

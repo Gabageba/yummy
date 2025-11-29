@@ -9,13 +9,16 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    ns: ['common'],
+    ns: ['common', 'validation'],
     defaultNS: 'common',
     backend: {
-      loadPath: '/locales/{{lng}}/common.json',
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
     debug: true,
     fallbackLng: 'ru',
+    supportedLngs: ['ru', 'en'],
+    load: 'languageOnly',
+    cleanCode: true,
     interpolation: {
       escapeValue: false,
     },
