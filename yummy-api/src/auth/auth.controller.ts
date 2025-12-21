@@ -13,6 +13,8 @@ export class AuthController {
   @ApiResponse({
     status: 200,
     description: 'Пользователь успешно зарегистрирован.',
+    example:
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzNmZTM3OWZlZTRkMjVkMDc2YzExMiIsImlhdCI6MTc2NTAxNjg3NywiZXhwIjoxNzY1MTAzMjc3fQ.70pazmk01Yvm9Wn23RtyegiIDRErOvOc3eKWEOomrAM',
   })
   @Post('register')
   async register(@Body() body: RegisterUserDto) {
@@ -23,6 +25,8 @@ export class AuthController {
   @ApiResponse({
     status: 200,
     description: 'Пользователь успешно авторизованы.',
+    example:
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzNmZTM3OWZlZTRkMjVkMDc2YzExMiIsImlhdCI6MTc2NTAxNjg3NywiZXhwIjoxNzY1MTAzMjc3fQ.70pazmk01Yvm9Wn23RtyegiIDRErOvOc3eKWEOomrAM',
   })
   @Post('login')
   async login(@Body() body: LoginUserDto) {

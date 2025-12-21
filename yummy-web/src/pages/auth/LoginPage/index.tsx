@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
 import useApiValidationErrors from '@hooks/useApiValidationErrors';
 import useValidation from '@hooks/useValidation';
+import { setToken } from '@utils/token';
 import { useLoginMutation } from '../authApi';
 import type { ILoginResponse } from '../models';
 
@@ -18,7 +19,15 @@ function LoginPage() {
   const { handleValidationErrors } = useApiValidationErrors(form);
 
   const onLoginClick = () => {
-    form.validateFields().then((value) => login(value).unwrap().catch(handleValidationErrors));
+    form.validateFields().then((value) =>
+      login(value)
+        .unwrap()
+        .then((token) => {
+          setToken(token);
+          navigate(RoutePath.MAIN);
+        })
+        .catch(handleValidationErrors),
+    );
   };
 
   return (

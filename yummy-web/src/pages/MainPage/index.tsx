@@ -1,5 +1,7 @@
+import PageLayout from '@components/PageLayout';
+
 function MainPage() {
-  return <>MainPage</>;
+  return <PageLayout>MainPage</PageLayout>;
 }
 
 export default MainPage;

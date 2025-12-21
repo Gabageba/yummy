@@ -3,14 +3,14 @@ import type { ILoginResponse, IRegisterResponse } from './models';
 
 export const authApi = rootApi.injectEndpoints({
   endpoints: (build) => ({
-    login: build.mutation<void, ILoginResponse>({
+    login: build.mutation<string, ILoginResponse>({
       query: (data) => ({
         url: '/auth/login',
         method: 'POST',
         data,
       }),
     }),
-    register: build.mutation<void, IRegisterResponse>({
+    register: build.mutation<string, IRegisterResponse>({
       query: (data) => ({
         url: '/auth/register',
         method: 'POST',

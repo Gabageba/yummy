@@ -1,0 +1,41 @@
+.page-layout {
+  min-height: 100vh;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    justify-content: space-between;
+    z-index: 100;
+    background: #FEFAF0;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+
+    &--avatar {
+      cursor: pointer;
+      background-color: var(--color-secondary);
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+
+    }
+
+    &--menu {
+      flex: 1;
+      margin: 0 var(--margin-xxl);
+      background-color: var(--color-secondary);
+      font-weight: 600;
+      font-size: 16px;
+      border: none;
+    }
+
+    &--logo {
+      height: 25px;
+      cursor: pointer;
+    }
+  }
+
+  &__content {
+    padding: 0 var(--padding-xxl);
+  }
+}
+

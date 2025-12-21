@@ -25,9 +25,10 @@
     "gitDir": "../.git"
   },
   "dependencies": {
+    "@ant-design/icons": "^6.1.0",
     "@reduxjs/toolkit": "2.8.2",
     "@types/react-redux": "^7.1.26",
-    "antd": "^5.27.1",
+    "antd": "^6.1.1",
     "axios": "^1.13.2",
     "i18next": "^23.5.1",
     "i18next-browser-languagedetector": "^7.1.0",

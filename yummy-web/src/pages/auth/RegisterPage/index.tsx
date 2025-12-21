@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
 import useValidation from '@hooks/useValidation';
 import useApiValidationErrors from '@hooks/useApiValidationErrors';
+import { setToken } from '@utils/token';
 import { useRegisterMutation } from '../authApi';
 import type { IRegisterResponse } from '../models';
 
@@ -20,7 +21,13 @@ function RegisterPage() {
 
   const onRegisterClick = () =>
     form.validateFields().then(async (values) => {
-      await register(values).unwrap().catch(handleValidationErrors);
+      await register(values)
+        .unwrap()
+        .then((token) => {
+          setToken(token);
+          navigate(RoutePath.MAIN);
+        })
+        .catch(handleValidationErrors);
     });
 
   return (

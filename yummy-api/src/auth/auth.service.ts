@@ -20,8 +20,8 @@ export class AuthService {
       email,
       password: hashedPassword,
     });
-    const token = this.jwtService.sign({ id: user._id });
-    return { token };
+    const token = this.jwtService.sign({ id: user._id.toString() });
+    return token;
   }
 
   async login(username: string, password: string) {
@@ -38,7 +38,7 @@ export class AuthService {
       );
     }
 
-    const token = this.jwtService.sign({ id: user._id });
-    return { token };
+    const token = this.jwtService.sign({ id: user._id.toString() });
+    return token;
   }
 }

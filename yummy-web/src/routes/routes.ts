@@ -4,7 +4,7 @@ import MainPage from '@pages/MainPage';
 import RegisterPage from '@pages/auth/RegisterPage';
 import { RoutePath } from './models';
 
-interface Routes {
+export interface Routes {
   path: RoutePath;
   Element: FC;
   name?: string;
@@ -12,7 +12,17 @@ interface Routes {
   props?: { [key: string]: any };
 }
 
-export const publicRoutes: Routes[] = [
+export const publicRoutes: Routes[] = [];
+
+export const authRoutes: Routes[] = [
+  {
+    path: RoutePath.MAIN,
+    Element: MainPage,
+    name: 'Главная',
+  },
+];
+
+export const loginRoutes: Routes[] = [
   {
     path: RoutePath.LOGIN,
     Element: LoginPage,
@@ -22,13 +32,5 @@ export const publicRoutes: Routes[] = [
     path: RoutePath.REGISTER,
     Element: RegisterPage,
     name: 'Регистрация',
-  },
-];
-
-export const authRoutes: Routes[] = [
-  {
-    path: RoutePath.MAIN,
-    Element: MainPage,
-    name: 'Главная',
   },
 ];
