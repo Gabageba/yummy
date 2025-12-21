@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
 import useApiValidationErrors from '@hooks/useApiValidationErrors';
 import useValidation from '@hooks/useValidation';
-import { setToken } from '@utils/token';
 import { useLoginMutation } from '../authApi';
 import type { ILoginResponse } from '../models';
+import useAuth from '../../../hooks/useAuth';
 
 function LoginPage() {
   const { t } = useTranslation();
@@ -17,17 +17,12 @@ function LoginPage() {
   const [login] = useLoginMutation();
   const { required, minLength } = useValidation();
   const { handleValidationErrors } = useApiValidationErrors(form);
+  const { onAuthSuccess } = useAuth();
 
   const onLoginClick = () => {
-    form.validateFields().then((value) =>
-      login(value)
-        .unwrap()
-        .then((token) => {
-          setToken(token);
-          navigate(RoutePath.MAIN);
-        })
-        .catch(handleValidationErrors),
-    );
+    form
+      .validateFields()
+      .then((value) => login(value).unwrap().then(onAuthSuccess).catch(handleValidationErrors));
   };
 
   return (

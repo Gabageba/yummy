@@ -1,8 +1,6 @@
 import type { BaseQueryFn } from '@reduxjs/toolkit/query';
 import api from '@api/axios';
 
-const baseURL = import.meta.env.VITE_API_URL;
-
 const axiosBaseQuery =
   (): BaseQueryFn<
     {
@@ -17,9 +15,8 @@ const axiosBaseQuery =
   > =>
   async ({ url, method, data, params, skipErrors }) => {
     try {
-      const preparedUrl = baseURL + url;
       const result = await api({
-        url: preparedUrl,
+        url,
         method,
         data,
         params,

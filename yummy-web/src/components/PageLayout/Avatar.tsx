@@ -3,15 +3,20 @@ import type { MenuProps } from 'antd';
 import { Avatar, Dropdown } from 'antd';
 import './index.scss';
 import { useTranslation } from 'react-i18next';
+import { useLogoutMutation } from '@pages/auth/authApi';
+import useAuth from '@hooks/useAuth';
 
 const UserAvatar = () => {
   const { t } = useTranslation();
+  const { onLogoutSuccess } = useAuth();
+
+  const [logout] = useLogoutMutation();
 
   const items: MenuProps['items'] = [
     {
       key: 'exit',
       label: t('exit'),
-      onClick: () => console.log('exit'),
+      onClick: () => logout().unwrap().then(onLogoutSuccess),
     },
   ];
   return (
