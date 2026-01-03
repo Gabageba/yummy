@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import NotFoundPage from '@pages/NotFoundPage';
 import { RoutePath } from '@routes/models';
 import type { Routes as RoutesType } from '@routes/routes';
-import { authRoutes, loginRoutes, publicRoutes } from '@routes/routes';
+import { userRoutes, authRoutes, publicRoutes } from '@routes/routes';
 import { useAppSelector } from '@hooks/redux';
 import { selectIsAuth } from '@utils/selectors';
 
@@ -16,7 +16,7 @@ const AppRouter = () => {
   return (
     <Routes>
       {publicRoutes.map(routeRender)}
-      {authRoutes.map((route) => (
+      {userRoutes.map((route) => (
         <Route
           key={route.path}
           path={route.path}
@@ -29,7 +29,7 @@ const AppRouter = () => {
           }
         />
       ))}
-      {loginRoutes.map((route) => (
+      {authRoutes.map((route) => (
         <Route
           key={route.path}
           path={route.path}

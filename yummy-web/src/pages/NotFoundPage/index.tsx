@@ -1,5 +1,7 @@
+import PageLayout from '@components/PageLayout';
+
 function NotFoundPage() {
-  return <div>404</div>;
+  return <PageLayout>404</PageLayout>;
 }
 
 export default NotFoundPage;

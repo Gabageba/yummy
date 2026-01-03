@@ -2,6 +2,8 @@ import type { FC } from 'react';
 import LoginPage from '@pages/auth/LoginPage';
 import MainPage from '@pages/MainPage';
 import RegisterPage from '@pages/auth/RegisterPage';
+import SettingsPage from '@pages/SettingsPage';
+import ProfilePage from '@pages/ProfilePage';
 import { RoutePath } from './models';
 
 export interface Routes {
@@ -14,15 +16,25 @@ export interface Routes {
 
 export const publicRoutes: Routes[] = [];
 
-export const authRoutes: Routes[] = [
+export const userRoutes: Routes[] = [
   {
     path: RoutePath.MAIN,
     Element: MainPage,
     name: 'Главная',
   },
+  {
+    path: RoutePath.SETTINGS,
+    Element: SettingsPage,
+    name: 'Настройки',
+  },
+  {
+    path: RoutePath.PROFILE,
+    Element: ProfilePage,
+    name: 'Профиль',
+  },
 ];
 
-export const loginRoutes: Routes[] = [
+export const authRoutes: Routes[] = [
   {
     path: RoutePath.LOGIN,
     Element: LoginPage,
