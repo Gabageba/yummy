@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { getToken, setToken, removeToken } from '@utils/token';
+import { getStore } from './store';
+import { setIsAuth } from './slices/authSlice';
 
 const headers = {
   'Cache-Control': 'no-cache',
@@ -111,6 +113,7 @@ api.interceptors.response.use(
       } catch (refreshError) {
         processQueue(refreshError, null);
         removeToken();
+        getStore().dispatch(setIsAuth(false));
         isRefreshing = false;
         return Promise.reject(refreshError);
       }

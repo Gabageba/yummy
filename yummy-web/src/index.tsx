@@ -4,12 +4,13 @@ import '@styles/index.scss';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
-import { setupStore } from '@api/store';
+import { setupStore, setStore } from '@api/store';
 import { antdTheme } from '@utils/antdTheme';
 import App from './App';
 import './i18n';
 
 const store = setupStore();
+setStore(store);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

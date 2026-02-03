@@ -9,7 +9,7 @@ interface RequestWithUser extends Request {
 }
 
 export const UserId = createParamDecorator(
-  (data: unknown, ctx: ExecutionContext): string => {
+  (_, ctx: ExecutionContext): string => {
     const request = ctx.switchToHttp().getRequest<RequestWithUser>();
     const userId = request.user?.userId;
     if (!userId) {

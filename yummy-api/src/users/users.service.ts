@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { User, UserDocument } from './schemas/user.schema';
 import { Model } from 'mongoose';
 import { ValidationService } from '../services/validation.service';
-import { UserResponseDto } from './dto/user-response.dto';
+import { UserDto } from './dto/user.dto';
 
 @Injectable()
 export class UsersService {
@@ -38,13 +38,13 @@ export class UsersService {
     return this.userModel.findById(id).exec();
   }
 
-  async getProfile(userId: string): Promise<UserResponseDto> {
+  async getProfile(userId: string): Promise<UserDto> {
     const user = await this.findById(userId);
     if (!user || !user._id) {
       throw new NotFoundException('Пользователь не найден');
     }
 
-    const result: UserResponseDto = {
+    const result: UserDto = {
       id: user._id.toString(),
       username: user.username,
       email: user.email,

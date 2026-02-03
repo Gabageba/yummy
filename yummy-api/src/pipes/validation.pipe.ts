@@ -1,18 +1,12 @@
 import type { ArgumentMetadata, PipeTransform } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
-import { plainToClass } from 'class-transformer';
+import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
 import { ValidationException } from '../exception/validation.exception';
-
-export interface ValidationErrorCode {
-  code: string;
-  value?: number | string;
-}
-
-export interface ValidationErrorItem {
-  field: string;
-  codes: ValidationErrorCode[];
-}
+import {
+  ValidationErrorCode,
+  ValidationErrorDto,
+} from 'src/dto/validation-error.dto';
 
 @Injectable()
 export class ValidationPipe implements PipeTransform<any> {
@@ -26,11 +20,14 @@ export class ValidationPipe implements PipeTransform<any> {
       return value;
     }
 
-    const obj = plainToClass(metadata.metatype as new () => unknown, value);
+    const obj = plainToInstance(metadata.metatype as new () => unknown, value, {
+      enableImplicitConversion: true,
+    });
+
     const errors = await validate(obj as object);
 
     if (errors.length) {
-      const items: ValidationErrorItem[] = errors.map((err) => {
+      const items: ValidationErrorDto[] = errors.map((err) => {
         const constraints = err.constraints ?? {};
         const codes: ValidationErrorCode[] = Object.entries(constraints).map(
           ([type, message]) => {

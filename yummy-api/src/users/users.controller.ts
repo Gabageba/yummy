@@ -7,7 +7,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { UsersService } from './users.service';
-import { UserResponseDto } from './dto/user-response.dto';
+import { UserDto } from './dto/user.dto';
 import { UserId } from '../common/decorators/user-id.decorator';
 
 @ApiTags('Пользователи')
@@ -20,9 +20,9 @@ export class UsersController {
     description: 'Возвращает данные пользователя на основе JWT токена',
   })
   @ApiResponse({
-    status: 200,
+    status: 201,
     description: 'Пользователь возвращен',
-    type: UserResponseDto,
+    type: UserDto,
   })
   @ApiResponse({
     status: 401,
@@ -35,7 +35,7 @@ export class UsersController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Get('profile')
-  async getProfile(@UserId() userId: string): Promise<UserResponseDto> {
+  async getProfile(@UserId() userId: string): Promise<UserDto> {
     return await this.usersService.getProfile(userId);
   }
 }

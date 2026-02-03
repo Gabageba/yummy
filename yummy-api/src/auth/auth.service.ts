@@ -9,6 +9,12 @@ import { UsersService } from 'src/users/users.service';
 import * as bcrypt from 'bcrypt';
 import { ValidationService } from '../services/validation.service';
 import { TokenBlacklistService } from './token-blacklist.service';
+import { RegisterUserDto } from './dto/register-user.dto';
+import { LoginUserDto } from './dto/login-user.dto';
+
+interface JwtPayload {
+  id: string;
+}
 
 @Injectable()
 export class AuthService {
@@ -20,18 +26,17 @@ export class AuthService {
     private tokenBlacklistService: TokenBlacklistService,
   ) {}
 
-  async register(username: string, email: string, password: string) {
+  async register({ password, ...restData }: RegisterUserDto) {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await this.usersService.create({
-      username,
-      email,
+      ...restData,
       password: hashedPassword,
     });
     const token = this.jwtService.sign({ id: user._id.toString() });
     return token;
   }
 
-  async login(username: string, password: string) {
+  async login({ username, password }: LoginUserDto) {
     const user = await this.usersService.findByUsername(username);
     if (!user) {
       this.validationService.throwValidationError('username', 'userNotFound');
@@ -59,17 +64,7 @@ export class AuthService {
         throw new UnauthorizedException('expiredToken');
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const decoded = this.jwtService.verify(token);
-      if (!decoded || typeof decoded !== 'object' || !('id' in decoded)) {
-        throw new UnauthorizedException('invalidToken');
-      }
-
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-      const userId = decoded.id;
-      if (typeof userId !== 'string') {
-        throw new UnauthorizedException('invalidTokenFormat');
-      }
+      const userId = this.getUserIdFromToken(token);
       const newToken = this.jwtService.sign({ id: userId });
 
       this.tokenBlacklistService.addToBlacklist(token);
@@ -81,5 +76,42 @@ export class AuthService {
       }
       throw new UnauthorizedException('failedRefreshToken');
     }
+  }
+
+  getToken(authorization?: string): string {
+    if (!authorization || !authorization.startsWith('Bearer ')) {
+      throw new UnauthorizedException('tokenNotFound');
+    }
+    const token = authorization.substring(7);
+
+    return token;
+  }
+
+  getUserIdFromToken(token: string): string {
+    try {
+      const decoded: JwtPayload = this.jwtService.verify(token);
+      if (!decoded || typeof decoded !== 'object' || !('id' in decoded)) {
+        throw new UnauthorizedException('invalidToken');
+      }
+
+      const userId = decoded.id;
+      if (typeof userId !== 'string') {
+        throw new UnauthorizedException('invalidTokenFormat');
+      }
+
+      return userId;
+    } catch (error) {
+      if (error instanceof UnauthorizedException) {
+        throw error;
+      }
+      throw new UnauthorizedException('failedToDecodeToken');
+    }
+  }
+
+  getUserIdFromAuthorizationHeader(authorization?: string) {
+    const token = this.getToken(authorization);
+    const userId = this.getUserIdFromToken(token);
+
+    return userId;
   }
 }

@@ -1,10 +1,10 @@
 import { HttpException, HttpStatus } from '@nestjs/common';
-import type { ValidationErrorItem } from '../pipes/validation.pipe';
+import { ValidationErrorDto } from 'src/dto/validation-error.dto';
 
 export class ValidationException extends HttpException {
-  messages: ValidationErrorItem[];
+  messages: ValidationErrorDto[];
 
-  constructor(response: ValidationErrorItem[]) {
+  constructor(response: ValidationErrorDto[]) {
     super(response, HttpStatus.BAD_REQUEST);
     this.messages = response;
   }

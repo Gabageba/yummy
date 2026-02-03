@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { ValidationException } from '../exception/validation.exception';
-import type {
-  ValidationErrorItem,
+import {
   ValidationErrorCode,
-} from '../pipes/validation.pipe';
+  ValidationErrorDto,
+} from 'src/dto/validation-error.dto';
 
 interface UniqueFieldConfig {
   field: string;
@@ -15,7 +15,7 @@ interface UniqueFieldConfig {
 @Injectable()
 export class ValidationService {
   async validateUniqueFields(configs: UniqueFieldConfig[]): Promise<void> {
-    const errors: ValidationErrorItem[] = [];
+    const errors: ValidationErrorDto[] = [];
 
     for (const config of configs) {
       if (config.value !== undefined && config.value !== null) {
@@ -41,7 +41,7 @@ export class ValidationService {
   }
 
   throwValidationError(field: string, code: string): never {
-    const errors: ValidationErrorItem[] = [
+    const errors: ValidationErrorDto[] = [
       {
         field,
         codes: [{ code }],
