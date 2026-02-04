@@ -4,12 +4,14 @@ import { User, UserDocument } from './schemas/user.schema';
 import { Model } from 'mongoose';
 import { ValidationService } from '../services/validation.service';
 import { UserDto } from './dto/user.dto';
+import { UsersRepository } from './users.repository';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectModel(User.name) private userModel: Model<UserDocument>,
     private validationService: ValidationService,
+    private usersRepository: UsersRepository,
   ) {}
 
   async create(user: Partial<User>): Promise<UserDocument> {
@@ -26,20 +28,19 @@ export class UsersService {
       },
     ]);
 
-    const newUser = new this.userModel(user);
-    return newUser.save();
+    return this.usersRepository.create(user);
   }
 
   async findByUsername(username: string): Promise<UserDocument | null> {
-    return this.userModel.findOne({ username }).exec();
+    return this.usersRepository.findByUserName(username);
   }
 
   async findById(id: string): Promise<UserDocument | null> {
-    return this.userModel.findById(id).exec();
+    return this.usersRepository.findById(id);
   }
 
   async getProfile(userId: string): Promise<UserDto> {
-    const user = await this.findById(userId);
+    const user = await this.usersRepository.findById(userId);
     if (!user || !user._id) {
       throw new NotFoundException('Пользователь не найден');
     }
