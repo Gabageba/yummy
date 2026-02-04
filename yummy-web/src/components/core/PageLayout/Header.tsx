@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from '@routes/models';
 import { SettingOutlined } from '@ant-design/icons';
-import logo from '../../assets/logo_horizontal.png';
+import logo from '../../../assets/logo_horizontal.png';
 import './index.scss';
 import UserAvatar from './Avatar';
 

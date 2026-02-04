@@ -1,4 +1,3 @@
-import InputFormItem from '@components/formItems/InputFormItem';
 import { Button, Divider, Flex, Form, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import '../index.scss';
@@ -6,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
 import useApiValidationErrors from '@hooks/useApiValidationErrors';
 import useValidation from '@hooks/useValidation';
+import InputFormItem from '@components/core/formItems/InputFormItem';
 import { useLoginMutation } from '../authApi';
 import type { ILoginResponse } from '../models';
 import useAuth from '../../../hooks/useAuth';

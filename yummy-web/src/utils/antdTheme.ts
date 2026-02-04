@@ -1,14 +1,21 @@
 import type { ThemeConfig } from 'antd';
 
-const PRIMARY_COLOR = '#f7a348';
-const SECONDARY_BG_COLOR = '#fefaf0';
-const BACKGROUND_COLOR = '#fff';
+export const COLORS = {
+  PRIMARY_COLOR: '#f7a348',
+  SECONDARY_BG_COLOR: '#fefaf0',
+  BACKGROUND_COLOR: '#fff',
+  TEXT_COLOR: '#5A4A3A',
+  TEXT_WHITE_COLOR: '#fff',
+};
 
-const token: ThemeConfig['token'] = { colorPrimary: PRIMARY_COLOR };
+const token: ThemeConfig['token'] = {
+  colorPrimary: COLORS.PRIMARY_COLOR,
+  colorText: COLORS.TEXT_COLOR,
+};
 const components: ThemeConfig['components'] = {
   Layout: {
-    colorBgHeader: SECONDARY_BG_COLOR,
-    bodyBg: BACKGROUND_COLOR,
+    headerBg: COLORS.SECONDARY_BG_COLOR,
+    bodyBg: COLORS.BACKGROUND_COLOR,
   },
 };
 

@@ -1,4 +1,4 @@
-import PageLayout from '@components/PageLayout';
+import PageLayout from '@components/core/PageLayout';
 
 function NotFoundPage() {
   return <PageLayout>404</PageLayout>;

@@ -23,7 +23,6 @@
       flex: 1;
       margin: 0 var(--margin-xxl);
       background-color: var(--color-secondary);
-      font-weight: 600;
       font-size: 16px;
       border: none;
 
@@ -39,7 +38,7 @@
   }
 
   &__content {
-    padding: 0 var(--padding-xxl);
+    padding: var(--padding-lg) var(--padding-xxl);
   }
 }
 

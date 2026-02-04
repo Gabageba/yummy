@@ -7,4 +7,10 @@ export enum AllowedUsersRoles {
 export interface AllowedUser {
   id: string;
   role: AllowedUsersRoles;
+  username: string;
+}
+
+export enum MenuActions {
+  EDIT = 'EDIT',
+  DELETE = 'DELETE',
 }

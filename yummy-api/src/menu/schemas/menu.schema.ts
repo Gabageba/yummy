@@ -7,10 +7,22 @@ export type MenuDocument = HydratedDocument<Menu> & {
   _id: Types.ObjectId;
 };
 
+export type PopulatedMenuDocument = Omit<MenuDocument, 'allowedUsers'> & {
+  allowedUsers: {
+    id: {
+      _id: Types.ObjectId;
+      username: string;
+    };
+    role: AllowedUsersRoles;
+  }[];
+};
+
 @Schema()
 export class Menu {
   @Prop({ required: true })
   name: string;
+  @Prop()
+  description: string;
   @Prop({
     type: [
       {

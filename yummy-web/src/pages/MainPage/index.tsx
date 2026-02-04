@@ -1,10 +1,9 @@
+import PageLayout from '@components/core/PageLayout';
 import Menu from '@components/Menu';
-import PageLayout from '@components/PageLayout';
 
 function MainPage() {
   return (
     <PageLayout>
-      MainPage
       <Menu />
     </PageLayout>
   );

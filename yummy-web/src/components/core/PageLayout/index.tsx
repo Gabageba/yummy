@@ -3,11 +3,11 @@ import type { ReactNode } from 'react';
 import Header from './Header';
 import './index.scss';
 
-interface Props {
+interface IProps {
   children: ReactNode;
 }
 
-const PageLayout = ({ children }: Props) => (
+const PageLayout = ({ children }: IProps) => (
   <Layout className="page-layout">
     <Header />
     <Layout.Content className="page-layout__content">{children}</Layout.Content>

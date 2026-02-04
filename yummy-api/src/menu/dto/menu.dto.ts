@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { AllowedUser, AllowedUsersRoles } from '../models';
+import { AllowedUser, AllowedUsersRoles, MenuActions } from '../models';
+import { IsDefined, IsOptional, IsString } from 'class-validator';
 
 export class MenuDto {
   @ApiProperty({
@@ -12,7 +13,17 @@ export class MenuDto {
     example: 'Название',
     description: 'Название меню',
   })
+  @IsDefined()
+  @IsString()
   name: string;
+
+  @ApiProperty({
+    example: 'Описание',
+    description: 'Описание меню',
+  })
+  @IsOptional()
+  @IsString()
+  description?: string;
 
   @ApiProperty({
     example: [
@@ -28,5 +39,5 @@ export class MenuDto {
     required: false,
     isArray: true,
   })
-  actions?: string[];
+  actions?: MenuActions[];
 }

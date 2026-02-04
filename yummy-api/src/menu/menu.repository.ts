@@ -19,11 +19,20 @@ export class MenuRepository extends BaseRepository<MenuDocument, MenuDto> {
   }
 
   protected toDto(document: MenuDocument): MenuDto {
+    const populated = document as unknown as {
+      allowedUsers: {
+        id: { _id: Types.ObjectId; username: string };
+        role: AllowedUsersRoles;
+      }[];
+    };
+
     return {
       id: document._id.toString(),
       name: document.name,
-      allowedUsers: document.allowedUsers.map(({ id, role }) => ({
-        id: id.toString(),
+      description: document.description,
+      allowedUsers: populated.allowedUsers.map(({ id: user, role }) => ({
+        id: user._id.toString(),
+        username: user.username,
         role,
       })),
     };
@@ -47,7 +56,11 @@ export class MenuRepository extends BaseRepository<MenuDocument, MenuDto> {
     const filters = {
       'allowedUsers.id': new Types.ObjectId(userId),
     };
+    const populate = {
+      path: 'allowedUsers.id',
+      select: 'username',
+    };
 
-    return this.pageableSearch(params, filters);
+    return this.pageableSearch({ params, filters, populate });
   }
 }
