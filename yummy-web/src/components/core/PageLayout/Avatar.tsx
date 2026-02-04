@@ -1,4 +1,4 @@
-import { UserOutlined } from '@ant-design/icons';
+import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Avatar, Dropdown } from 'antd';
 import './index.scss';
@@ -16,6 +16,7 @@ const UserAvatar = () => {
     {
       key: 'exit',
       label: t('exit'),
+      icon: <LogoutOutlined />,
       onClick: () => logout().unwrap().then(onLogoutSuccess),
     },
   ];
