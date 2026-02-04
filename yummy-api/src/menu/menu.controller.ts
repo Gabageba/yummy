@@ -1,4 +1,13 @@
-import { Controller, Post, Body, UseGuards, Headers } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  UseGuards,
+  Headers,
+  Delete,
+  Param,
+  Put,
+} from '@nestjs/common';
 import { MenuService } from './menu.service';
 import {
   ApiBearerAuth,
@@ -6,7 +15,7 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { CreateMenuDto } from './dto/create-menu.dto';
+import { CreateAndUpdateMenuDto } from './dto/create-and-update-menu.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-params.dto';
 
@@ -31,7 +40,7 @@ export class MenuController {
   @UseGuards(AuthGuard('jwt'))
   @Post('/create')
   create(
-    @Body() menu: CreateMenuDto,
+    @Body() menu: CreateAndUpdateMenuDto,
     @Headers('authorization') authorization?: string,
   ) {
     return this.menuService.create(menu, authorization);
@@ -58,10 +67,48 @@ export class MenuController {
     return this.menuService.findAll(params, authorization);
   }
 
-  // @Get()
-  // findAll() {
-  //   return this.menuService.findAll();
-  // }
+  @Delete(':id')
+  @ApiResponse({
+    status: 201,
+    description: 'Меню успешно удалено',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Пользователь не авторизован',
+  })
+  @ApiOperation({
+    summary: 'Удаление меню',
+  })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  remove(
+    @Param('id') id: string,
+    @Headers('authorization') authorization?: string,
+  ) {
+    return this.menuService.delete(id, authorization);
+  }
+
+  @Put(':id')
+  @ApiResponse({
+    status: 201,
+    description: 'Меню успешно обновлено',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Пользователь не авторизован',
+  })
+  @ApiOperation({
+    summary: 'Обновление меню',
+  })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  update(
+    @Param('id') id: string,
+    @Body() menu: CreateAndUpdateMenuDto,
+    @Headers('authorization') authorization?: string,
+  ) {
+    return this.menuService.update(id, menu, authorization);
+  }
 
   // @Get(':id')
   // findOne(@Param('id') id: string) {
@@ -71,10 +118,5 @@ export class MenuController {
   // @Patch(':id')
   // update(@Param('id') id: string, @Body() updateMenuDto: UpdateMenuDto) {
   //   return this.menuService.update(+id, updateMenuDto);
-  // }
-
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.menuService.remove(+id);
   // }
 }

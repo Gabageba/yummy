@@ -23,9 +23,29 @@ const menuApi = rootApi.enhanceEndpoints({ addTagTypes: ['Menus'] }).injectEndpo
       }),
       providesTags: ['Menus'],
     }),
+    deleteMenu: build.mutation<void, string>({
+      query: (id) => ({
+        url: getMenuUrl(`/${id}`),
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Menus'],
+    }),
+    updateMenu: build.mutation<void, IMenuPayload & { id: string }>({
+      query: ({ id, ...restData }) => ({
+        url: getMenuUrl(`/${id}`),
+        method: 'PUT',
+        data: restData,
+      }),
+      invalidatesTags: ['Menus'],
+    }),
   }),
 });
 
-export const { useCreateMenuMutation, useGetMenusQuery } = menuApi;
+export const {
+  useCreateMenuMutation,
+  useGetMenusQuery,
+  useDeleteMenuMutation,
+  useUpdateMenuMutation,
+} = menuApi;
 
 export default menuApi;

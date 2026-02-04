@@ -2,7 +2,7 @@ import { ApiProperty, OmitType } from '@nestjs/swagger';
 import { IsDefined, IsString } from 'class-validator';
 import { MenuDto } from './menu.dto';
 
-export class CreateMenuDto extends OmitType(MenuDto, [
+export class CreateAndUpdateMenuDto extends OmitType(MenuDto, [
   'id',
   'allowedUsers',
   'actions',

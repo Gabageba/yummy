@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Menu, MenuDocument } from './schemas/menu.schema';
-import { Model, Types } from 'mongoose';
+import { DeleteResult, Model, Types } from 'mongoose';
 import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-params.dto';
-import { CreateMenuDto } from './dto/create-menu.dto';
+import { CreateAndUpdateMenuDto } from './dto/create-and-update-menu.dto';
 import { PageableMenuResponseDto } from './dto/pageable-menu-response.dto';
 import { MenuDto } from './dto/menu.dto';
 import { BaseRepository } from 'src/base/base.repository';
@@ -38,7 +38,7 @@ export class MenuRepository extends BaseRepository<MenuDocument, MenuDto> {
     };
   }
 
-  async create(menu: CreateMenuDto, userId: string) {
+  async create(menu: CreateAndUpdateMenuDto, userId: string) {
     const newMenu = new this.menuModel({
       ...menu,
       allowedUsers: [
@@ -56,11 +56,29 @@ export class MenuRepository extends BaseRepository<MenuDocument, MenuDto> {
     const filters = {
       'allowedUsers.id': new Types.ObjectId(userId),
     };
+
     const populate = {
       path: 'allowedUsers.id',
       select: 'username',
     };
 
     return this.pageableSearch({ params, filters, populate });
+  }
+
+  async deleteById(id: string): Promise<DeleteResult> {
+    return this.menuModel.deleteOne({ _id: id });
+  }
+
+  async getMenuById(id: string): Promise<MenuDocument | null> {
+    return this.menuModel.findById(id);
+  }
+
+  async update(
+    id: string,
+    updateMenu: CreateAndUpdateMenuDto,
+  ): Promise<MenuDocument | null> {
+    return this.menuModel
+      .findByIdAndUpdate(id, updateMenu, { new: true })
+      .exec();
   }
 }
