@@ -4,6 +4,7 @@ import MainPage from '@pages/MainPage';
 import RegisterPage from '@pages/auth/RegisterPage';
 import SettingsPage from '@pages/SettingsPage';
 import ProfilePage from '@pages/ProfilePage';
+import MenuPage from '@pages/MenuPage';
 import { RoutePath } from './models';
 
 export interface Routes {
@@ -31,6 +32,11 @@ export const userRoutes: Routes[] = [
     path: RoutePath.PROFILE,
     Element: ProfilePage,
     name: 'Профиль',
+  },
+  {
+    path: RoutePath.MENU,
+    Element: MenuPage,
+    name: 'Меню',
   },
 ];
 

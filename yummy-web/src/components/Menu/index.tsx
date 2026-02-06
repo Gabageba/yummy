@@ -5,9 +5,9 @@ import { useState } from 'react';
 import CardsList from '@components/core/CardsList';
 import { useGetMenusQuery } from './menuApi';
 import './index.scss';
-import MenuCard from './components/MenuCard';
 import type { IMenu } from './models';
 import MenuModal from './components/MenuModal';
+import MenuCard from './components/MenuCard';
 
 function Menu() {
   const { t } = useTranslation();
@@ -16,19 +16,17 @@ function Menu() {
 
   return (
     <>
-      <Flex justify="space-between" className="menu__title">
-        <Typography.Title level={3}>{t('allMenus')}</Typography.Title>
-        <Button
-          size="middle"
-          onClick={() => setIsMenuModal(true)}
-          icon={<PlusOutlined />}
-          type="primary"
-        >
-          {t('create')}
+      <Flex justify="space-between" align="center" className="menu__title">
+        <div>
+          <Typography.Title level={2}>{t('yourMenus')}</Typography.Title>
+          <Typography.Text type="secondary">{t('selectDishMenu')}</Typography.Text>
+        </div>
+        <Button onClick={() => setIsMenuModal(true)} icon={<PlusOutlined />} type="primary">
+          {t('createMenu')}
         </Button>
       </Flex>
       <CardsList<IMenu>
-        columnsCount={1}
+        columnsCount={3}
         useQuery={useGetMenusQuery}
         cardRender={(menu) => <MenuCard menu={menu} />}
       />

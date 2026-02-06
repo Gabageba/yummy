@@ -2,15 +2,16 @@ import type { ThemeConfig } from 'antd';
 
 export const COLORS = {
   PRIMARY_COLOR: '#f7a348',
-  SECONDARY_BG_COLOR: '#fefaf0',
-  BACKGROUND_COLOR: '#fff',
-  TEXT_COLOR: '#5A4A3A',
+  BACKGROUND_COLOR: '#F9FAFB',
+  SECONDARY_BG_COLOR: '#fff',
+  TEXT_COLOR: '#111827',
   TEXT_WHITE_COLOR: '#fff',
 };
 
 const token: ThemeConfig['token'] = {
   colorPrimary: COLORS.PRIMARY_COLOR,
   colorText: COLORS.TEXT_COLOR,
+  colorLink: COLORS.PRIMARY_COLOR,
 };
 const components: ThemeConfig['components'] = {
   Layout: {

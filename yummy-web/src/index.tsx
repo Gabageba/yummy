@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import { setupStore, setStore } from '@api/store';
 import { antdTheme } from '@utils/antdTheme';
+import Empty from '@components/core/Empty';
 import App from './App';
 import './i18n';
 
@@ -16,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
       <Suspense fallback="...is loading">
-        <ConfigProvider theme={antdTheme}>
+        <ConfigProvider theme={antdTheme} componentSize="large" renderEmpty={() => <Empty />}>
           <BrowserRouter>
             <App />
           </BrowserRouter>

@@ -1,0 +1,18 @@
+@use "default_variables";
+
+.ant-input-affix-wrapper {
+  .ant-input-prefix {
+    color: var(--color-icon-secondary);
+  }
+}
+
+.ant-form-item-label label {
+  height: auto !important;
+}
+
+.ant-divider  {
+  .ant-divider-inner-text {
+    color: var(--color-text-secondary) !important;
+    font-size: var(--font-size-sm) !important;
+  }
+}

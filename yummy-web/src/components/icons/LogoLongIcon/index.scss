@@ -1,0 +1,20 @@
+.logo-long-icon {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  color: var(--color-primary);
+  font-weight: 600;
+
+  .anticon {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .anticon svg {
+    height: 100%;
+    width: auto;
+  }
+}

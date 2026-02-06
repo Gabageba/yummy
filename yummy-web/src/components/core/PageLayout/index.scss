@@ -1,22 +1,38 @@
 .page-layout {
   min-height: 100vh;
 
+  .ant-layout-header {
+    padding-left: 0;
+    padding-right: 0;
+  }
   &__header {
-    display: flex;
-    align-items: center;
     position: sticky;
     top: 0;
-    justify-content: space-between;
     z-index: 100;
-    background: #FEFAF0;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 
-    &--avatar {
+    &--container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: var(--padding-xl);
+      padding-right: var(--padding-xl);
+    }
+
+    &--logo {
       cursor: pointer;
-      background-color: var(--color-secondary);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+     
+
+    &--avatar {
+      background-color: var(--color-bg-secondary);
       border: 2px solid var(--color-primary);
       color: var(--color-primary);
-
+      cursor: pointer;
     }
 
     &--menu {
@@ -25,20 +41,24 @@
       background-color: var(--color-secondary);
       font-size: 16px;
       border: none;
+      justify-content: center;
 
       svg {
         font-size: 16px;
       }
     }
-
-    &--logo {
-      height: 25px;
-      cursor: pointer;
-    }
   }
 
   &__content {
-    padding: var(--padding-lg) var(--padding-xxl);
+    padding: var(--padding-xl) var(--padding-xl);
+  }
+
+  &__container,
+  &__header--container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 }
 

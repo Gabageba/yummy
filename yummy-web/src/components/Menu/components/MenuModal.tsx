@@ -1,8 +1,9 @@
 import useValidation from '@hooks/useValidation';
-import { Form, Modal } from 'antd';
+import { Form, Modal, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import InputFormItem from '@components/core/formItems/InputFormItem';
 import TextAreaFormItem from '@components/core/formItems/TextAreaFormItem';
+import { ProfileOutlined } from '@ant-design/icons';
 import { useCreateMenuMutation, useUpdateMenuMutation } from '../menuApi';
 import type { IMenu } from '../models';
 
@@ -30,7 +31,11 @@ function MenuModal({ initialValue, open, onCancel }: IProps) {
   return (
     <Modal
       open={open}
-      title={t('createMenu')}
+      title={
+        <Typography.Title level={4}>
+          {initialValue?.id ? t('editMenu') : t('createMenu')}
+        </Typography.Title>
+      }
       onCancel={onCancel}
       onOk={onCreate}
       okText={initialValue?.id ? t('save') : t('create')}
@@ -39,7 +44,7 @@ function MenuModal({ initialValue, open, onCancel }: IProps) {
       <Form form={form} layout="vertical" initialValues={initialValue}>
         <InputFormItem
           name="name"
-          inputProps={{ placeholder: t('title') }}
+          inputProps={{ prefix: <ProfileOutlined /> }}
           rules={[required]}
           label={t('title')}
         />

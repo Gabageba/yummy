@@ -1,0 +1,33 @@
+.menu-card {
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.01;
+    transition: scale 0.2s ease-in-out;
+    transform-origin: center;
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &__title {
+    .ant-typography {
+      color: var(--color-primary);
+      margin-bottom: 0;
+    }
+  }
+
+  &__avatar {
+    height: 192px;
+    width: 100%;
+    background: var(--color-primary-light);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    .anticon {
+      width: 60px;
+      height: 60px;
+      color: var(--color-primary);
+    }
+  }
+}

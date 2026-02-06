@@ -1,14 +1,17 @@
 import type { FormItemProps, InputProps } from 'antd';
 import { Form, Input } from 'antd';
+import { useTranslation } from 'react-i18next';
 
-interface Props extends Omit<FormItemProps, 'validateTrigger'> {
-  inputProps?: InputProps;
+interface IProps extends Omit<FormItemProps, 'validateTrigger'> {
+  inputProps?: Omit<InputProps, 'placeholder'>;
 }
 
-function InputFormItem({ inputProps = {}, ...restProps }: Props) {
+function InputFormItem({ inputProps = {}, ...restProps }: IProps) {
+  const { t } = useTranslation();
+
   return (
     <Form.Item {...restProps}>
-      <Input {...inputProps} />
+      <Input {...inputProps} placeholder={t('typeIn')} />
     </Form.Item>
   );
 }

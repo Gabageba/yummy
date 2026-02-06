@@ -1,0 +1,12 @@
+.empty {
+  color: var(--color-text-secondary);
+
+  .ant-typography {
+    font-size: var(--font-size) !important;
+    font-weight: 500!important;
+  }
+
+  .anticon {
+    font-size: 40px;
+  }
+}

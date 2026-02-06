@@ -1,4 +1,4 @@
-import { Button, Divider, Flex, Form, Typography } from 'antd';
+import { Button, Flex, Form, theme, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import '../index.scss';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +6,9 @@ import { RoutePath } from '@routes/models';
 import useValidation from '@hooks/useValidation';
 import useApiValidationErrors from '@hooks/useApiValidationErrors';
 import InputFormItem from '@components/core/formItems/InputFormItem';
+import LogoIcon from '@components/icons/LogoIcon';
+import { MailOutlined, UserOutlined } from '@ant-design/icons';
+import PasswordFormItem from '@components/core/formItems/PasswordFormItem';
 import { useRegisterMutation } from '../authApi';
 import type { IRegisterResponse } from '../models';
 import useAuth from '../../../hooks/useAuth';
@@ -17,6 +20,7 @@ function RegisterPage() {
   const { required, isEmail, minLength } = useValidation();
   const { handleValidationErrors } = useApiValidationErrors(form);
   const { onAuthSuccess } = useAuth();
+  const { token } = theme.useToken();
 
   const [register] = useRegisterMutation();
 
@@ -27,37 +31,38 @@ function RegisterPage() {
 
   return (
     <div className="auth-page">
-      <Flex vertical align="center" className="auth-page__content" gap={24}>
-        <Typography.Title level={2} className="auth-page__title">
-          {t('registerToSystem')}
-        </Typography.Title>
-        <Form form={form}>
-          <InputFormItem
-            name="username"
-            inputProps={{ placeholder: t('username') }}
-            rules={[required]}
-          />
-          <InputFormItem
-            name="email"
-            inputProps={{ placeholder: t('email') }}
-            rules={[required, isEmail]}
-          />
-          <InputFormItem
-            name="password"
-            inputProps={{ type: 'password', placeholder: t('password') }}
-            rules={[required, minLength(6)]}
-          />
-        </Form>
-        <Flex vertical gap={8} className="auth-page__buttons" align="center">
-          <Button type="primary" block onClick={onRegisterClick}>
-            {t('register')}
-          </Button>
-          <Divider />
-          <Button block onClick={() => navigate(RoutePath.LOGIN)}>
-            {t('enter')}
-          </Button>
+      <div className="auth-page__container">
+        <Flex vertical align="center" className="auth-page__content" gap={24}>
+          <LogoIcon className="auth-page__icon" />
+          <Flex vertical align="center" gap={token.marginXS} className="auth-page__title">
+            <Typography.Title level={2}>{t('createAccount')}</Typography.Title>
+            <Typography.Text type="secondary">{t('createAccountToStart')}</Typography.Text>
+          </Flex>
+
+          <Form form={form} layout="vertical">
+            <InputFormItem
+              label={t('username')}
+              name="username"
+              inputProps={{ prefix: <UserOutlined /> }}
+              rules={[required]}
+            />
+            <InputFormItem
+              label={t('email')}
+              name="email"
+              inputProps={{ prefix: <MailOutlined /> }}
+              rules={[required, isEmail]}
+            />
+            <PasswordFormItem rules={[required, minLength(6)]} />
+            <Button type="primary" block onClick={onRegisterClick}>
+              {t('register')}
+            </Button>
+          </Form>
         </Flex>
-      </Flex>
+        <div className="auth-page__footer">
+          <Typography.Text>{t('alreadyHaveAccount')}</Typography.Text>{' '}
+          <Typography.Link onClick={() => navigate(RoutePath.LOGIN)}>{t('signIn')}</Typography.Link>
+        </div>
+      </div>
     </div>
   );
 }

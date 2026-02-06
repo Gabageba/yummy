@@ -1,4 +1,4 @@
-import { MoreOutlined } from '@ant-design/icons';
+import { EllipsisOutlined } from '@ant-design/icons';
 import type { DropdownProps, MenuProps } from 'antd';
 import { Button, Dropdown } from 'antd';
 
@@ -9,7 +9,7 @@ interface IProps extends Omit<DropdownProps, 'menu'> {
 function DropdownActions({ actions, ...restProps }: IProps) {
   return (
     <Dropdown menu={{ items: actions }} {...restProps}>
-      <Button icon={<MoreOutlined />} type="text" />
+      <Button icon={<EllipsisOutlined />} type="text" />
     </Dropdown>
   );
 }
