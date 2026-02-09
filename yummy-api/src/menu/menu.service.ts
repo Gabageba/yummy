@@ -16,7 +16,7 @@ export class MenuService {
   private async checkMenuUserRole(id: string, authorization?: string) {
     const userId =
       this.authService.getUserIdFromAuthorizationHeader(authorization);
-    const menu = await this.menuRepository.getMenuById(id);
+    const menu = await this.menuRepository.getById(id);
     if (!menu) {
       throw new Error('Menu not found');
     }
@@ -98,5 +98,13 @@ export class MenuService {
   ) {
     await this.checkMenuUserRole(id, authorization);
     await this.menuRepository.update(id, menu);
+  }
+
+  async findMenuById(id: string) {
+    const menu = await this.menuRepository.getByIdWithPopulate(id);
+    if (!menu) {
+      throw new Error('Menu not found');
+    }
+    return menu;
   }
 }

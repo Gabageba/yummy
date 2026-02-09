@@ -14,21 +14,28 @@ const Header = () => {
 
   const menuItems: ItemType[] = [
     { label: t('main'), key: RoutePath.MAIN },
-    { label: t('menu'), key: RoutePath.MENU },
+    { label: t('menu'), key: RoutePath.MENUS },
   ];
+
+  const selectedKey =
+    menuItems.find(
+      (item) =>
+        location.pathname === item?.key ||
+        (item?.key !== '/' && location.pathname.startsWith(`${item?.key}/`)),
+    )?.key ?? location.pathname;
 
   return (
     <Layout.Header className="page-layout__header">
       <div className="page-layout__header--container">
         <div className="page-layout__header--logo">
-          <LogoLongIcon />
+          <LogoLongIcon onClick={() => navigate(RoutePath.MAIN)} />
         </div>
 
         <Menu
           items={menuItems}
           mode="horizontal"
           className="page-layout__header--menu"
-          selectedKeys={[location.pathname]}
+          selectedKeys={selectedKey ? [String(selectedKey)] : []}
           onClick={({ key }) => navigate(key)}
         />
         <UserAvatar />

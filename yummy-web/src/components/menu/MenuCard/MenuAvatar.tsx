@@ -1,7 +1,7 @@
 import PizzaIcon from '@components/icons/PizzaIcon';
 import './index.scss';
 import TrayIcon from '@components/icons/TrayIcon';
-import { MenuIcon } from './models';
+import { MenuIcon } from '@pages/menus/models';
 
 const getComponentByIcon = (icon?: MenuIcon) => {
   switch (icon) {

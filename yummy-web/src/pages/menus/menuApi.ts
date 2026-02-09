@@ -1,11 +1,11 @@
 import rootApi from '@api/rootApi';
 import type { IPageableRequestParams, IPageableResponse } from '@customTypes/pageable';
-import type { IMenu, IMenuPayload } from './models';
+import type { IMenu, IMenuPayload } from './List/models';
 
 const MENU_BASE_PATH = '/menu';
 const getMenuUrl = (path: string) => `${MENU_BASE_PATH}${path}`;
 
-const menuApi = rootApi.enhanceEndpoints({ addTagTypes: ['Menus'] }).injectEndpoints({
+const menuApi = rootApi.enhanceEndpoints({ addTagTypes: ['Menus', 'Menu'] }).injectEndpoints({
   endpoints: (build) => ({
     createMenu: build.mutation<void, IMenuPayload>({
       query: (data) => ({
@@ -28,7 +28,7 @@ const menuApi = rootApi.enhanceEndpoints({ addTagTypes: ['Menus'] }).injectEndpo
         url: getMenuUrl(`/${id}`),
         method: 'DELETE',
       }),
-      invalidatesTags: ['Menus'],
+      invalidatesTags: ['Menus', 'Menu'],
     }),
     updateMenu: build.mutation<void, IMenuPayload & { id: string }>({
       query: ({ id, ...restData }) => ({
@@ -36,7 +36,14 @@ const menuApi = rootApi.enhanceEndpoints({ addTagTypes: ['Menus'] }).injectEndpo
         method: 'PUT',
         data: restData,
       }),
-      invalidatesTags: ['Menus'],
+      invalidatesTags: ['Menus', 'Menu'],
+    }),
+    getMenu: build.query<IMenu, string>({
+      query: (id) => ({
+        url: getMenuUrl(`/${id}`),
+        method: 'GET',
+      }),
+      providesTags: ['Menu'],
     }),
   }),
 });
@@ -46,6 +53,7 @@ export const {
   useGetMenusQuery,
   useDeleteMenuMutation,
   useUpdateMenuMutation,
+  useGetMenuQuery,
 } = menuApi;
 
 export default menuApi;

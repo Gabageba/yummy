@@ -4,7 +4,8 @@ import MainPage from '@pages/MainPage';
 import RegisterPage from '@pages/auth/RegisterPage';
 import SettingsPage from '@pages/SettingsPage';
 import ProfilePage from '@pages/ProfilePage';
-import MenuPage from '@pages/MenuPage';
+import MenusList from '@pages/menus/List';
+import MenuDetail from '@pages/menus/Detail';
 import { RoutePath } from './models';
 
 export interface Routes {
@@ -14,6 +15,18 @@ export interface Routes {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   props?: { [key: string]: any };
 }
+
+const menuRoutes: Routes[] = [
+  {
+    path: RoutePath.MENUS,
+    Element: MenusList,
+    name: 'Меню',
+  },
+  {
+    path: RoutePath.MENU_DETAIL,
+    Element: MenuDetail,
+  },
+];
 
 export const publicRoutes: Routes[] = [];
 
@@ -33,11 +46,7 @@ export const userRoutes: Routes[] = [
     Element: ProfilePage,
     name: 'Профиль',
   },
-  {
-    path: RoutePath.MENU,
-    Element: MenuPage,
-    name: 'Меню',
-  },
+  ...menuRoutes,
 ];
 
 export const authRoutes: Routes[] = [

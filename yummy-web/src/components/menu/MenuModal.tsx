@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import InputFormItem from '@components/core/formItems/InputFormItem';
 import TextAreaFormItem from '@components/core/formItems/TextAreaFormItem';
 import { ProfileOutlined } from '@ant-design/icons';
-import { useCreateMenuMutation, useUpdateMenuMutation } from '../menuApi';
-import type { IMenu } from '../models';
+import { useCreateMenuMutation, useUpdateMenuMutation } from '@pages/menus/menuApi';
+import type { IMenu } from '@pages/menus/List/models';
 
 interface IProps {
   initialValue?: IMenu;
@@ -21,11 +21,16 @@ function MenuModal({ initialValue, open, onCancel }: IProps) {
   const [create] = useCreateMenuMutation();
   const [update] = useUpdateMenuMutation();
 
+  const handleClose = () => {
+    form.resetFields();
+    onCancel();
+  };
+
   const onCreate = () => {
     form
       .validateFields()
       .then((menu) => (initialValue?.id ? update({ ...menu, id: initialValue.id }) : create(menu)))
-      .then(onCancel);
+      .then(handleClose);
   };
 
   return (
@@ -36,7 +41,7 @@ function MenuModal({ initialValue, open, onCancel }: IProps) {
           {initialValue?.id ? t('editMenu') : t('createMenu')}
         </Typography.Title>
       }
-      onCancel={onCancel}
+      onCancel={handleClose}
       onOk={onCreate}
       okText={initialValue?.id ? t('save') : t('create')}
       cancelText={t('cancel')}

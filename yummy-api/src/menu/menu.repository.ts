@@ -69,8 +69,13 @@ export class MenuRepository extends BaseRepository<MenuDocument, MenuDto> {
     return this.menuModel.deleteOne({ _id: id });
   }
 
-  async getMenuById(id: string): Promise<MenuDocument | null> {
+  async getById(id: string): Promise<MenuDocument | null> {
     return this.menuModel.findById(id);
+  }
+
+  async getByIdWithPopulate(id: string): Promise<MenuDto | null> {
+    const menu = await this.menuModel.findById(id).populate('allowedUsers.id');
+    return menu ? this.toDto(menu) : null;
   }
 
   async update(

@@ -7,6 +7,7 @@ import {
   Delete,
   Param,
   Put,
+  Get,
 } from '@nestjs/common';
 import { MenuService } from './menu.service';
 import {
@@ -110,10 +111,23 @@ export class MenuController {
     return this.menuService.update(id, menu, authorization);
   }
 
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   return this.menuService.findOne(+id);
-  // }
+  @Get(':id')
+  @ApiResponse({
+    status: 201,
+    description: 'Меню успешно получено',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Пользователь не авторизован',
+  })
+  @ApiOperation({
+    summary: 'Получение меню по id',
+  })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  findById(@Param('id') id: string) {
+    return this.menuService.findMenuById(id);
+  }
 
   // @Patch(':id')
   // update(@Param('id') id: string, @Body() updateMenuDto: UpdateMenuDto) {

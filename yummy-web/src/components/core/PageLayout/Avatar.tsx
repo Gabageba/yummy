@@ -31,7 +31,7 @@ const UserAvatar = () => {
   ];
   return (
     <Dropdown menu={{ items }} placement="bottom">
-      <Avatar icon={<UserOutlined />} size={45} className="page-layout__header--avatar" />
+      <Avatar icon={<UserOutlined />} size={40} className="page-layout__header--avatar" />
     </Dropdown>
   );
 };

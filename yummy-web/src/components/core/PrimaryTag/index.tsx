@@ -2,15 +2,16 @@ import { COLORS } from '@utils/antdTheme';
 import type { TagProps } from 'antd';
 import { Tag } from 'antd';
 import { useMemo } from 'react';
+import './index.scss';
 
-interface IProps extends Omit<TagProps, 'color'> {}
+interface IProps extends Omit<TagProps, 'color' | 'className'> {}
 
 function PrimaryTag({ variant, ...restProps }: IProps) {
   const style = useMemo((): TagProps['style'] => {
     switch (variant) {
       case 'outlined':
         return {
-          backgroundColor: COLORS.SECONDARY_BG_COLOR,
+          background: COLORS.PRIMARY_LIGHT_COLOR,
           color: COLORS.PRIMARY_COLOR,
           borderColor: COLORS.PRIMARY_COLOR,
         };
@@ -22,13 +23,13 @@ function PrimaryTag({ variant, ...restProps }: IProps) {
       case 'filled':
       default:
         return {
-          backgroundColor: COLORS.SECONDARY_BG_COLOR,
+          backgroundColor: COLORS.PRIMARY_LIGHT_COLOR,
           color: COLORS.PRIMARY_COLOR,
         };
     }
   }, [variant]);
 
-  return <Tag style={style} {...restProps} />;
+  return <Tag style={style} className="primary-tag" {...restProps} />;
 }
 
 export default PrimaryTag;
