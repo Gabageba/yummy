@@ -3,13 +3,12 @@ import type { IPageableRequestParams, IPageableResponse } from '@customTypes/pag
 import type { IMenu, IMenuPayload } from './List/models';
 
 const MENU_BASE_PATH = '/menu';
-const getMenuUrl = (path: string) => `${MENU_BASE_PATH}${path}`;
 
 const menuApi = rootApi.enhanceEndpoints({ addTagTypes: ['Menus', 'Menu'] }).injectEndpoints({
   endpoints: (build) => ({
     createMenu: build.mutation<void, IMenuPayload>({
       query: (data) => ({
-        url: getMenuUrl('/create'),
+        url: `${MENU_BASE_PATH}/create`,
         method: 'POST',
         data,
       }),
@@ -17,7 +16,7 @@ const menuApi = rootApi.enhanceEndpoints({ addTagTypes: ['Menus', 'Menu'] }).inj
     }),
     getMenus: build.query<IPageableResponse<IMenu>, IPageableRequestParams>({
       query: (data) => ({
-        url: getMenuUrl('/search'),
+        url: `${MENU_BASE_PATH}/search`,
         method: 'POST',
         data,
       }),
@@ -25,14 +24,14 @@ const menuApi = rootApi.enhanceEndpoints({ addTagTypes: ['Menus', 'Menu'] }).inj
     }),
     deleteMenu: build.mutation<void, string>({
       query: (id) => ({
-        url: getMenuUrl(`/${id}`),
+        url: `${MENU_BASE_PATH}/${id}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['Menus', 'Menu'],
     }),
     updateMenu: build.mutation<void, IMenuPayload & { id: string }>({
       query: ({ id, ...restData }) => ({
-        url: getMenuUrl(`/${id}`),
+        url: `${MENU_BASE_PATH}/${id}`,
         method: 'PUT',
         data: restData,
       }),
@@ -40,7 +39,7 @@ const menuApi = rootApi.enhanceEndpoints({ addTagTypes: ['Menus', 'Menu'] }).inj
     }),
     getMenu: build.query<IMenu, string>({
       query: (id) => ({
-        url: getMenuUrl(`/${id}`),
+        url: `${MENU_BASE_PATH}/${id}`,
         method: 'GET',
       }),
       providesTags: ['Menu'],

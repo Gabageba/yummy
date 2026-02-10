@@ -1,9 +1,17 @@
+@use '@styles/variables/breakpoints' as bp;
+
 .menu {
   &__title {
     margin-bottom: var(--margin);
 
     .ant-typography {
       margin-bottom: 0;
+    }
+
+    .ant-btn {
+      @include bp.below-xs {
+        aspect-ratio: 1;
+      }
     }
   }
 }

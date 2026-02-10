@@ -1,0 +1,149 @@
+@use 'sass:map';
+
+$bp-xxs: 480px;
+$bp-xxs-max: 479px;
+$bp-xs: 576px;
+$bp-xs-max: 575px;
+$bp-sm: 768px;
+$bp-sm-max: 767px;
+$bp-md: 992px;
+$bp-md-max: 991px;
+$bp-lg: 1200px;
+$bp-lg-max: 1199px;
+$bp-xl: 1600px;
+$bp-xl-max: 1599px;
+
+$bp-min: (
+  'xxs': $bp-xxs,
+  'xs': $bp-xs,
+  'sm': $bp-sm,
+  'md': $bp-md,
+  'lg': $bp-lg,
+  'xl': $bp-xl,
+);
+
+$bp-max: (
+  'xxs': $bp-xxs-max,
+  'xs': $bp-xs-max,
+  'sm': $bp-sm-max,
+  'md': $bp-md-max,
+  'lg': $bp-lg-max,
+  'xl': $bp-xl-max,
+);
+
+/// max-width: $value. $value — имя брейкпоинта ('xs', 'sm', ...) или размер (например 400px).
+@mixin below($value) {
+  $width: if(type-of($value) == 'string', map.get($bp-max, $value), $value);
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+/// min-width: $value. $value — имя брейкпоинта или размер.
+@mixin above($value) {
+  $width: if(type-of($value) == 'string', map.get($bp-min, $value), $value);
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+/// max-height: $value. Для медиа по высоте окна.
+@mixin below-h($value) {
+  @media (max-height: $value) {
+    @content;
+  }
+}
+
+/// min-height: $value.
+@mixin above-h($value) {
+  @media (min-height: $value) {
+    @content;
+  }
+}
+
+@mixin below-xxs {
+  @media (max-width: $bp-xxs-max) {
+    @content;
+  }
+}
+
+@mixin below-xs {
+  @media (max-width: $bp-xs-max) {
+    @content;
+  }
+}
+
+@mixin below-sm {
+  @media (max-width: $bp-sm-max) {
+    @content;
+  }
+}
+
+@mixin below-md {
+  @media (max-width: $bp-md-max) {
+    @content;
+  }
+}
+
+@mixin below-lg {
+  @media (max-width: $bp-lg-max) {
+    @content;
+  }
+}
+
+@mixin below-xl {
+  @media (max-width: $bp-xl-max) {
+    @content;
+  }
+}
+
+@mixin above-xxs {
+  @media (min-width: $bp-xxs) {
+    @content;
+  }
+}
+
+@mixin above-xs {
+  @media (min-width: $bp-xs) {
+    @content;
+  }
+}
+
+@mixin above-sm {
+  @media (min-width: $bp-sm) {
+    @content;
+  }
+}
+
+@mixin above-md {
+  @media (min-width: $bp-md) {
+    @content;
+  }
+}
+
+@mixin above-lg {
+  @media (min-width: $bp-lg) {
+    @content;
+  }
+}
+
+@mixin above-xl {
+  @media (min-width: $bp-xl) {
+    @content;
+  }
+}
+
+:root {
+  --bp-xxs: #{$bp-xxs};
+  --bp-xxs-max: #{$bp-xxs-max};
+  --bp-xs: #{$bp-xs};
+  --bp-xs-max: #{$bp-xs-max};
+  --bp-sm: #{$bp-sm};
+  --bp-sm-max: #{$bp-sm-max};
+  --bp-md: #{$bp-md};
+  --bp-md-max: #{$bp-md-max};
+  --bp-lg: #{$bp-lg};
+  --bp-lg-max: #{$bp-lg-max};
+  --bp-xl: #{$bp-xl};
+  --bp-xl-max: #{$bp-xl-max};
+}

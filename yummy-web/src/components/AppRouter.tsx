@@ -5,6 +5,7 @@ import type { Routes as RoutesType } from '@routes/routes';
 import { userRoutes, authRoutes, publicRoutes } from '@routes/routes';
 import { useAppSelector } from '@hooks/redux';
 import { selectIsAuth } from '@utils/selectors';
+import { useGetProfileQuery } from '@api/usersApi';
 
 const routeRender = ({ path, Element, props }: RoutesType) => (
   <Route key={path} path={path} element={<Element {...(props ?? {})} />} />
@@ -12,6 +13,8 @@ const routeRender = ({ path, Element, props }: RoutesType) => (
 
 const AppRouter = () => {
   const isAuth = useAppSelector(selectIsAuth);
+
+  useGetProfileQuery(undefined, { skip: !isAuth });
 
   return (
     <Routes>
