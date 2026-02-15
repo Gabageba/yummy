@@ -34,7 +34,7 @@ function LoginPage() {
     <div className="auth-page">
       <div className="auth-page__container">
         <Flex vertical align="center" gap={24} className="auth-page__content">
-          <LogoIcon className="auth-page__icon" />
+          <LogoIcon className="auth-page__icon" size={64} />
           <Flex vertical align="center" gap={token.marginXS} className="auth-page__title">
             <Typography.Title level={2}>{t('welcomeBack')}</Typography.Title>
             <Typography.Text type="secondary">{t('signInToAccessAccount')}</Typography.Text>

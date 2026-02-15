@@ -5,6 +5,6 @@ export enum RoutePath {
   REGISTER = '/register',
   SETTINGS = '/settings',
   PROFILE = '/profile',
-  MENUS = '/menus',
-  MENU_DETAIL = '/menus/:id',
+  COLLECTIONS = '/collections',
+  COLLECTION_DETAIL = '/collections/:id',
 }

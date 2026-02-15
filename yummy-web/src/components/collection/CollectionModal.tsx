@@ -16,7 +16,7 @@ interface IProps {
   onCancel: () => void;
 }
 
-function DishModal({ initialValue, open, onCancel }: IProps) {
+function CollectionModal({ initialValue, open, onCancel }: IProps) {
   const { t } = useTranslation();
   const { required } = useValidation();
   const [form] = Form.useForm<ICollection>();
@@ -24,13 +24,18 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
   const [create] = useCreateCollectionMutation();
   const [update] = useUpdateCollectionMutation();
 
+  const handleClose = () => {
+    form.resetFields();
+    onCancel();
+  };
+
   const onCreate = () => {
     form
       .validateFields()
       .then((collection) =>
         initialValue?.id ? update({ ...collection, id: initialValue.id }) : create(collection),
       )
-      .then(onCancel);
+      .then(handleClose);
   };
 
   return (
@@ -41,7 +46,7 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
           {initialValue?.id ? t('editCollection') : t('createCollection')}
         </Typography.Title>
       }
-      onCancel={onCancel}
+      onCancel={handleClose}
       onOk={onCreate}
       okText={initialValue?.id ? t('save') : t('create')}
       cancelText={t('cancel')}
@@ -59,4 +64,4 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
   );
 }
 
-export default DishModal;
+export default CollectionModal;

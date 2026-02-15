@@ -14,12 +14,14 @@ interface IProps<T> {
   cardRender: (item: T) => ReactNode;
   size?: number;
   columnsCount?: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  additionalParams?: { [key: string]: any };
 }
 
 interface IItem {
   id: string | number;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any; // остальные свойства
+  [key: string]: any;
 }
 
 function CardsList<T extends IItem>({
@@ -27,10 +29,11 @@ function CardsList<T extends IItem>({
   cardRender,
   size = DEFAULT_PAGE_SIZE,
   columnsCount = DEFAULT_COLUMNS_COUNT,
+  additionalParams = {},
 }: IProps<T>) {
   const [page, setPage] = useState<number>(1);
 
-  const { data, isFetching } = useQuery({ page, size });
+  const { data, isFetching } = useQuery({ page, size, ...additionalParams });
 
   const span = useMemo(() => 24 / columnsCount, [columnsCount]);
 

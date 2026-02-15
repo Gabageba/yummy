@@ -16,7 +16,7 @@ function NavigationMenu({ mode }: IProps) {
 
   const menuItems: ItemType[] = [
     { label: t('main'), key: RoutePath.MAIN },
-    { label: t('menu'), key: RoutePath.MENUS },
+    { label: t('collection'), key: RoutePath.COLLECTIONS },
   ];
 
   const selectedKey =

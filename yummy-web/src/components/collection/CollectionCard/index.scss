@@ -1,0 +1,36 @@
+.collection-card {
+  cursor: pointer;
+
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+  transition: scale 0.2s ease-in-out;
+  transform-origin: center;
+
+  &:hover {
+    scale: 1.01;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &__title {
+    .ant-typography {
+      color: var(--color-primary);
+      margin-bottom: 0;
+    }
+  }
+
+  &__avatar {
+    height: 192px;
+    width: 100%;
+    background: var(--color-primary-light-gradient);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    .anticon {
+      width: 60px;
+      height: 60px;
+      color: var(--color-primary);
+    }
+  }
+}

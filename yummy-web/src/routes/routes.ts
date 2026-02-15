@@ -4,8 +4,8 @@ import MainPage from '@pages/MainPage';
 import RegisterPage from '@pages/auth/RegisterPage';
 import SettingsPage from '@pages/SettingsPage';
 import ProfilePage from '@pages/ProfilePage';
-import MenusList from '@pages/menus/List';
-import MenuDetail from '@pages/menus/Detail';
+import CollectionsList from '@pages/collections/List';
+import CollectionDetail from '@pages/collections/Detail';
 import { RoutePath } from './models';
 
 export interface Routes {
@@ -16,15 +16,15 @@ export interface Routes {
   props?: { [key: string]: any };
 }
 
-const menuRoutes: Routes[] = [
+const collectionRoutes: Routes[] = [
   {
-    path: RoutePath.MENUS,
-    Element: MenusList,
-    name: 'Меню',
+    path: RoutePath.COLLECTIONS,
+    Element: CollectionsList,
+    name: 'Подборки',
   },
   {
-    path: RoutePath.MENU_DETAIL,
-    Element: MenuDetail,
+    path: RoutePath.COLLECTION_DETAIL,
+    Element: CollectionDetail,
   },
 ];
 
@@ -46,7 +46,7 @@ export const userRoutes: Routes[] = [
     Element: ProfilePage,
     name: 'Профиль',
   },
-  ...menuRoutes,
+  ...collectionRoutes,
 ];
 
 export const authRoutes: Routes[] = [

@@ -1,4 +1,18 @@
 {
   "loginToSystem": "Login to system",
-  "signInToAccessAccount": "Sign in to get access to your account"
+  "signInToAccessAccount": "Sign in to get access to your account",
+  "main": "Main",
+  "collection": "Collections",
+  "yourCollections": "Your collections",
+  "selectDishCollection": "Choose a dish collection — yours or shared by others",
+  "createCollection": "Create collection",
+  "editCollection": "Edit collection",
+  "authorBy": "Author: {{author}}",
+  "title": "Title",
+  "description": "Description",
+  "save": "Save",
+  "cancel": "Cancel",
+  "deleteCollection": "Delete collection",
+  "create": "Create",
+  "addDish": "Add dish"
 }
