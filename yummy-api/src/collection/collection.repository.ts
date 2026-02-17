@@ -10,7 +10,10 @@ import { BaseRepository } from 'src/base/base.repository';
 import { AllowedUsersRoles } from './models';
 
 @Injectable()
-export class CollectionRepository extends BaseRepository<CollectionDocument, CollectionDto> {
+export class CollectionRepository extends BaseRepository<
+  CollectionDocument,
+  CollectionDto
+> {
   constructor(
     @InjectModel(Collection.name)
     private readonly collectionModel: Model<CollectionDocument>,
@@ -74,7 +77,9 @@ export class CollectionRepository extends BaseRepository<CollectionDocument, Col
   }
 
   async getByIdWithPopulate(id: string): Promise<CollectionDto | null> {
-    const collection = await this.collectionModel.findById(id).populate('allowedUsers.id');
+    const collection = await this.collectionModel
+      .findById(id)
+      .populate('allowedUsers.id');
     return collection ? this.toDto(collection) : null;
   }
 

@@ -2,7 +2,10 @@ import { ApiProperty } from '@nestjs/swagger';
 import { DishDifficulty } from '../models';
 
 export class DishCollectionRefDto {
-  @ApiProperty({ example: '507f1f77bcf86cd799439011', description: 'ID подборки' })
+  @ApiProperty({
+    example: '507f1f77bcf86cd799439011',
+    description: 'ID подборки',
+  })
   id: string;
 
   @ApiProperty({ example: 'Завтраки', description: 'Название подборки' })

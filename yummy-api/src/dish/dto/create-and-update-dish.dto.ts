@@ -10,7 +10,11 @@ import {
 import { DishDifficulty } from '../models';
 
 export class CreateAndUpdateDishDto {
-  @ApiProperty({ example: 'Омлет', description: 'Название блюда', required: true })
+  @ApiProperty({
+    example: 'Омлет',
+    description: 'Название блюда',
+    required: true,
+  })
   @IsDefined()
   @IsString()
   name: string;

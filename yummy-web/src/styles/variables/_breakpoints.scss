@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:meta';
 
 $bp-xxs: 480px;
 $bp-xxs-max: 479px;
@@ -33,7 +34,8 @@ $bp-max: (
 
 /// max-width: $value. $value — имя брейкпоинта ('xs', 'sm', ...) или размер (например 400px).
 @mixin below($value) {
-  $width: if(type-of($value) == 'string', map.get($bp-max, $value), $value);
+  $is-bp-name: meta.type-of($value) == string;
+  $width: if(sass($is-bp-name): map.get($bp-max, $value); else: $value);
   @media (max-width: $width) {
     @content;
   }
@@ -41,7 +43,8 @@ $bp-max: (
 
 /// min-width: $value. $value — имя брейкпоинта или размер.
 @mixin above($value) {
-  $width: if(type-of($value) == 'string', map.get($bp-min, $value), $value);
+  $is-bp-name: meta.type-of($value) == string;
+  $width: if(sass($is-bp-name): map.get($bp-min, $value); else: $value);
   @media (min-width: $width) {
     @content;
   }

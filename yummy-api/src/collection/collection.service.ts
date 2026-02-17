@@ -33,11 +33,17 @@ export class CollectionService {
     }
   }
 
-  async create(collection: CreateAndUpdateCollectionDto, authorization?: string) {
+  async create(
+    collection: CreateAndUpdateCollectionDto,
+    authorization?: string,
+  ) {
     const userId =
       this.authService.getUserIdFromAuthorizationHeader(authorization);
 
-    const savedCollection = await this.collectionRepository.create(collection, userId);
+    const savedCollection = await this.collectionRepository.create(
+      collection,
+      userId,
+    );
 
     return savedCollection._id.toString();
   }

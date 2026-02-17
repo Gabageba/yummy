@@ -1,12 +1,23 @@
-import { Model, FilterQuery, Document, PopulateOptions } from 'mongoose';
+import { Model, QueryFilter, Document, PopulateOptions } from 'mongoose';
 import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-params.dto';
 import { PageableResponseDto } from 'src/dto/pageable/pageable-response.dto';
 
 interface pageableSearchProps<TDocument> {
   params: PageableRequestParamsDto;
-  filters?: FilterQuery<TDocument>;
+  filters?: QueryFilter<TDocument>;
   queryField?: string;
   populate?: PopulateOptions | (string | PopulateOptions)[];
+}
+
+function withRegexQuery<T>(
+  base: QueryFilter<T>,
+  queryField: string,
+  query: string,
+): QueryFilter<T> {
+  return {
+    ...base,
+    [queryField]: { $regex: query, $options: 'i' },
+  } as QueryFilter<T>;
 }
 
 export abstract class BaseRepository<TDocument extends Document, TDto> {
@@ -25,11 +36,10 @@ export abstract class BaseRepository<TDocument extends Document, TDto> {
     const currentPage = Math.max(1, page);
     const skip = (currentPage - 1) * size;
 
-    const filter = filters || {};
-
-    if (query?.length) {
-      filter[queryField] = { $regex: params.query, $options: 'i' };
-    }
+    const baseFilter = filters ?? {};
+    const filter: QueryFilter<TDocument> = query?.length
+      ? withRegexQuery(baseFilter, queryField, params.query)
+      : baseFilter;
 
     const findQuery = this.model.find(filter).skip(skip).limit(size);
 
