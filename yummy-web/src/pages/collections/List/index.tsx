@@ -1,19 +1,18 @@
-import { Button, Flex, Grid, theme, Typography } from 'antd';
+import { Button, Grid } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { PlusOutlined } from '@ant-design/icons';
 import { useMemo, useState } from 'react';
 import CardsList from '@components/core/CardsList';
 import './index.scss';
 import PageLayout from '@components/core/PageLayout';
-import CollectionCard from '@components/collection/CollectionCard';
 import CollectionModal from '@components/collection/CollectionModal';
+import CollectionCard from '@components/collection/CollectionCard';
 import type { ICollection } from './models';
 import { useGetCollectionsQuery } from '../collectionApi';
 
 function CollectionsList() {
   const { t } = useTranslation();
   const screens = Grid.useBreakpoint();
-  const { token } = theme.useToken();
 
   const [isCollectionModal, setIsCollectionModal] = useState<boolean>(false);
 
@@ -31,16 +30,15 @@ function CollectionsList() {
   }, [screens]);
 
   return (
-    <PageLayout>
-      <Flex justify="space-between" align="center" className="collection__title" gap={token.margin}>
-        <div>
-          <Typography.Title level={2}>{t('yourCollections')}</Typography.Title>
-          <Typography.Text type="secondary">{t('selectDishCollection')}</Typography.Text>
-        </div>
+    <PageLayout
+      actions={
         <Button onClick={() => setIsCollectionModal(true)} icon={<PlusOutlined />} type="primary">
           {screens.sm && t('createCollection')}
         </Button>
-      </Flex>
+      }
+      title={t('yourCollections')}
+      description={t('selectDishCollection')}
+    >
       <CardsList<ICollection>
         columnsCount={columnsCount}
         useQuery={useGetCollectionsQuery}

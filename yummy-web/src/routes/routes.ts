@@ -6,6 +6,7 @@ import SettingsPage from '@pages/SettingsPage';
 import ProfilePage from '@pages/ProfilePage';
 import CollectionsList from '@pages/collections/List';
 import CollectionDetail from '@pages/collections/Detail';
+import DishesList from '@pages/dishes/List';
 import { RoutePath } from './models';
 
 export interface Routes {
@@ -25,6 +26,10 @@ const collectionRoutes: Routes[] = [
   {
     path: RoutePath.COLLECTION_DETAIL,
     Element: CollectionDetail,
+  },
+  {
+    path: RoutePath.DISHES,
+    Element: DishesList,
   },
 ];
 

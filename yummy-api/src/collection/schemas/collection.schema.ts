@@ -7,7 +7,10 @@ export type CollectionDocument = HydratedDocument<Collection> & {
   _id: Types.ObjectId;
 };
 
-export type PopulatedCollectionDocument = Omit<CollectionDocument, 'allowedUsers'> & {
+export type PopulatedCollectionDocument = Omit<
+  CollectionDocument,
+  'allowedUsers'
+> & {
   allowedUsers: {
     id: {
       _id: Types.ObjectId;

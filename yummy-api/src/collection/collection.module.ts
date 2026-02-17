@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AuthModule } from '../auth/auth.module';
 import { CollectionService } from './collection.service';
 import { CollectionController } from './collection.controller';
 import { Collection, CollectionSchema } from './schemas/collection.schema';
@@ -10,6 +11,7 @@ import { CollectionRepository } from './collection.repository';
     MongooseModule.forFeature([
       { name: Collection.name, schema: CollectionSchema },
     ]),
+    AuthModule,
   ],
   controllers: [CollectionController],
   providers: [CollectionService, CollectionRepository],

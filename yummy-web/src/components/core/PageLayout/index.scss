@@ -32,6 +32,15 @@
       cursor: pointer;
       display: inline-flex;
       line-height: 0;
+
+      .ant-avatar {
+        background-color: transparent;
+      }
+
+      .ant-typography { 
+        font-size: var(--font-size);
+        color: var(--color-primary);
+      }
     }
 
     &--avatar {

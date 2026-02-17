@@ -1,11 +1,12 @@
 import { LogoutOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Dropdown } from 'antd';
+import { Dropdown, Flex, theme, Typography } from 'antd';
 import '../index.scss';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
 import type { IUserProfile } from '@api/usersApi';
+import toCapitalized from '@utils/toCapitalized';
 import Avatar from './Avatar';
 
 interface AvatarButtonProps {
@@ -16,6 +17,7 @@ interface AvatarButtonProps {
 const AvatarButton = ({ user, onLogout }: AvatarButtonProps) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { token } = theme.useToken();
 
   const items: MenuProps['items'] = [
     {
@@ -34,9 +36,10 @@ const AvatarButton = ({ user, onLogout }: AvatarButtonProps) => {
   ];
   return (
     <Dropdown menu={{ items }} placement="bottom" trigger={['click']}>
-      <span className="page-layout__header--avatar-wrap">
+      <Flex align="center" gap={token.marginXS} className="page-layout__header--avatar-wrap">
         <Avatar user={user} />
-      </span>
+        {user?.username && <Typography.Text>{toCapitalized(user.username)}</Typography.Text>}
+      </Flex>
     </Dropdown>
   );
 };
