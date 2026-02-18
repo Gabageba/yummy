@@ -43,4 +43,13 @@ export class DishesService {
     await this.dishesRepository.deleteById(id);
     return id;
   }
+
+  async update(
+    id: string,
+    collection: CreateAndUpdateDishDto,
+    authorization?: string,
+  ) {
+    await this.checkDishAuthor(id, authorization);
+    await this.dishesRepository.update(id, collection);
+  }
 }

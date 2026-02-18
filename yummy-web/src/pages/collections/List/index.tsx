@@ -1,33 +1,22 @@
 import { Button, Grid } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { PlusOutlined } from '@ant-design/icons';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import CardsList from '@components/core/CardsList';
 import './index.scss';
 import PageLayout from '@components/core/PageLayout';
 import CollectionModal from '@components/collections/CollectionModal';
 import CollectionCard from '@components/collections/CollectionCard';
+import useCardListColumnsCount from '@hooks/useCardListColumnsCount';
 import type { ICollection } from './models';
 import { useGetCollectionsQuery } from '../collectionsApi';
 
 function CollectionsList() {
   const { t } = useTranslation();
   const screens = Grid.useBreakpoint();
+  const columnsCount = useCardListColumnsCount();
 
   const [isCollectionModal, setIsCollectionModal] = useState<boolean>(false);
-
-  const columnsCount = useMemo(() => {
-    if (!screens.sm) {
-      return 1;
-    }
-    if (!screens.lg) {
-      return 2;
-    }
-    if (!screens.xl) {
-      return 3;
-    }
-    return 4;
-  }, [screens]);
 
   return (
     <PageLayout

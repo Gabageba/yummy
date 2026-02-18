@@ -85,10 +85,10 @@ export class CollectionsRepository extends BaseRepository<
 
   async update(
     id: string,
-    updateCollection: CreateAndUpdateCollectionDto,
+    collection: CreateAndUpdateCollectionDto,
   ): Promise<CollectionDocument | null> {
     return this.collectionModel
-      .findByIdAndUpdate(id, updateCollection, { new: true })
+      .findByIdAndUpdate(id, collection, { new: true })
       .exec();
   }
 }

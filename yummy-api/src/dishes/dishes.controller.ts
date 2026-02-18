@@ -6,6 +6,7 @@ import {
   Headers,
   Delete,
   Param,
+  Put,
 } from '@nestjs/common';
 import { DishesService } from './dishes.service';
 import {
@@ -72,5 +73,27 @@ export class DishesController {
     @Headers('authorization') authorization?: string,
   ) {
     return this.dishesService.delete(id, authorization);
+  }
+
+  @Put(':id')
+  @ApiResponse({
+    status: 201,
+    description: 'Блюдо успешно обновлено',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Пользователь не авторизован',
+  })
+  @ApiOperation({
+    summary: 'Обновление блюда',
+  })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  update(
+    @Param('id') id: string,
+    @Body() dish: CreateAndUpdateDishDto,
+    @Headers('authorization') authorization?: string,
+  ) {
+    return this.dishesService.update(id, dish, authorization);
   }
 }

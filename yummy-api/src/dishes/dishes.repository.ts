@@ -75,4 +75,11 @@ export class DishesRepository extends BaseRepository<DishDocument, DishDto> {
   async deleteById(id: string): Promise<DeleteResult> {
     return this.dishModel.deleteOne({ _id: id });
   }
+
+  async update(
+    id: string,
+    dish: CreateAndUpdateDishDto,
+  ): Promise<DishDocument | null> {
+    return this.dishModel.findByIdAndUpdate(id, dish, { new: true }).exec();
+  }
 }

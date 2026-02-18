@@ -6,7 +6,7 @@ import TextAreaFormItem from '@components/core/fields/TextAreaFormItem';
 import SelectFormItem from '@components/core/fields/SelectFormItem';
 import DifficultyFormItem from '@components/core/fields/difficulty/DifficultyFormItem';
 import { Difficulty } from '@components/core/fields/difficulty/models';
-import { useCreateDishMutation } from '@pages/dishes/dishesApi';
+import { useCreateDishMutation, useUpdateDishMutation } from '@pages/dishes/dishesApi';
 import type { IDish, IDishPayload } from '@pages/dishes/models';
 
 interface IProps {
@@ -21,17 +21,20 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
   const [form] = Form.useForm<IDishPayload>();
 
   const [create] = useCreateDishMutation();
+  const [update] = useUpdateDishMutation();
 
   const onOk = () => {
     form
       .validateFields()
-      .then((dish) => create(dish))
-      .then(() => onCancel());
+      .then((dish) =>
+        (initialValue?.id ? update({ ...dish, id: initialValue.id }) : create(dish)).then(onCancel),
+      );
   };
 
   return (
     <Modal
       open={open}
+      afterClose={form.resetFields}
       title={
         <Typography.Title level={4}>
           {initialValue?.id ? t('editDish') : t('createDish')}

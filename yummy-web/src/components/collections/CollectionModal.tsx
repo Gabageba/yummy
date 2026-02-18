@@ -23,29 +23,25 @@ function CollectionModal({ initialValue, open, onCancel }: IProps) {
   const [create] = useCreateCollectionMutation();
   const [update] = useUpdateCollectionMutation();
 
-  const handleClose = () => {
-    form.resetFields();
-    onCancel();
-  };
-
   const onOk = () => {
     form
       .validateFields()
       .then((collection) =>
         initialValue?.id ? update({ ...collection, id: initialValue.id }) : create(collection),
       )
-      .then(handleClose);
+      .then(onCancel);
   };
 
   return (
     <Modal
       open={open}
+      afterClose={form.resetFields}
       title={
         <Typography.Title level={4}>
           {initialValue?.id ? t('editCollection') : t('createCollection')}
         </Typography.Title>
       }
-      onCancel={handleClose}
+      onCancel={onCancel}
       onOk={onOk}
       okText={initialValue?.id ? t('save') : t('create')}
       cancelText={t('cancel')}

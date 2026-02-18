@@ -32,9 +32,22 @@ const dishesApi = rootApi.enhanceEndpoints({ addTagTypes: ['Dishes'] }).injectEn
       }),
       invalidatesTags: ['Dishes'],
     }),
+    updateDish: build.mutation<void, IDishPayload & { id: string }>({
+      query: ({ id, ...restData }) => ({
+        url: `${DISH_BASE_PATH}/${id}`,
+        method: 'PUT',
+        data: restData,
+      }),
+      invalidatesTags: ['Dishes'],
+    }),
   }),
 });
 
-export const { useGetDishesQuery, useCreateDishMutation, useDeleteDishMutation } = dishesApi;
+export const {
+  useGetDishesQuery,
+  useCreateDishMutation,
+  useDeleteDishMutation,
+  useUpdateDishMutation,
+} = dishesApi;
 
 export default dishesApi;
