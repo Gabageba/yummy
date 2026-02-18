@@ -1,5 +1,28 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsDefined, IsNumber, IsOptional, IsString } from 'class-validator';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import {
+  IsDefined,
+  IsNumber,
+  IsOptional,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
+import { Type } from 'class-transformer';
+
+export class FilterItemDto {
+  @ApiProperty({
+    example: 'difficulty',
+    description: 'Имя свойства для фильтрации',
+  })
+  @IsString()
+  property: string;
+
+  @ApiProperty({
+    example: 'easy',
+    description: 'Значение фильтра (строка, число или boolean)',
+  })
+  @IsString()
+  value: string;
+}
 
 export class PageableRequestParamsDto {
   @ApiProperty({
@@ -27,4 +50,17 @@ export class PageableRequestParamsDto {
   @IsOptional()
   @IsString()
   query: string;
+
+  @ApiPropertyOptional({
+    description: 'Фильтры: массив пар свойство — значение',
+    type: [FilterItemDto],
+    example: [
+      { property: 'difficulty', value: 'easy' },
+      { property: 'tags', value: 'italian' },
+    ],
+  })
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => FilterItemDto)
+  filters?: FilterItemDto[];
 }

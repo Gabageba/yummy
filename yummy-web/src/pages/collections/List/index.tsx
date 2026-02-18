@@ -5,10 +5,10 @@ import { useMemo, useState } from 'react';
 import CardsList from '@components/core/CardsList';
 import './index.scss';
 import PageLayout from '@components/core/PageLayout';
-import CollectionModal from '@components/collection/CollectionModal';
-import CollectionCard from '@components/collection/CollectionCard';
+import CollectionModal from '@components/collections/CollectionModal';
+import CollectionCard from '@components/collections/CollectionCard';
 import type { ICollection } from './models';
-import { useGetCollectionsQuery } from '../collectionApi';
+import { useGetCollectionsQuery } from '../collectionsApi';
 
 function CollectionsList() {
   const { t } = useTranslation();

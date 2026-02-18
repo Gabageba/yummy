@@ -1,14 +1,13 @@
 import { useParams } from 'react-router-dom';
 import PageLayout from '@components/core/PageLayout';
-import { Button, Flex, Space, theme, Typography } from 'antd';
 import { EditOutlined, PlusOutlined } from '@ant-design/icons';
 import PrimaryTag from '@components/core/PrimaryTag';
 import { useTranslation } from 'react-i18next';
 import { IUserRoles } from '@pages/ProfilePage/models';
 import { useMemo, useState } from 'react';
-import CollectionModal from '@components/collection/CollectionModal';
-import DishList from '@components/dish/DishList';
-import { useGetCollectionQuery } from '../collectionApi';
+import CollectionModal from '@components/collections/CollectionModal';
+import { Button, Flex, Space, theme } from 'antd';
+import { useGetCollectionQuery } from '../collectionsApi';
 
 function CollectionDetail() {
   const { t } = useTranslation();
@@ -25,37 +24,34 @@ function CollectionDetail() {
   );
 
   return (
-    <PageLayout isLoading={isFetching}>
-      <Flex justify="space-between" align="center" className="collection__title">
-        <div>
-          <Flex align="center" gap={token.marginXS}>
-            <Typography.Title level={2}>{collection?.name}</Typography.Title>
-            <PrimaryTag>
-              {t('authorBy', {
-                author,
-              })}
-            </PrimaryTag>
-            <Button
-              size="middle"
-              icon={<EditOutlined />}
-              type="text"
-              onClick={() => setIsEditCollectionModalOpen(true)}
-            />
-          </Flex>
-          <Typography.Text type="secondary">{collection?.description}</Typography.Text>
-        </div>
-        <Space size={token.marginXS}>
+    <PageLayout
+      isLoading={isFetching}
+      actions={
+        <Space>
+          <Button icon={<EditOutlined />} onClick={() => setIsEditCollectionModalOpen(true)} />
           <Button icon={<PlusOutlined />} type="primary">
             {t('addDish')}
           </Button>
         </Space>
-      </Flex>
+      }
+      title={
+        <Flex align="center" gap={token.marginXS}>
+          {collection?.name}
+          <PrimaryTag>
+            {t('authorBy', {
+              author,
+            })}
+          </PrimaryTag>
+        </Flex>
+      }
+      description={collection?.description}
+    >
       <CollectionModal
         initialValue={collection}
         open={isEditCollectionModalOpen}
         onCancel={() => setIsEditCollectionModalOpen(false)}
       />
-      {collection && <DishList collectionId={collection?.id} />}
+      {/* {collection && <DishList collectionId={collection?.id} />} */}
     </PageLayout>
   );
 }

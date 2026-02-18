@@ -1,0 +1,20 @@
+.dish-card {
+  &__image {
+    height: 192px;
+    width: 100%;
+    background: var(--color-primary-light-gradient);
+  }
+
+  &__title {
+    .ant-typography {
+      margin-bottom: 0;
+    }
+  }
+
+  &__main-ingredients {
+    .ant-typography {
+      font-weight: 500;
+      font-size: var(--font-size-xs);
+    }
+  }
+}

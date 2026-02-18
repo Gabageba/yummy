@@ -1,4 +1,4 @@
-export enum CollectionIcon {
+export enum CollectionCoverIcon {
   PIZZA = 'PIZZA',
   TRAY = 'TRAY',
 }

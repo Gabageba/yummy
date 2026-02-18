@@ -1,5 +1,5 @@
 import Icon from '@ant-design/icons';
-import type { IconBaseProps } from '@ant-design/icons/lib/components/Icon';
+import type { IIconProps } from './Icon';
 
 function InternalIcon() {
   return (
@@ -31,7 +31,7 @@ function InternalIcon() {
   );
 }
 
-interface IProps extends Omit<IconBaseProps, 'component'> {}
+interface IProps extends IIconProps {}
 
 function TrayIcon({ ...restProps }: IProps) {
   return <Icon component={InternalIcon} {...restProps} />;

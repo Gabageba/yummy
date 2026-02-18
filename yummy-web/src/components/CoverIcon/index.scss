@@ -1,0 +1,15 @@
+.cover-icon {
+  height: 192px;
+  width: 100%;
+  background: var(--color-primary-light-gradient);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  .anticon {
+    width: 60px;
+    height: 60px;
+    font-size: 60px;
+    color: var(--color-primary);
+  }
+}

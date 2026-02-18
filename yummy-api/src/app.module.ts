@@ -6,8 +6,8 @@ import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ValidationModule } from './services/validation.module';
-import { CollectionModule } from './collection/collection.module';
-import { DishModule } from './dish/dish.module';
+import { CollectionsModule } from './collections/collections.module';
+import { DishesModule } from './dishes/dishes.module';
 
 @Module({
   imports: [
@@ -28,8 +28,8 @@ import { DishModule } from './dish/dish.module';
     ValidationModule,
     UsersModule,
     AuthModule,
-    CollectionModule,
-    DishModule,
+    CollectionsModule,
+    DishesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

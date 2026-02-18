@@ -1,5 +1,5 @@
-import Icon from '@ant-design/icons';
-import type { IconBaseProps } from '@ant-design/icons/lib/components/Icon';
+import type { IIconProps } from './Icon';
+import Icon from './Icon';
 
 function InternalIcon() {
   return (
@@ -11,6 +11,7 @@ function InternalIcon() {
       y="1em"
       viewBox="0 0 224.512 224.512"
       xmlSpace="preserve"
+      fill="currentColor"
     >
       <g>
         <circle cx="89" cy="74.426" r="14.146" />
@@ -33,7 +34,7 @@ function InternalIcon() {
   );
 }
 
-interface IProps extends Omit<IconBaseProps, 'component'> {}
+interface IProps extends IIconProps {}
 
 function PizzaIcon({ ...restProps }: IProps) {
   return <Icon component={InternalIcon} {...restProps} />;

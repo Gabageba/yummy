@@ -1,0 +1,43 @@
+.difficulty-radio-group {
+  .difficulty-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .difficulty-EASY {
+    &:hover:not(.ant-radio-button-wrapper-disabled):not(.ant-radio-button-wrapper-checked) {
+      color: var(--color-success) !important;
+      border-color: var(--color-success) !important;
+    }
+
+    &.ant-radio-button-wrapper-checked {
+      background: var(--color-success)  !important;
+      border-color: var(--color-success)  !important;
+    }
+  }
+
+  .difficulty-MEDIUM {
+    &:hover:not(.ant-radio-button-wrapper-disabled):not(.ant-radio-button-wrapper-checked) {
+      color: var(--color-warning) !important;
+      border-color: var(--color-warning) !important;
+    }
+
+    &.ant-radio-button-wrapper-checked {
+      background: var(--color-warning) !important;
+      border-color: var(--color-warning) !important;
+    }
+  }
+
+  .difficulty-HARD {
+    &:hover:not(.ant-radio-button-wrapper-disabled):not(.ant-radio-button-wrapper-checked) {
+      color: var(--color-error) !important;
+      border-color: var(--color-error) !important;
+    }
+
+    &.ant-radio-button-wrapper-checked {
+      background: var(--color-error) !important;
+      border-color: var(--color-error) !important;
+    }
+  }
+}

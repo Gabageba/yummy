@@ -33,5 +33,15 @@
   "dataNotFound": "Упс! Кажется, тут пусто...",
   "addDish": "Добавить блюдо",
   "dishes": "Блюда",
-  "yourDishes": "Ваши блюда"
+  "yourDishes": "Ваши блюда",
+  "createDish": "Создать блюдо",
+  "tags": "Теги",
+  "select": "Выберите",
+  "difficulty": "Сложность",
+  "easy": "Лёгкая",
+  "medium": "Средняя",
+  "hard": "Сложная",
+  "editDish": "Редактировать блюдо",
+  "mainIngredients": "Главные ингридиенты",
+  "difficultyLabel": "Сложность: {{difficulty}}"
 }

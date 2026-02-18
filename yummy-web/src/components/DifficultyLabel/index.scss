@@ -1,0 +1,13 @@
+.difficulty-label {
+  &__EASY {
+    color: var(--color-success);
+  }
+
+  &__MEDIUM {
+    color: var(--color-warning);
+  }
+
+  &__HARD {
+    color: var(--color-error);
+  }
+}

@@ -5,10 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
 import useValidation from '@hooks/useValidation';
 import useApiValidationErrors from '@hooks/useApiValidationErrors';
-import InputFormItem from '@components/core/formItems/InputFormItem';
+import InputFormItem from '@components/core/fields/InputFormItem';
 import LogoIcon from '@components/icons/LogoIcon';
-import { MailOutlined, UserOutlined } from '@ant-design/icons';
-import PasswordFormItem from '@components/core/formItems/PasswordFormItem';
+import PasswordFormItem from '@components/core/fields/PasswordFormItem';
 import { useRegisterMutation } from '../authApi';
 import type { IRegisterResponse } from '../models';
 import useAuth from '../../../hooks/useAuth';
@@ -40,18 +39,8 @@ function RegisterPage() {
           </Flex>
 
           <Form form={form} layout="vertical">
-            <InputFormItem
-              label={t('username')}
-              name="username"
-              inputProps={{ prefix: <UserOutlined /> }}
-              rules={[required]}
-            />
-            <InputFormItem
-              label={t('email')}
-              name="email"
-              inputProps={{ prefix: <MailOutlined /> }}
-              rules={[required, isEmail]}
-            />
+            <InputFormItem label={t('username')} name="username" rules={[required]} />
+            <InputFormItem label={t('email')} name="email" rules={[required, isEmail]} />
             <PasswordFormItem rules={[required, minLength(6)]} />
             <Button type="primary" block onClick={onRegisterClick}>
               {t('register')}

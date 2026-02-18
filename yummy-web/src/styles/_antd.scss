@@ -6,6 +6,12 @@
   }
 }
 
+.ant-select {
+  .ant-select-prefix {
+    color: var(--color-icon-secondary);
+  }
+}
+
 .ant-form-item-label label {
   height: auto !important;
 }

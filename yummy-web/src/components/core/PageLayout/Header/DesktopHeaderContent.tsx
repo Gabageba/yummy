@@ -17,7 +17,10 @@ function DesktopHeaderContent({ user, onLogout }: DesktopHeaderContentProps) {
   return (
     <div className="page-layout__header--container page-layout__header--desktop-container">
       <div className="page-layout__header--logo">
-        <LogoLongIcon onClick={() => navigate(RoutePath.MAIN)} />
+        <LogoLongIcon
+          className="page-layout__header--logo-icon"
+          onClick={() => navigate(RoutePath.MAIN)}
+        />
       </div>
 
       <NavigationMenu mode="horizontal" />

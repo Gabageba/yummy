@@ -6,7 +6,7 @@ import './index.scss';
 interface IProps {
   children: ReactNode;
   isLoading?: boolean;
-  title?: string;
+  title?: ReactNode;
   description?: string;
   actions?: ReactNode;
 }
@@ -57,7 +57,7 @@ const PageLayout = ({
         )}
       </Layout.Content>
 
-      <Layout.Footer>footer</Layout.Footer>
+      {/* <Layout.Footer>footer</Layout.Footer> */}
     </Layout>
   );
 };

@@ -1,10 +1,30 @@
+import { PlusOutlined } from '@ant-design/icons';
 import PageLayout from '@components/core/PageLayout';
+import DishModal from '@components/dishes/DishModal';
+import { Button } from 'antd';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import DishList from '@components/dishes/DishList';
 
 function DishesList() {
   const { t } = useTranslation();
 
-  return <PageLayout title={t('yourDishes')}>sdfasd</PageLayout>;
+  const [isDishModalOpen, setIsDishModalOpen] = useState<boolean>(false);
+
+  return (
+    <PageLayout
+      title={t('yourDishes')}
+      description={t('Выберите ваше блюдо')}
+      actions={
+        <Button type="primary" icon={<PlusOutlined />} onClick={() => setIsDishModalOpen(true)}>
+          {t('addDish')}
+        </Button>
+      }
+    >
+      <DishList />
+      <DishModal open={isDishModalOpen} onCancel={() => setIsDishModalOpen(false)} />
+    </PageLayout>
+  );
 }
 
 export default DishesList;

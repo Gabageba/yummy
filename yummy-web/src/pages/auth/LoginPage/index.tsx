@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
 import useApiValidationErrors from '@hooks/useApiValidationErrors';
 import useValidation from '@hooks/useValidation';
-import InputFormItem from '@components/core/formItems/InputFormItem';
+import InputFormItem from '@components/core/fields/InputFormItem';
 import LogoIcon from '@components/icons/LogoIcon';
 import { AppleOutlined, GoogleOutlined, UserOutlined } from '@ant-design/icons';
-import PasswordFormItem from '@components/core/formItems/PasswordFormItem';
+import PasswordFormItem from '@components/core/fields/PasswordFormItem';
 import VkIcon from '@components/icons/VkIcon';
 import { useLoginMutation } from '../authApi';
 import type { ILoginResponse } from '../models';
@@ -23,11 +23,16 @@ function LoginPage() {
   const { required, minLength } = useValidation();
   const { handleValidationErrors } = useApiValidationErrors(form);
   const { onAuthSuccess } = useAuth();
+  const isDevMode = import.meta.env.DEV;
 
   const onLoginClick = () => {
     form
       .validateFields()
       .then((value) => login(value).unwrap().then(onAuthSuccess).catch(handleValidationErrors));
+  };
+
+  const loginAsAdmin = () => {
+    login({ username: 'admin', password: '123456' }).unwrap().then(onAuthSuccess);
   };
 
   return (
@@ -41,14 +46,7 @@ function LoginPage() {
           </Flex>
 
           <Form form={form} layout="vertical">
-            <InputFormItem
-              label={t('username')}
-              name="username"
-              inputProps={{
-                prefix: <UserOutlined />,
-              }}
-              rules={[required]}
-            />
+            <InputFormItem label={t('username')} name="username" rules={[required]} />
             <PasswordFormItem rules={[required, minLength(6)]} />
             <Flex justify="space-between" className="auth-page__remember-me">
               <Checkbox>{t('rememberMe')}</Checkbox>
@@ -60,7 +58,7 @@ function LoginPage() {
             </Button>
           </Form>
           <Divider className="auth-page__divider">{t('orContinueWith')}</Divider>
-          <Row className="auth-page__buttons" gutter={token.marginXS}>
+          <Row className="auth-page__buttons" gutter={[token.marginXS, token.marginXS]}>
             <Col span={8}>
               <Button block icon={<GoogleOutlined />} />
             </Col>
@@ -70,6 +68,11 @@ function LoginPage() {
             <Col span={8}>
               <Button block icon={<AppleOutlined />} />
             </Col>
+            {isDevMode && (
+              <Col span={24}>
+                <Button block icon={<UserOutlined />} onClick={loginAsAdmin} />
+              </Col>
+            )}
           </Row>
         </Flex>
         <div className="auth-page__footer">

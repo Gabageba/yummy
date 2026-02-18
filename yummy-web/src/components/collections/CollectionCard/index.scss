@@ -1,0 +1,12 @@
+.collection-card {
+  &__title {
+    h4.ant-typography {
+      color: var(--color-primary);
+      margin-bottom: 0;
+    }
+
+    .ant-typography-secondary {
+      font-weight: 400;
+    }
+  }
+}

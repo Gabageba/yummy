@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
       <Suspense fallback="...is loading">
-        <ConfigProvider theme={antdTheme} componentSize="large" renderEmpty={() => <Empty />}>
+        <ConfigProvider theme={antdTheme} renderEmpty={() => <Empty />}>
           <BrowserRouter>
             <App />
           </BrowserRouter>

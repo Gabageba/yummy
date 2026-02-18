@@ -31,12 +31,21 @@ export abstract class BaseRepository<TDocument extends Document, TDto> {
     queryField = 'name',
     populate,
   }: pageableSearchProps<TDocument>): Promise<PageableResponseDto<TDto>> {
-    const { page, size, query } = params;
+    const { page, size, query, filters: paramsFilters } = params;
 
     const currentPage = Math.max(1, page);
     const skip = (currentPage - 1) * size;
 
-    const baseFilter = filters ?? {};
+    let baseFilter: QueryFilter<TDocument> = filters ?? {};
+
+    if (paramsFilters?.length) {
+      const filtersFromParams = paramsFilters.reduce(
+        (acc, { property, value }) => ({ ...acc, [property]: value }),
+        {} as QueryFilter<TDocument>,
+      );
+      baseFilter = { ...baseFilter, ...filtersFromParams };
+    }
+
     const filter: QueryFilter<TDocument> = query?.length
       ? withRegexQuery(baseFilter, queryField, params.query)
       : baseFilter;

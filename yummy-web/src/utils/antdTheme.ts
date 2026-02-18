@@ -14,6 +14,7 @@ const token: ThemeConfig['token'] = {
   colorPrimary: COLORS.PRIMARY_COLOR,
   colorText: COLORS.TEXT_COLOR,
   colorLink: COLORS.PRIMARY_COLOR,
+  fontWeightStrong: 500,
 };
 const components: ThemeConfig['components'] = {
   Layout: {

@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <Layout.Header className="page-layout__header">
-      {screens.xs ? (
+      {screens?.xs ? (
         <MobileHeaderContent user={user} onLogout={onLogout} />
       ) : (
         <DesktopHeaderContent user={user} onLogout={onLogout} />

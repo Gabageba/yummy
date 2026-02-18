@@ -1,8 +1,4 @@
-export enum DishDifficulty {
-  EASY = 'EASY',
-  MEDIUM = 'MEDIUM',
-  HARD = 'HARD',
-}
+import type { Difficulty } from '@components/core/fields/difficulty/models';
 
 export interface ICollectionRef {
   id: string;
@@ -12,11 +8,10 @@ export interface ICollectionRef {
 export interface IDish {
   id: string;
   name: string;
-  description: string;
-  tags: string[];
-  difficulty: DishDifficulty;
-  mainIngredients: string[];
-  collectionIds: string[];
+  description?: string;
+  tags?: string[];
+  difficulty: Difficulty;
+  mainIngredients?: string[];
   collections?: ICollectionRef[];
 }
 

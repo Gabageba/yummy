@@ -14,5 +14,15 @@
   "cancel": "Cancel",
   "deleteCollection": "Delete collection",
   "create": "Create",
-  "addDish": "Add dish"
+  "addDish": "Add dish",
+  "dishes": "Dishes",
+  "yourDishes": "Your dishes",
+  "createDish": "Create dish",
+  "tags": "Tags",
+  "select": "Select",
+  "difficulty": "Difficulty",
+  "difficultyEASY": "Easy",
+  "difficultyMEDIUM": "Middle",
+  "difficultyHARD": "Hard",
+  "editDish": "Edit dish"
 }
