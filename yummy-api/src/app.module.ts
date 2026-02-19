@@ -20,7 +20,7 @@ import { DishesModule } from './dishes/dishes.module';
       useFactory: (configService: ConfigService) => {
         const uri = configService.get<string>('MONGO_URI');
         if (!uri) {
-          throw new Error('MONGO_URI не задана в .env');
+          throw new Error('MONGO_URI is not set in .env');
         }
         return { uri };
       },

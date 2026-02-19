@@ -13,7 +13,7 @@ export const UserId = createParamDecorator(
     const request = ctx.switchToHttp().getRequest<RequestWithUser>();
     const userId = request.user?.userId;
     if (!userId) {
-      throw new UnauthorizedException('Пользователь не авторизован');
+      throw new UnauthorizedException('User not authorized');
     }
     return userId;
   },

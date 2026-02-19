@@ -8,7 +8,7 @@ const dishesApi = rootApi.enhanceEndpoints({ addTagTypes: ['Dishes'] }).injectEn
   endpoints: (build) => ({
     createDish: build.mutation<string, IDishPayload>({
       query: (data) => ({
-        url: `${DISH_BASE_PATH}/create`,
+        url: `${DISH_BASE_PATH}`,
         method: 'POST',
         data,
       }),
@@ -19,7 +19,7 @@ const dishesApi = rootApi.enhanceEndpoints({ addTagTypes: ['Dishes'] }).injectEn
       IPageableRequestParams & { collectionId: string }
     >({
       query: ({ collectionId, ...restData }) => ({
-        url: `${DISH_BASE_PATH}/search`,
+        url: `${DISH_BASE_PATH}/list`,
         method: 'POST',
         data: restData,
       }),

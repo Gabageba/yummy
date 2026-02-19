@@ -80,7 +80,7 @@ export class AuthService {
 
   getToken(authorization?: string): string {
     if (!authorization || !authorization.startsWith('Bearer ')) {
-      throw new UnauthorizedException('tokenNotFound');
+      throw new UnauthorizedException('Token not found');
     }
     const token = authorization.substring(7);
 
@@ -91,12 +91,12 @@ export class AuthService {
     try {
       const decoded: JwtPayload = this.jwtService.verify(token);
       if (!decoded || typeof decoded !== 'object' || !('id' in decoded)) {
-        throw new UnauthorizedException('invalidToken');
+        throw new UnauthorizedException('Invalid token format');
       }
 
       const userId = decoded.id;
       if (typeof userId !== 'string') {
-        throw new UnauthorizedException('invalidTokenFormat');
+        throw new UnauthorizedException('Invalid token format');
       }
 
       return userId;

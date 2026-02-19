@@ -2,11 +2,12 @@ import { Model, QueryFilter, Document, PopulateOptions } from 'mongoose';
 import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-params.dto';
 import { PageableResponseDto } from 'src/dto/pageable/pageable-response.dto';
 
-interface pageableSearchProps<TDocument> {
+interface pageableSearchProps<TDocument, TResult = unknown> {
   params: PageableRequestParamsDto;
   filters?: QueryFilter<TDocument>;
   queryField?: string;
   populate?: PopulateOptions | (string | PopulateOptions)[];
+  mapper: (document: TDocument) => TResult;
 }
 
 function withRegexQuery<T>(
@@ -23,14 +24,15 @@ function withRegexQuery<T>(
 export abstract class BaseRepository<TDocument extends Document, TDto> {
   constructor(protected readonly model: Model<TDocument>) {}
 
-  protected abstract toDto(document: TDocument): TDto;
-
-  async pageableSearch({
+  async pageableSearch<TResult = TDto>({
     params,
     filters,
     queryField = 'name',
     populate,
-  }: pageableSearchProps<TDocument>): Promise<PageableResponseDto<TDto>> {
+    mapper,
+  }: pageableSearchProps<TDocument, TResult>): Promise<
+    PageableResponseDto<TResult>
+  > {
     const { page, size, query, filters: paramsFilters } = params;
 
     const currentPage = Math.max(1, page);
@@ -63,8 +65,10 @@ export abstract class BaseRepository<TDocument extends Document, TDto> {
 
     const totalPages = Math.ceil(total / size);
 
+    const results = items.map((item) => mapper(item));
+
     return {
-      results: items.map((item) => this.toDto(item)),
+      results,
       total,
       page,
       size,

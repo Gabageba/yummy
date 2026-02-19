@@ -10,7 +10,7 @@ const collectionsApi = rootApi
     endpoints: (build) => ({
       createCollection: build.mutation<void, ICollectionPayload>({
         query: (data) => ({
-          url: `${COLLECTION_BASE_PATH}/create`,
+          url: `${COLLECTION_BASE_PATH}`,
           method: 'POST',
           data,
         }),
@@ -18,7 +18,7 @@ const collectionsApi = rootApi
       }),
       getCollections: build.query<IPageableResponse<ICollection>, IPageableRequestParams>({
         query: (data) => ({
-          url: `${COLLECTION_BASE_PATH}/search`,
+          url: `${COLLECTION_BASE_PATH}/list`,
           method: 'POST',
           data,
         }),

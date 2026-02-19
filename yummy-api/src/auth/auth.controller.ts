@@ -63,7 +63,7 @@ export class AuthController {
 
   @ApiOperation({ summary: 'Выход пользователя' })
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'Пользователь успешно вышел из системы.',
   })
   @ApiResponse({

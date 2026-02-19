@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateAndUpdateCollectionDto } from './dto/create-and-update-collection.dto';
 import { AuthService } from 'src/auth/auth.service';
 import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-params.dto';
@@ -32,7 +36,9 @@ export class CollectionsService {
       userRole !== AllowedUsersRoles.CREATOR &&
       userRole !== AllowedUsersRoles.EDITOR
     ) {
-      throw new Error('User is not allowed to delete this collection');
+      throw new ForbiddenException(
+        'User is not allowed to delete this collection',
+      );
     }
   }
 

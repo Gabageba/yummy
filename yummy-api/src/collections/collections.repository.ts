@@ -21,7 +21,7 @@ export class CollectionsRepository extends BaseRepository<
     super(collectionModel);
   }
 
-  protected toDto(document: CollectionDocument): CollectionDto {
+  protected mapper(document: CollectionDocument): CollectionDto {
     const populated = document as unknown as {
       allowedUsers: {
         id: { _id: Types.ObjectId; username: string };
@@ -65,7 +65,12 @@ export class CollectionsRepository extends BaseRepository<
       select: 'username',
     };
 
-    return this.pageableSearch({ params, filters, populate });
+    return this.pageableSearch({
+      params,
+      filters,
+      populate,
+      mapper: (doc) => this.mapper(doc),
+    });
   }
 
   async deleteById(id: string): Promise<DeleteResult> {
@@ -80,7 +85,7 @@ export class CollectionsRepository extends BaseRepository<
     const collection = await this.collectionModel
       .findById(id)
       .populate('allowedUsers.id');
-    return collection ? this.toDto(collection) : null;
+    return collection ? this.mapper(collection) : null;
   }
 
   async update(

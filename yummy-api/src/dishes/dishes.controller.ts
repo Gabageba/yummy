@@ -33,7 +33,7 @@ export class DishesController {
   @ApiResponse({ status: 401, description: 'Пользователь не авторизован' })
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
-  @Post('/create')
+  @Post('/')
   create(
     @Body() dish: CreateAndUpdateDishDto,
     @Headers('authorization') authorization?: string,
@@ -41,9 +41,9 @@ export class DishesController {
     return this.dishesService.create(dish, authorization);
   }
 
-  @Post('/search')
-  @ApiOperation({ summary: 'Поиск блюд с пагинацией' })
-  @ApiResponse({ status: 201, description: 'Список блюд' })
+  @Post('/list')
+  @ApiOperation({ summary: 'Получение всех блюд пользователя' })
+  @ApiResponse({ status: 200, description: 'Список блюд' })
   @ApiResponse({ status: 401, description: 'Пользователь не авторизован' })
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
@@ -56,15 +56,23 @@ export class DishesController {
 
   @Delete(':id')
   @ApiResponse({
-    status: 201,
-    description: 'Подборка успешно удалена',
+    status: 200,
+    description: 'Блюдо успешно удалено',
   })
   @ApiResponse({
     status: 401,
     description: 'Пользователь не авторизован',
   })
+  @ApiResponse({
+    status: 403,
+    description: 'Нет прав на удаление',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Блюдо не найдено',
+  })
   @ApiOperation({
-    summary: 'Удаление подборки',
+    summary: 'Удаление блюда',
   })
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
@@ -77,12 +85,20 @@ export class DishesController {
 
   @Put(':id')
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'Блюдо успешно обновлено',
   })
   @ApiResponse({
     status: 401,
     description: 'Пользователь не авторизован',
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Нет прав на обновление',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Блюдо не найдено',
   })
   @ApiOperation({
     summary: 'Обновление блюда',

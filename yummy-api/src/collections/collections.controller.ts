@@ -39,7 +39,7 @@ export class CollectionsController {
   })
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
-  @Post('/create')
+  @Post()
   create(
     @Body() collection: CreateAndUpdateCollectionDto,
     @Headers('authorization') authorization?: string,
@@ -47,12 +47,12 @@ export class CollectionsController {
     return this.collectionsService.create(collection, authorization);
   }
 
-  @Post('/search')
+  @Post('/list')
   @ApiOperation({
     summary: 'Получение всех подборок пользователя',
   })
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'Подборки получены',
   })
   @ApiResponse({
@@ -70,12 +70,20 @@ export class CollectionsController {
 
   @Delete(':id')
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'Подборка успешно удалена',
   })
   @ApiResponse({
     status: 401,
     description: 'Пользователь не авторизован',
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Нет прав на удаление',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Подборка не найдена',
   })
   @ApiOperation({
     summary: 'Удаление подборки',
@@ -91,12 +99,20 @@ export class CollectionsController {
 
   @Put(':id')
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'Подборка успешно обновлена',
   })
   @ApiResponse({
     status: 401,
     description: 'Пользователь не авторизован',
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Нет прав на обновление',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Подборка не найдена',
   })
   @ApiOperation({
     summary: 'Обновление подборки',
@@ -113,12 +129,16 @@ export class CollectionsController {
 
   @Get(':id')
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'Подборка успешно получена',
   })
   @ApiResponse({
     status: 401,
     description: 'Пользователь не авторизован',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Подборка не найдена',
   })
   @ApiOperation({
     summary: 'Получение подборки по id',

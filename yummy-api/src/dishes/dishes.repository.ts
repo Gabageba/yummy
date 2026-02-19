@@ -21,7 +21,7 @@ export class DishesRepository extends BaseRepository<DishDocument, DishDto> {
     super(dishModel);
   }
 
-  protected toDto(document: DishDocument | PopulatedDishDocument): DishDto {
+  protected mapper(document: DishDocument | PopulatedDishDocument): DishDto {
     const doc = document as PopulatedDishDocument;
     const collectionsRaw = doc.collections ?? [];
     const collectionIds = collectionsRaw.map((m) =>
@@ -65,6 +65,7 @@ export class DishesRepository extends BaseRepository<DishDocument, DishDto> {
     return this.pageableSearch({
       params,
       filters,
+      mapper: (doc) => this.mapper(doc),
     });
   }
 

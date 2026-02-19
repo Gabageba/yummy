@@ -1,4 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import {
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { AuthService } from 'src/auth/auth.service';
 import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-params.dto';
 import { DishesRepository } from './dishes.repository';
@@ -16,11 +20,11 @@ export class DishesService {
       this.authService.getUserIdFromAuthorizationHeader(authorization);
     const dish = await this.dishesRepository.getById(id);
     if (!dish) {
-      throw new Error('dish not found');
+      throw new NotFoundException('dish not found');
     }
 
     if (dish.author.toString() !== userId) {
-      throw new Error('User is not allowed to delete this dish');
+      throw new ForbiddenException('User is not allowed to delete this dish');
     }
   }
 

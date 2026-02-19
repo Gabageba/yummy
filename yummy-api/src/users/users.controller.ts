@@ -20,7 +20,7 @@ export class UsersController {
     description: 'Возвращает данные пользователя на основе JWT токена',
   })
   @ApiResponse({
-    status: 201,
+    status: 200,
     description: 'Пользователь возвращен',
     type: UserDto,
   })

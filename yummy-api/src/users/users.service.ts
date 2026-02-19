@@ -42,7 +42,7 @@ export class UsersService {
   async getProfile(userId: string): Promise<UserDto> {
     const user = await this.usersRepository.findById(userId);
     if (!user || !user._id) {
-      throw new NotFoundException('Пользователь не найден');
+      throw new NotFoundException('User not found');
     }
 
     const result: UserDto = {
