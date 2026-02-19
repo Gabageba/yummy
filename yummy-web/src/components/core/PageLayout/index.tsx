@@ -11,13 +11,7 @@ interface IProps {
   actions?: ReactNode;
 }
 
-const PageLayout = ({
-  children,
-  isLoading = false,
-  title,
-  description,
-  actions = <></>,
-}: IProps) => {
+const PageLayout = ({ children, isLoading = false, title, description, actions }: IProps) => {
   const screens = Grid.useBreakpoint();
   const { token } = theme.useToken();
 
@@ -40,18 +34,21 @@ const PageLayout = ({
           <Spin spinning />
         ) : (
           <>
-            <Flex
-              justify="space-between"
-              align="center"
-              className="collection__title"
-              gap={token.margin}
-            >
-              <div>
-                {title && <Typography.Title level={2}>{title}</Typography.Title>}
-                {description && <Typography.Text type="secondary">{description}</Typography.Text>}
-              </div>
-              {actions}
-            </Flex>
+            {(title || description || actions) && (
+              <Flex
+                justify="space-between"
+                align="center"
+                className="page-layout__title"
+                gap={token.margin}
+              >
+                <div>
+                  {title && <Typography.Title level={2}>{title}</Typography.Title>}
+                  {description && <Typography.Text type="secondary">{description}</Typography.Text>}
+                </div>
+                {actions}
+              </Flex>
+            )}
+
             {children}
           </>
         )}

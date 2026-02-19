@@ -1,21 +1,6 @@
 @use '@styles/variables/breakpoints' as bp;
 
 .collection {
-  &__title {
-    margin-bottom: var(--margin);
-
-    .ant-typography {
-      margin-bottom: 0;
-    }
-
-    .ant-btn {
-      @include bp.below-xs {
-        aspect-ratio: 1;
-      }
-    }
-  }
-
-  // Текст кнопки скрыт на узких экранах через CSS (без мигания при первом рендере)
   &__create-btn-text {
     @include bp.below-xs {
       position: absolute;

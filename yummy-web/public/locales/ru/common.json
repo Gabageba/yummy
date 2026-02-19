@@ -43,5 +43,9 @@
   "hard": "Сложная",
   "editDish": "Редактировать блюдо",
   "mainIngredients": "Главные ингридиенты",
-  "difficultyLabel": "Сложность: {{difficulty}}"
+  "difficultyLabel": "Сложность: {{difficulty}}",
+  "pageNotFound": "Страница не найдена",
+  "pageNotFoundDescription": "Похоже, мы не можем найти эту страницу. Возможно, она была удалена или перемещена.",
+  "goToHome": "Перейти на главную",
+  "goBack": "Вернуться назад"
 }

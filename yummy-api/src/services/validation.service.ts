@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common';
-import { Model } from 'mongoose';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { Model, Types } from 'mongoose';
 import { ValidationException } from '../exception/validation.exception';
 import {
   ValidationErrorCode,
@@ -48,5 +48,11 @@ export class ValidationService {
       },
     ];
     throw new ValidationException(errors);
+  }
+
+  validateObjectId(id: string): void {
+    if (!Types.ObjectId.isValid(id)) {
+      throw new NotFoundException(`Invalid collection id: "${id}"`);
+    }
   }
 }

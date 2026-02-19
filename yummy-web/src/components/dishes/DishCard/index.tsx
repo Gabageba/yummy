@@ -6,7 +6,7 @@ import DifficultyLabel from '@components/DifficultyLabel';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, FolderAddOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import CoverIcon from '@components/CoverIcon';
 import { CoverIconEnum } from '@components/CoverIcon/models';
@@ -32,6 +32,13 @@ function DishCard({ dish }: IProps) {
       onClick={(e) => {
         e.stopPropagation();
         setIsDishModal(true);
+      }}
+    />,
+    <FolderAddOutlined
+      key="addToCollection"
+      onClick={(e) => {
+        e.stopPropagation();
+        // setIsCollectionModal(true);
       }}
     />,
     <DeleteOutlined

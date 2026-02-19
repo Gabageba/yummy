@@ -1,0 +1,106 @@
+import type { IIconProps } from './Icon';
+import Icon from './Icon';
+
+function InternalIcon() {
+  return (
+    <svg width="74" height="90" viewBox="0 0 74 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <mask id="path-1-inside-1_118_1436" fill="white">
+        <path d="M5 9C5 4.58172 8.58172 1 13 1H60.9993C65.4176 1 68.9993 4.58172 68.9993 9V72.9997C68.9993 77.418 65.4176 80.9997 60.9993 80.9997H13C8.58172 80.9997 5 77.418 5 72.9997V9Z" />
+      </mask>
+      <path
+        d="M5 9C5 4.58172 8.58172 1 13 1H60.9993C65.4176 1 68.9993 4.58172 68.9993 9V72.9997C68.9993 77.418 65.4176 80.9997 60.9993 80.9997H13C8.58172 80.9997 5 77.418 5 72.9997V9Z"
+        fill="white"
+      />
+      <path
+        d="M13 1V2H60.9994V1V0H13V1ZM68.9993 9H67.9993V72.9997H68.9993H69.9993V9H68.9993ZM60.9993 80.9997V79.9997H13V80.9997V81.9997H60.9993V80.9997ZM5 72.9997H6V9H5H4V72.9997H5ZM13 80.9997V79.9997C9.134 79.9997 6 76.8657 6 72.9997H5H4C4 77.9703 8.02943 81.9997 13 81.9997V80.9997ZM68.9993 72.9997H67.9993C67.9993 76.8657 64.8653 79.9997 60.9993 79.9997V80.9997V81.9997C65.9699 81.9997 69.9993 77.9703 69.9993 72.9997H68.9993ZM60.9994 1V2C64.8653 2 67.9993 5.13401 67.9993 9H68.9993H69.9993C69.9993 4.02944 65.9699 0 60.9994 0V1ZM13 1V0C8.02944 0 4 4.02943 4 9H5H6C6 5.134 9.13401 2 13 2V1Z"
+        fill="#F3F4F6"
+        mask="url(#path-1-inside-1_118_1436)"
+      />
+      <g filter="url(#filter0_dd_118_1436)">
+        <rect
+          x="5"
+          y="1"
+          width="64"
+          height="80"
+          rx="8"
+          fill="white"
+          fillOpacity="0.01"
+          shapeRendering="crispEdges"
+        />
+      </g>
+      <rect x="13.999" y="10.0059" width="31.9986" height="5.99184" rx="2.99592" fill="#E5E7EB" />
+      <rect x="13.999" y="24.002" width="39.995" height="3.99712" rx="1.99856" fill="#F3F4F6" />
+      <rect x="13.9912" y="31.998" width="40.0047" height="4.00691" rx="2.00345" fill="#F3F4F6" />
+      <rect x="13.9956" y="40.002" width="24.0044" height="3.99712" rx="1.99856" fill="#F3F4F6" />
+      <path
+        d="M53.9957 69.5539C55.5871 69.5539 57.1134 68.9217 58.2387 67.7964C59.3641 66.671 59.9963 65.1448 59.9963 63.5533C59.9963 61.9619 59.3641 60.4356 58.2387 59.3103C57.1134 58.1849 55.5871 57.5527 53.9957 57.5527C52.4042 57.5527 50.878 58.1849 49.7526 59.3103C48.6273 60.4356 47.9951 61.9619 47.9951 63.5533C47.9951 65.1448 48.6273 66.671 49.7526 67.7964C50.878 68.9217 52.4042 69.5539 53.9957 69.5539ZM51.9752 61.4273C52.1604 60.9046 52.6573 60.553 53.2128 60.553H54.5793C55.3974 60.553 56.0584 61.2164 56.0584 62.0321C56.0584 62.5618 55.7748 63.0517 55.3154 63.3166L54.5582 63.7502C54.5536 64.0549 54.3028 64.3034 53.9957 64.3034C53.6839 64.3034 53.4331 64.0526 53.4331 63.7408V63.4244C53.4331 63.2228 53.541 63.0376 53.7168 62.9368L54.7551 62.3415C54.8653 62.2782 54.9333 62.161 54.9333 62.0344C54.9333 61.8375 54.7739 61.6805 54.5793 61.6805H53.2128C53.1331 61.6805 53.0628 61.7297 53.037 61.8047L53.0276 61.8328C52.9245 62.1258 52.601 62.2782 52.3104 62.1751C52.0197 62.0719 51.865 61.7485 51.9682 61.4578L51.9775 61.4297L51.9752 61.4273ZM53.2456 65.8035C53.2456 65.6046 53.3246 65.4138 53.4653 65.2731C53.606 65.1325 53.7968 65.0535 53.9957 65.0535C54.1946 65.0535 54.3854 65.1325 54.5261 65.2731C54.6667 65.4138 54.7458 65.6046 54.7458 65.8035C54.7458 66.0025 54.6667 66.1932 54.5261 66.3339C54.3854 66.4746 54.1946 66.5536 53.9957 66.5536C53.7968 66.5536 53.606 66.4746 53.4653 66.3339C53.3246 66.1932 53.2456 66.0025 53.2456 65.8035Z"
+        fill="currentColor"
+      />
+      <defs>
+        <filter
+          id="filter0_dd_118_1436"
+          x="0"
+          y="0"
+          width="74"
+          height="90"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feMorphology
+            radius="2"
+            operator="erode"
+            in="SourceAlpha"
+            result="effect1_dropShadow_118_1436"
+          />
+          <feOffset dy="2" />
+          <feGaussianBlur stdDeviation="2" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_118_1436" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feMorphology
+            radius="1"
+            operator="erode"
+            in="SourceAlpha"
+            result="effect2_dropShadow_118_1436"
+          />
+          <feOffset dy="4" />
+          <feGaussianBlur stdDeviation="3" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+          <feBlend
+            mode="normal"
+            in2="effect1_dropShadow_118_1436"
+            result="effect2_dropShadow_118_1436"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect2_dropShadow_118_1436"
+            result="shape"
+          />
+        </filter>
+      </defs>
+    </svg>
+  );
+}
+
+interface IProps extends IIconProps {}
+
+function MenuIcon({ ...restProps }: IProps) {
+  return <Icon component={InternalIcon} {...restProps} />;
+}
+
+export default MenuIcon;

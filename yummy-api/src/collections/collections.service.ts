@@ -1,24 +1,27 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateAndUpdateCollectionDto } from './dto/create-and-update-collection.dto';
 import { AuthService } from 'src/auth/auth.service';
 import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-params.dto';
 import { CollectionsRepository } from './collections.repository';
 import { AllowedUsersRoles } from './models';
 import { CollectionDto } from './dto/collection.dto';
+import { ValidationService } from 'src/services/validation.service';
 
 @Injectable()
 export class CollectionsService {
   constructor(
     private readonly collectionsRepository: CollectionsRepository,
     private readonly authService: AuthService,
+    private readonly validationService: ValidationService,
   ) {}
 
   private async checkCollectionUserRole(id: string, authorization?: string) {
+    this.validationService.validateObjectId(id);
     const userId =
       this.authService.getUserIdFromAuthorizationHeader(authorization);
     const collection = await this.collectionsRepository.getById(id);
     if (!collection) {
-      throw new Error('Collection not found');
+      throw new NotFoundException('Collection not found');
     }
 
     const userRole = collection.allowedUsers.find(
@@ -106,9 +109,10 @@ export class CollectionsService {
   }
 
   async findCollectionById(id: string) {
+    this.validationService.validateObjectId(id);
     const collection = await this.collectionsRepository.getByIdWithPopulate(id);
     if (!collection) {
-      throw new Error('Collection not found');
+      throw new NotFoundException('Collection not found');
     }
     return collection;
   }

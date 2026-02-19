@@ -1,0 +1,89 @@
+@use '@styles/variables/breakpoints' as bp;
+
+@keyframes not-found-drift {
+  0%, 100% { transform: translate(0, 0); }
+  16.67% { transform: translate(3px, -2px); }
+  33.33% { transform: translate(2px, 3px); }
+  50% { transform: translate(-2px, 2px); }
+  66.67% { transform: translate(-3px, -1px); }
+  83.33% { transform: translate(1px, -2px); }
+}
+
+.not-found-page {
+  width: 100%;
+  min-height: var(--height-layout-content);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__404 {
+    font-size: 350px;
+    font-weight: 900;
+    color: var(--color-light-gray);
+    line-height: 1;
+    animation: not-found-drift 12s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  h1.ant-typography {
+    margin-bottom: 0;
+    margin-top: -80px;
+    font-size: var(--font-size-xxxl);
+    font-weight: 600;
+    color: #0F3D3E;
+    z-index: 2;
+  }
+
+  &__title {
+    margin-top: -60px;
+  }
+
+  &__description {
+    font-size: var(--font-size);
+    text-align: center;
+    z-index: 2;
+  }
+
+  @include bp.below-md {
+    &__404 {
+      font-size: 300px;
+    }
+
+    h1.ant-typography {
+      font-size: var(--font-size-xxl);
+      margin-top: -60px;
+    }
+  }
+
+  @include bp.below-sm {
+    &__404 {
+      font-size: 250px;
+    }
+
+    h1.ant-typography {
+      font-size: var(--font-size-xl);
+      margin-top: -45px;
+    }
+  }
+
+  @include bp.below-xs {
+    &__404 {
+      font-size: 200px;
+    }
+
+    h1.ant-typography {
+      font-size: var(--font-size-lg);
+      margin-top: -35px;
+    }
+
+    &__description {
+      font-size: var(--font-size-sm);
+    }
+  }
+
+  @include bp.below-xxs {
+    &__404 {
+      font-size: 150px;
+    }
+  }
+}
