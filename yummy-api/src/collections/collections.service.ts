@@ -3,8 +3,6 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { PageableResponseDto } from 'src/dto/pageable/pageable-response.dto';
-import { SummaryCollectionWithCheckedDto } from './dto/summary-collection-with-checked.dto';
 import { CreateAndUpdateCollectionDto } from './dto/create-and-update-collection.dto';
 import { AuthService } from 'src/auth/auth.service';
 import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-params.dto';
@@ -110,25 +108,5 @@ export class CollectionsService {
     const userId =
       this.authService.getUserIdFromAuthorizationHeader(authorization);
     return this.collectionsRepository.searchCollections(params, userId);
-  }
-
-  async getCollectionsByDishId(
-    dishId: string,
-    params: PageableRequestParamsDto,
-    authorization?: string,
-  ): Promise<PageableResponseDto<SummaryCollectionWithCheckedDto>> {
-    this.validationService.validateObjectId(dishId);
-    const userId =
-      this.authService.getUserIdFromAuthorizationHeader(authorization);
-    const result: PageableResponseDto<SummaryCollectionWithCheckedDto> | null =
-      await this.collectionsRepository.getCollectionsByDishId(
-        dishId,
-        params,
-        userId,
-      );
-    if (!result) {
-      throw new NotFoundException('Dish not found');
-    }
-    return result;
   }
 }

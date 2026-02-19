@@ -51,6 +51,7 @@ function CollectionDetail() {
         open={isEditCollectionModalOpen}
         onCancel={() => setIsEditCollectionModalOpen(false)}
       />
+
       {/* {collection && <DishList collectionId={collection?.id} />} */}
     </PageLayout>
   );

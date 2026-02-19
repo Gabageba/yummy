@@ -139,4 +139,31 @@ export class DishesController {
       authorization,
     );
   }
+
+  @Post('/:dishId/collections')
+  @ApiResponse({
+    status: 200,
+    description: 'Подборки пользователя с признаком вхождения блюда (checked)',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Пользователь не авторизован',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Блюдо не найдено',
+  })
+  @ApiOperation({
+    summary:
+      'Подборки по id блюда: сначала подборки, в которых есть блюдо, с полем checked',
+  })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  getDishCollections(
+    @Param('dishId') dishId: string,
+    @Body() params: PageableRequestParamsDto,
+    @Headers('authorization') authorization?: string,
+  ) {
+    return this.dishesService.getDishCollections(dishId, params, authorization);
+  }
 }

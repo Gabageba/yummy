@@ -13,7 +13,7 @@ import { CollectionDto } from './dto/collection.dto';
 import { BaseRepository } from 'src/base/base.repository';
 import { AllowedUsersRoles, CollectionActions } from './models';
 import { SummaryCollectionDto } from './dto/summary-collection.dto';
-import { SummaryCollectionWithCheckedDto } from './dto/summary-collection-with-checked.dto';
+import { DishCollectionDto } from '../dishes/dto/dish-collection.dto';
 import { Dish, DishDocument } from '../dishes/schemas/dish.schema';
 
 type PopulatedAllowedUsers = {
@@ -171,7 +171,7 @@ export class CollectionsRepository extends BaseRepository<
     dishId: string,
     params: PageableRequestParamsDto,
     userId: string,
-  ): Promise<PageableResponseDto<SummaryCollectionWithCheckedDto> | null> {
+  ): Promise<PageableResponseDto<DishCollectionDto> | null> {
     const dish = await this.dishModel
       .findById(dishId)
       .select('collections')
@@ -209,7 +209,7 @@ export class CollectionsRepository extends BaseRepository<
           id: (doc._id as Types.ObjectId).toString(),
           name: doc.name as string,
           checked: Boolean(doc.checked),
-        }) as SummaryCollectionWithCheckedDto,
+        }) as DishCollectionDto,
     );
   }
 }

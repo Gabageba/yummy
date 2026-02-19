@@ -6,12 +6,14 @@ import { DishesController } from './dishes.controller';
 import { DishesRepository } from './dishes.repository';
 import { AuthModule } from '../auth/auth.module';
 import { CollectionsModule } from '../collections/collections.module';
+import { ValidationModule } from '../services/validation.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Dish.name, schema: DishSchema }]),
     AuthModule,
     CollectionsModule,
+    ValidationModule,
   ],
   controllers: [DishesController],
   providers: [DishesService, DishesRepository],

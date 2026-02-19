@@ -53,7 +53,7 @@ const collectionsApi = rootApi
         }
       >({
         query: ({ dishId, ...restData }) => ({
-          url: `${COLLECTION_BASE_PATH}/by-dish/${dishId}`,
+          url: `/dishes/${dishId}/collections`,
           method: 'POST',
           data: restData,
         }),
