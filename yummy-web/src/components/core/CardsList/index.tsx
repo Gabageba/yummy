@@ -4,6 +4,7 @@ import { Col, Pagination, Row, Spin } from 'antd';
 import type { ReactNode } from 'react';
 import { useMemo, useState } from 'react';
 import Empty from '../Empty';
+import './index.scss';
 
 const DEFAULT_PAGE_SIZE = 9;
 const DEFAULT_COLUMNS_COUNT = 3;
@@ -39,7 +40,7 @@ function CardsList<T extends IItem>({
 
   return (
     <Spin spinning={isFetching}>
-      <Row gutter={[16, 16]}>
+      <Row gutter={[16, 16]} className="cards-list__content">
         {data && data.results.length > 0 ? (
           data.results.map((item) => (
             <Col span={span} key={item.id}>

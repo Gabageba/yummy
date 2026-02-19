@@ -15,4 +15,6 @@ export interface IDish {
   collections?: ICollectionRef[];
 }
 
-export type IDishPayload = Omit<IDish, 'id' | 'collections'>;
+export interface IDishPayload extends Omit<IDish, 'id' | 'collections'> {
+  collections: string[];
+}

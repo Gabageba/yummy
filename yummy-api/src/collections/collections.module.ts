@@ -5,11 +5,13 @@ import { CollectionsService } from './collections.service';
 import { CollectionsController } from './collections.controller';
 import { Collection, CollectionSchema } from './schemas/collections.schema';
 import { CollectionsRepository } from './collections.repository';
+import { Dish, DishSchema } from '../dishes/schemas/dish.schema';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: Collection.name, schema: CollectionSchema },
+      { name: Dish.name, schema: DishSchema },
     ]),
     AuthModule,
   ],

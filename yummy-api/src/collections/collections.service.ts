@@ -3,12 +3,13 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import { PageableResponseDto } from 'src/dto/pageable/pageable-response.dto';
+import { SummaryCollectionWithCheckedDto } from './dto/summary-collection-with-checked.dto';
 import { CreateAndUpdateCollectionDto } from './dto/create-and-update-collection.dto';
 import { AuthService } from 'src/auth/auth.service';
 import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-params.dto';
 import { CollectionsRepository } from './collections.repository';
 import { AllowedUsersRoles } from './models';
-import { CollectionDto } from './dto/collection.dto';
 import { ValidationService } from 'src/services/validation.service';
 
 @Injectable()
@@ -23,7 +24,7 @@ export class CollectionsService {
     this.validationService.validateObjectId(id);
     const userId =
       this.authService.getUserIdFromAuthorizationHeader(authorization);
-    const collection = await this.collectionsRepository.getById(id);
+    const collection = await this.collectionsRepository.getCollectionById(id);
     if (!collection) {
       throw new NotFoundException('Collection not found');
     }
@@ -42,14 +43,28 @@ export class CollectionsService {
     }
   }
 
-  async create(
+  async getCollectionsList(
+    params: PageableRequestParamsDto,
+    authorization?: string,
+  ) {
+    const userId =
+      this.authService.getUserIdFromAuthorizationHeader(authorization);
+
+    const collections = await this.collectionsRepository.getCollectionsList(
+      params,
+      userId,
+    );
+    return collections;
+  }
+
+  async createCollection(
     collection: CreateAndUpdateCollectionDto,
     authorization?: string,
   ) {
     const userId =
       this.authService.getUserIdFromAuthorizationHeader(authorization);
 
-    const savedCollection = await this.collectionsRepository.create(
+    const savedCollection = await this.collectionsRepository.createCollection(
       collection,
       userId,
     );
@@ -57,69 +72,63 @@ export class CollectionsService {
     return savedCollection._id.toString();
   }
 
-  private prepareResults(results: CollectionDto[], userId: string) {
-    return results.map((collection) => {
-      const actions: string[] = [];
-
-      const currentUserRole = collection.allowedUsers?.find(
-        (u) => u.id === userId,
-      )?.role;
-
-      switch (currentUserRole) {
-        case AllowedUsersRoles.CREATOR:
-          actions.push('EDIT');
-          actions.push('DELETE');
-          break;
-        case AllowedUsersRoles.EDITOR:
-          actions.push('EDIT');
-          break;
-        default:
-          break;
-      }
-
-      return {
-        ...collection,
-        actions,
-      };
-    });
-  }
-
-  async findAll(params: PageableRequestParamsDto, authorization?: string) {
-    const userId =
-      this.authService.getUserIdFromAuthorizationHeader(authorization);
-
-    const { results, ...restData } = await this.collectionsRepository.findAll(
-      params,
-      userId,
-    );
-
-    return {
-      ...restData,
-      results: this.prepareResults(results, userId),
-    };
-  }
-
-  async delete(id: string, authorization?: string) {
+  async deleteCollection(id: string, authorization?: string) {
     await this.checkCollectionUserRole(id, authorization);
-    await this.collectionsRepository.deleteById(id);
+    await this.collectionsRepository.deleteCollectionById(id);
     return id;
   }
 
-  async update(
+  async updateCollection(
     id: string,
     collection: CreateAndUpdateCollectionDto,
     authorization?: string,
   ) {
     await this.checkCollectionUserRole(id, authorization);
-    await this.collectionsRepository.update(id, collection);
+    await this.collectionsRepository.updateCollection(id, collection);
   }
 
-  async findCollectionById(id: string) {
+  async findCollectionById(id: string, authorization?: string) {
+    const userId =
+      this.authService.getUserIdFromAuthorizationHeader(authorization);
     this.validationService.validateObjectId(id);
-    const collection = await this.collectionsRepository.getByIdWithPopulate(id);
+
+    const collection =
+      await this.collectionsRepository.getCollectionByIdWithPopulate(
+        id,
+        userId,
+      );
     if (!collection) {
       throw new NotFoundException('Collection not found');
     }
     return collection;
+  }
+
+  async searchCollections(
+    params: PageableRequestParamsDto,
+    authorization?: string,
+  ) {
+    const userId =
+      this.authService.getUserIdFromAuthorizationHeader(authorization);
+    return this.collectionsRepository.searchCollections(params, userId);
+  }
+
+  async getCollectionsByDishId(
+    dishId: string,
+    params: PageableRequestParamsDto,
+    authorization?: string,
+  ): Promise<PageableResponseDto<SummaryCollectionWithCheckedDto>> {
+    this.validationService.validateObjectId(dishId);
+    const userId =
+      this.authService.getUserIdFromAuthorizationHeader(authorization);
+    const result: PageableResponseDto<SummaryCollectionWithCheckedDto> | null =
+      await this.collectionsRepository.getCollectionsByDishId(
+        dishId,
+        params,
+        userId,
+      );
+    if (!result) {
+      throw new NotFoundException('Dish not found');
+    }
+    return result;
   }
 }

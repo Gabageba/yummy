@@ -1,4 +1,5 @@
 import type { IDish } from '@pages/dishes/models';
+import type { CardProps } from 'antd';
 import { Card, Flex, Space, Tag, theme, Typography } from 'antd';
 import './index.scss';
 import PrimaryTag from '@components/core/PrimaryTag';
@@ -6,49 +7,18 @@ import DifficultyLabel from '@components/DifficultyLabel';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
-import { DeleteOutlined, EditOutlined, FolderAddOutlined } from '@ant-design/icons';
-import { useState } from 'react';
 import CoverIcon from '@components/CoverIcon';
 import { CoverIconEnum } from '@components/CoverIcon/models';
-import { useDeleteDishMutation } from '@pages/dishes/dishesApi';
-import DishModal from '../DishModal';
 
 interface IProps {
   dish: IDish;
+  actions?: CardProps['actions'];
 }
 
-function DishCard({ dish }: IProps) {
+function DishCard({ dish, actions }: IProps) {
   const { token } = theme.useToken();
   const { t } = useTranslation();
   const navigate = useNavigate();
-
-  const [deleteDish] = useDeleteDishMutation();
-
-  const [isDishModal, setIsDishModal] = useState<boolean>(false);
-
-  const actions = [
-    <EditOutlined
-      key="edit"
-      onClick={(e) => {
-        e.stopPropagation();
-        setIsDishModal(true);
-      }}
-    />,
-    <FolderAddOutlined
-      key="addToCollection"
-      onClick={(e) => {
-        e.stopPropagation();
-        // setIsCollectionModal(true);
-      }}
-    />,
-    <DeleteOutlined
-      key="delete"
-      onClick={(e) => {
-        e.stopPropagation();
-        deleteDish(dish.id);
-      }}
-    />,
-  ];
 
   return (
     <>
@@ -93,7 +63,6 @@ function DishCard({ dish }: IProps) {
           }
         />
       </Card>
-      <DishModal initialValue={dish} open={isDishModal} onCancel={() => setIsDishModal(false)} />
     </>
   );
 }

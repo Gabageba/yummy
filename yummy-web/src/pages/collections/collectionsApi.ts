@@ -1,11 +1,11 @@
 import rootApi from '@api/rootApi';
 import type { IPageableRequestParams, IPageableResponse } from '@customTypes/pageable';
-import type { ICollection, ICollectionPayload } from './List/models';
+import type { ICollection, ICollectionPayload, IDishCollection } from './List/models';
 
 const COLLECTION_BASE_PATH = '/collections';
 
 const collectionsApi = rootApi
-  .enhanceEndpoints({ addTagTypes: ['Collections', 'Collection'] })
+  .enhanceEndpoints({ addTagTypes: ['Collections', 'Collection', 'DishCollections'] })
   .injectEndpoints({
     endpoints: (build) => ({
       createCollection: build.mutation<void, ICollectionPayload>({
@@ -29,7 +29,7 @@ const collectionsApi = rootApi
           url: `${COLLECTION_BASE_PATH}/${id}`,
           method: 'DELETE',
         }),
-        invalidatesTags: ['Collections', 'Collection'],
+        invalidatesTags: ['Collections', 'Collection', 'DishCollections'],
       }),
       updateCollection: build.mutation<void, ICollectionPayload & { id: string }>({
         query: ({ id, ...restData }) => ({
@@ -37,7 +37,7 @@ const collectionsApi = rootApi
           method: 'PUT',
           data: restData,
         }),
-        invalidatesTags: ['Collections', 'Collection'],
+        invalidatesTags: ['Collections', 'Collection', 'DishCollections'],
       }),
       getCollection: build.query<ICollection, string>({
         query: (id) => ({
@@ -45,6 +45,19 @@ const collectionsApi = rootApi
           method: 'GET',
         }),
         providesTags: ['Collection'],
+      }),
+      getCollectionsByDishId: build.query<
+        IPageableResponse<IDishCollection>,
+        IPageableRequestParams & {
+          dishId: string;
+        }
+      >({
+        query: ({ dishId, ...restData }) => ({
+          url: `${COLLECTION_BASE_PATH}/by-dish/${dishId}`,
+          method: 'POST',
+          data: restData,
+        }),
+        providesTags: ['DishCollections'],
       }),
     }),
   });
@@ -56,5 +69,7 @@ export const {
   useUpdateCollectionMutation,
   useGetCollectionQuery,
 } = collectionsApi;
+
+export const { getCollectionsByDishId } = collectionsApi.endpoints;
 
 export default collectionsApi;

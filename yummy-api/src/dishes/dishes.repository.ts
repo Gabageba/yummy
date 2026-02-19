@@ -41,7 +41,7 @@ export class DishesRepository extends BaseRepository<DishDocument, DishDto> {
     };
   }
 
-  async create(
+  async createDish(
     dto: CreateAndUpdateDishDto,
     userId: string,
   ): Promise<DishDocument> {
@@ -56,7 +56,7 @@ export class DishesRepository extends BaseRepository<DishDocument, DishDto> {
     return dish.save();
   }
 
-  async findAll(
+  async getDishesList(
     params: PageableRequestParamsDto,
     userId: string,
   ): Promise<PageableDishesResponseDto> {
@@ -69,18 +69,27 @@ export class DishesRepository extends BaseRepository<DishDocument, DishDto> {
     });
   }
 
-  async getById(id: string): Promise<DishDocument | null> {
+  async getDishById(id: string): Promise<DishDocument | null> {
     return this.dishModel.findById(id);
   }
 
-  async deleteById(id: string): Promise<DeleteResult> {
+  async deleteDishById(id: string): Promise<DeleteResult> {
     return this.dishModel.deleteOne({ _id: id });
   }
 
-  async update(
+  async updateDish(
     id: string,
     dish: CreateAndUpdateDishDto,
   ): Promise<DishDocument | null> {
     return this.dishModel.findByIdAndUpdate(id, dish, { new: true }).exec();
+  }
+
+  async updateDishCollections(
+    id: string,
+    collections: string[],
+  ): Promise<DishDocument | null> {
+    return this.dishModel
+      .findByIdAndUpdate(id, { collections }, { new: true })
+      .exec();
   }
 }

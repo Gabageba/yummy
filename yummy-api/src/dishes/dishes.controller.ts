@@ -34,11 +34,11 @@ export class DishesController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Post('/')
-  create(
+  createDish(
     @Body() dish: CreateAndUpdateDishDto,
     @Headers('authorization') authorization?: string,
   ) {
-    return this.dishesService.create(dish, authorization);
+    return this.dishesService.createDish(dish, authorization);
   }
 
   @Post('/list')
@@ -47,11 +47,11 @@ export class DishesController {
   @ApiResponse({ status: 401, description: 'Пользователь не авторизован' })
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
-  findAll(
+  getDishesList(
     @Body() params: PageableRequestParamsDto,
     @Headers('authorization') authorization?: string,
   ) {
-    return this.dishesService.findAll(params, authorization);
+    return this.dishesService.getDishesList(params, authorization);
   }
 
   @Delete(':id')
@@ -76,11 +76,11 @@ export class DishesController {
   })
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
-  remove(
+  deleteDish(
     @Param('id') id: string,
     @Headers('authorization') authorization?: string,
   ) {
-    return this.dishesService.delete(id, authorization);
+    return this.dishesService.deleteDish(id, authorization);
   }
 
   @Put(':id')
@@ -105,11 +105,38 @@ export class DishesController {
   })
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
-  update(
+  updateDish(
     @Param('id') id: string,
     @Body() dish: CreateAndUpdateDishDto,
     @Headers('authorization') authorization?: string,
   ) {
-    return this.dishesService.update(id, dish, authorization);
+    return this.dishesService.updateDish(id, dish, authorization);
+  }
+
+  @Put(':id/collections')
+  @ApiResponse({
+    status: 200,
+    description: 'Подборки блюда успешно обновлены',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Пользователь не авторизован',
+  })
+  @ApiResponse({ status: 404, description: 'Блюдо не найдено' })
+  @ApiOperation({
+    summary: 'Обновление подборки блюда',
+  })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  updateDishCollections(
+    @Param('id') id: string,
+    @Body() collections: string[],
+    @Headers('authorization') authorization?: string,
+  ) {
+    return this.dishesService.updateDishCollections(
+      id,
+      collections,
+      authorization,
+    );
   }
 }

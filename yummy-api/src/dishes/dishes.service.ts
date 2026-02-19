@@ -18,7 +18,7 @@ export class DishesService {
   private async checkDishAuthor(id: string, authorization?: string) {
     const userId =
       this.authService.getUserIdFromAuthorizationHeader(authorization);
-    const dish = await this.dishesRepository.getById(id);
+    const dish = await this.dishesRepository.getDishById(id);
     if (!dish) {
       throw new NotFoundException('dish not found');
     }
@@ -28,32 +28,44 @@ export class DishesService {
     }
   }
 
-  async create(dish: CreateAndUpdateDishDto, authorization?: string) {
+  async createDish(dish: CreateAndUpdateDishDto, authorization?: string) {
     const userId =
       this.authService.getUserIdFromAuthorizationHeader(authorization);
-    const saved = await this.dishesRepository.create(dish, userId);
+    const saved = await this.dishesRepository.createDish(dish, userId);
     return saved._id.toString();
   }
 
-  async findAll(params: PageableRequestParamsDto, authorization?: string) {
+  async getDishesList(
+    params: PageableRequestParamsDto,
+    authorization?: string,
+  ) {
     const userId =
       this.authService.getUserIdFromAuthorizationHeader(authorization);
 
-    return this.dishesRepository.findAll(params, userId);
+    return this.dishesRepository.getDishesList(params, userId);
   }
 
-  async delete(id: string, authorization?: string) {
+  async deleteDish(id: string, authorization?: string) {
     await this.checkDishAuthor(id, authorization);
-    await this.dishesRepository.deleteById(id);
+    await this.dishesRepository.deleteDishById(id);
     return id;
   }
 
-  async update(
+  async updateDish(
     id: string,
     collection: CreateAndUpdateDishDto,
     authorization?: string,
   ) {
     await this.checkDishAuthor(id, authorization);
-    await this.dishesRepository.update(id, collection);
+    await this.dishesRepository.updateDish(id, collection);
+  }
+
+  async updateDishCollections(
+    id: string,
+    collections: string[],
+    authorization?: string,
+  ) {
+    await this.checkDishAuthor(id, authorization);
+    await this.dishesRepository.updateDishCollections(id, collections);
   }
 }

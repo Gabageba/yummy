@@ -42,6 +42,7 @@ function MobileHeaderContent({ user, onLogout }: MobileHeaderContentProps) {
         className="page-layout__header--mobile-drawer"
         open={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
+        size="80%"
       >
         <Flex
           vertical

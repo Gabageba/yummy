@@ -8,6 +8,20 @@ import {
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
+export class SortItemDto {
+  @ApiProperty({ example: 'name', description: 'Поле для сортировки' })
+  @IsString()
+  field: string;
+
+  @ApiProperty({
+    example: 'asc',
+    description: 'Направление: asc или desc',
+    enum: ['asc', 'desc'],
+  })
+  @IsString()
+  order: 'asc' | 'desc';
+}
+
 export class FilterItemDto {
   @ApiProperty({
     example: 'difficulty',
@@ -63,4 +77,14 @@ export class PageableRequestParamsDto {
   @ValidateNested({ each: true })
   @Type(() => FilterItemDto)
   filters?: FilterItemDto[];
+
+  @ApiPropertyOptional({
+    description: 'Сортировка: поле и направление',
+    type: [SortItemDto],
+    example: [{ field: 'name', order: 'asc' }],
+  })
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => SortItemDto)
+  sort?: SortItemDto[];
 }

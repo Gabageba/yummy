@@ -22,3 +22,9 @@ export interface ICollection {
 export interface ICollectionPayload extends Omit<ICollection, 'id' | 'actions' | 'allowedUsers'> {
   name: string;
 }
+
+export interface IDishCollection {
+  id: string;
+  name: string;
+  checked: boolean;
+}

@@ -19,11 +19,34 @@ import {
 import { CreateAndUpdateCollectionDto } from './dto/create-and-update-collection.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-params.dto';
+import { PageableResponseDto } from 'src/dto/pageable/pageable-response.dto';
+import { SummaryCollectionWithCheckedDto } from './dto/summary-collection-with-checked.dto';
 
 @ApiTags('Подборки')
 @Controller('collections')
 export class CollectionsController {
   constructor(private readonly collectionsService: CollectionsService) {}
+
+  @Post('/list')
+  @ApiOperation({
+    summary: 'Получение всех подборок пользователя',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Подборки получены',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Пользователь не авторизован',
+  })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  getCollectionsList(
+    @Body() params: PageableRequestParamsDto,
+    @Headers('authorization') authorization?: string,
+  ) {
+    return this.collectionsService.getCollectionsList(params, authorization);
+  }
 
   @ApiOperation({
     summary: 'Создание новой подборки',
@@ -44,28 +67,7 @@ export class CollectionsController {
     @Body() collection: CreateAndUpdateCollectionDto,
     @Headers('authorization') authorization?: string,
   ) {
-    return this.collectionsService.create(collection, authorization);
-  }
-
-  @Post('/list')
-  @ApiOperation({
-    summary: 'Получение всех подборок пользователя',
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Подборки получены',
-  })
-  @ApiResponse({
-    status: 401,
-    description: 'Пользователь не авторизован',
-  })
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard('jwt'))
-  findAll(
-    @Body() params: PageableRequestParamsDto,
-    @Headers('authorization') authorization?: string,
-  ) {
-    return this.collectionsService.findAll(params, authorization);
+    return this.collectionsService.createCollection(collection, authorization);
   }
 
   @Delete(':id')
@@ -94,7 +96,7 @@ export class CollectionsController {
     @Param('id') id: string,
     @Headers('authorization') authorization?: string,
   ) {
-    return this.collectionsService.delete(id, authorization);
+    return this.collectionsService.deleteCollection(id, authorization);
   }
 
   @Put(':id')
@@ -124,7 +126,11 @@ export class CollectionsController {
     @Body() collection: CreateAndUpdateCollectionDto,
     @Headers('authorization') authorization?: string,
   ) {
-    return this.collectionsService.update(id, collection, authorization);
+    return this.collectionsService.updateCollection(
+      id,
+      collection,
+      authorization,
+    );
   }
 
   @Get(':id')
@@ -145,7 +151,62 @@ export class CollectionsController {
   })
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
-  findById(@Param('id') id: string) {
-    return this.collectionsService.findCollectionById(id);
+  findById(
+    @Param('id') id: string,
+    @Headers('authorization') authorization?: string,
+  ) {
+    return this.collectionsService.findCollectionById(id, authorization);
+  }
+
+  @Post('/search')
+  @ApiResponse({
+    status: 200,
+    description: 'Подборки успешно получены',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Пользователь не авторизован',
+  })
+  @ApiOperation({
+    summary: 'Поиск подборок',
+  })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  search(
+    @Body() params: PageableRequestParamsDto,
+    @Headers('authorization') authorization?: string,
+  ) {
+    return this.collectionsService.searchCollections(params, authorization);
+  }
+
+  @Post('/by-dish/:dishId')
+  @ApiResponse({
+    status: 200,
+    description: 'Подборки пользователя с признаком вхождения блюда (checked)',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Пользователь не авторизован',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Блюдо не найдено',
+  })
+  @ApiOperation({
+    summary:
+      'Подборки по id блюда: сначала подборки, в которых есть блюдо, с полем checked',
+  })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  getCollectionsByDishId(
+    @Param('dishId') dishId: string,
+    @Body() params: PageableRequestParamsDto,
+    @Headers('authorization') authorization?: string,
+  ): Promise<PageableResponseDto<SummaryCollectionWithCheckedDto>> {
+    return this.collectionsService.getCollectionsByDishId(
+      dishId,
+      params,
+      authorization,
+    );
   }
 }
