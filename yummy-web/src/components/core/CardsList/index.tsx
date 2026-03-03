@@ -3,11 +3,11 @@ import type { TypedUseQuery } from '@reduxjs/toolkit/query/react';
 import { Col, Pagination, Row, Spin } from 'antd';
 import type { ReactNode } from 'react';
 import { useMemo, useState } from 'react';
+import useCardListColumnsCount from '@hooks/useCardListColumnsCount';
 import Empty from '../Empty';
 import './index.scss';
 
-const DEFAULT_PAGE_SIZE = 9;
-const DEFAULT_COLUMNS_COUNT = 3;
+const DEFAULT_PAGE_SIZE = 8;
 
 interface IProps<T> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,13 +29,16 @@ function CardsList<T extends IItem>({
   useQuery,
   cardRender,
   size = DEFAULT_PAGE_SIZE,
-  columnsCount = DEFAULT_COLUMNS_COUNT,
+  columnsCount: count,
   additionalParams = {},
 }: IProps<T>) {
+  const defaultColumnsCount = useCardListColumnsCount();
+
   const [page, setPage] = useState<number>(1);
 
   const { data, isFetching } = useQuery({ page, size, ...additionalParams });
 
+  const columnsCount = useMemo(() => count ?? defaultColumnsCount, [count, defaultColumnsCount]);
   const span = useMemo(() => 24 / columnsCount, [columnsCount]);
 
   return (

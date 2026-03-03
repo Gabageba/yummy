@@ -18,3 +18,9 @@ export interface IDish {
 export interface IDishPayload extends Omit<IDish, 'id' | 'collections'> {
   collections: string[];
 }
+
+export interface IDishCollection {
+  id: string;
+  name: string;
+  checked: boolean;
+}

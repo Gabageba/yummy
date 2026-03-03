@@ -4,9 +4,75 @@ import {
   Document,
   PopulateOptions,
   PipelineStage,
+  Types,
 } from 'mongoose';
-import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-params.dto';
+import {
+  PageableRequestParamsDto,
+  FilterItemDto,
+  FilterOperator,
+} from 'src/dto/pageable/pageable-request-params.dto';
 import { PageableResponseDto } from 'src/dto/pageable/pageable-response.dto';
+
+function parseFilterValue(
+  value: string,
+  asObjectId?: boolean,
+): string | number | boolean | Types.ObjectId {
+  if (asObjectId) {
+    return new Types.ObjectId(value);
+  }
+  if (value === 'true') return true;
+  if (value === 'false') return false;
+  const num = Number(value);
+  if (value !== '' && !Number.isNaN(num)) return num;
+  return value;
+}
+
+function buildFilterFromItem<T>(item: FilterItemDto): QueryFilter<T> {
+  const {
+    property,
+    value,
+    operator = FilterOperator.EQ,
+    asObjectId = false,
+  } = item;
+  const parsed = parseFilterValue(value, asObjectId);
+
+  switch (operator) {
+    case FilterOperator.EQ:
+      return { [property]: parsed } as QueryFilter<T>;
+    case FilterOperator.NE:
+      return { [property]: { $ne: parsed } } as QueryFilter<T>;
+    case FilterOperator.GT:
+      return { [property]: { $gt: parsed } } as QueryFilter<T>;
+    case FilterOperator.GTE:
+      return { [property]: { $gte: parsed } } as QueryFilter<T>;
+    case FilterOperator.LT:
+      return { [property]: { $lt: parsed } } as QueryFilter<T>;
+    case FilterOperator.LTE:
+      return { [property]: { $lte: parsed } } as QueryFilter<T>;
+    case FilterOperator.IN:
+      return {
+        [property]: {
+          $in: value
+            .split(',')
+            .map((v) => parseFilterValue(v.trim(), asObjectId)),
+        },
+      } as QueryFilter<T>;
+    case FilterOperator.NIN:
+      return {
+        [property]: {
+          $nin: value
+            .split(',')
+            .map((v) => parseFilterValue(v.trim(), asObjectId)),
+        },
+      } as QueryFilter<T>;
+    case FilterOperator.REGEX:
+      return {
+        [property]: { $regex: value, $options: 'i' },
+      } as QueryFilter<T>;
+    default:
+      return { [property]: parsed } as QueryFilter<T>;
+  }
+}
 
 interface pageableSearchProps<TDocument, TResult = unknown> {
   params: PageableRequestParamsDto;
@@ -63,9 +129,9 @@ export abstract class BaseRepository<TDocument extends Document, TDto> {
     let baseFilter: QueryFilter<TDocument> = filters ?? {};
 
     if (paramsFilters?.length) {
-      const filtersFromParams = paramsFilters.reduce(
-        (acc, { property, value }) => ({ ...acc, [property]: value }),
-        {} as QueryFilter<TDocument>,
+      const filtersFromParams = paramsFilters.reduce<QueryFilter<TDocument>>(
+        (acc, item) => ({ ...acc, ...buildFilterFromItem<TDocument>(item) }),
+        {},
       );
       baseFilter = { ...baseFilter, ...filtersFromParams };
     }

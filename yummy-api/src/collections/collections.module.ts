@@ -6,6 +6,7 @@ import { CollectionsController } from './collections.controller';
 import { Collection, CollectionSchema } from './schemas/collections.schema';
 import { CollectionsRepository } from './collections.repository';
 import { Dish, DishSchema } from '../dishes/schemas/dish.schema';
+import { DishesRepository } from 'src/dishes/dishes.repository';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { Dish, DishSchema } from '../dishes/schemas/dish.schema';
     AuthModule,
   ],
   controllers: [CollectionsController],
-  providers: [CollectionsService, CollectionsRepository],
+  providers: [CollectionsService, CollectionsRepository, DishesRepository],
   exports: [CollectionsRepository],
 })
 export class CollectionsModule {}

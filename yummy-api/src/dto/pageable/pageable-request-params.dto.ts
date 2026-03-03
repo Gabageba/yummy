@@ -1,6 +1,8 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import {
+  IsBoolean,
   IsDefined,
+  IsEnum,
   IsNumber,
   IsOptional,
   IsString,
@@ -22,6 +24,18 @@ export class SortItemDto {
   order: 'asc' | 'desc';
 }
 
+export enum FilterOperator {
+  EQ = 'eq', //Равно
+  NE = 'ne', //Не равно
+  GT = 'gt', //Больше
+  GTE = 'gte', //Больше или равно
+  LT = 'lt', //Меньше
+  LTE = 'lte', //Меньше или равно
+  IN = 'in', //Входит в список
+  NIN = 'nin', //Не входит в список
+  REGEX = 'regex', //Совпадает с регулярным выражением
+}
+
 export class FilterItemDto {
   @ApiProperty({
     example: 'difficulty',
@@ -32,10 +46,29 @@ export class FilterItemDto {
 
   @ApiProperty({
     example: 'easy',
-    description: 'Значение фильтра (строка, число или boolean)',
+    description: 'Значение фильтра (строка; для in/nin — через запятую)',
   })
   @IsString()
   value: string;
+
+  @ApiPropertyOptional({
+    example: FilterOperator.EQ,
+    description: 'Оператор сравнения',
+    enum: FilterOperator,
+    default: FilterOperator.EQ,
+  })
+  @IsOptional()
+  @IsEnum(FilterOperator)
+  operator?: FilterOperator = FilterOperator.EQ;
+
+  @ApiPropertyOptional({
+    example: false,
+    description:
+      'Привести значение к ObjectId (для полей-ссылок и массивов ObjectId)',
+  })
+  @IsOptional()
+  @IsBoolean()
+  asObjectId?: boolean;
 }
 
 export class PageableRequestParamsDto {
@@ -66,10 +99,11 @@ export class PageableRequestParamsDto {
   query: string;
 
   @ApiPropertyOptional({
-    description: 'Фильтры: массив пар свойство — значение',
+    description:
+      'Фильтры: свойство, значение и оператор (eq, ne, gt, gte, lt, lte, in, nin, regex)',
     type: [FilterItemDto],
     example: [
-      { property: 'difficulty', value: 'easy' },
+      { property: 'difficulty', value: 'easy', operator: 'eq' },
       { property: 'tags', value: 'italian' },
     ],
   })

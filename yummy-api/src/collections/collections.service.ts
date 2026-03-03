@@ -9,6 +9,7 @@ import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-para
 import { CollectionsRepository } from './collections.repository';
 import { AllowedUsersRoles } from './models';
 import { ValidationService } from 'src/services/validation.service';
+import { DishesRepository } from 'src/dishes/dishes.repository';
 
 @Injectable()
 export class CollectionsService {
@@ -16,6 +17,7 @@ export class CollectionsService {
     private readonly collectionsRepository: CollectionsRepository,
     private readonly authService: AuthService,
     private readonly validationService: ValidationService,
+    private readonly dishesRepository: DishesRepository,
   ) {}
 
   private async checkCollectionUserRole(id: string, authorization?: string) {
@@ -37,6 +39,26 @@ export class CollectionsService {
     ) {
       throw new ForbiddenException(
         'User is not allowed to delete this collection',
+      );
+    }
+  }
+
+  private async checkCollectionAllowedUser(id: string, authorization?: string) {
+    this.validationService.validateObjectId(id);
+    const userId =
+      this.authService.getUserIdFromAuthorizationHeader(authorization);
+    const collection = await this.collectionsRepository.getCollectionById(id);
+    if (!collection) {
+      throw new NotFoundException('Collection not found');
+    }
+
+    const isUserAllowed = collection.allowedUsers.some(
+      (u) => u.id.toString() === userId,
+    );
+
+    if (!isUserAllowed) {
+      throw new ForbiddenException(
+        'User is not allowed to get this collection',
       );
     }
   }
@@ -108,5 +130,33 @@ export class CollectionsService {
     const userId =
       this.authService.getUserIdFromAuthorizationHeader(authorization);
     return this.collectionsRepository.searchCollections(params, userId);
+  }
+
+  async getCollectionDishes(
+    collectionId: string,
+    params: PageableRequestParamsDto,
+    authorization?: string,
+  ) {
+    await this.checkCollectionAllowedUser(collectionId, authorization);
+
+    return this.dishesRepository.getDishesByCollectionId(collectionId, params);
+  }
+
+  async removeDishFromCollection(
+    collectionId: string,
+    dishId: string,
+    authorization?: string,
+  ) {
+    await this.checkCollectionUserRole(collectionId, authorization);
+    this.validationService.validateObjectId(dishId);
+
+    const removed = await this.dishesRepository.removeDishFromCollection(
+      dishId,
+      collectionId,
+    );
+    if (!removed) {
+      throw new NotFoundException('Dish not found or not in collection');
+    }
+    return { collectionId, dishId };
   }
 }

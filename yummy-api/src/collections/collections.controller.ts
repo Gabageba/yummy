@@ -176,4 +176,68 @@ export class CollectionsController {
   ) {
     return this.collectionsService.searchCollections(params, authorization);
   }
+
+  @Post('/:collectionId/dishes')
+  @ApiResponse({
+    status: 200,
+    description: 'Блюда успешно получены',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Пользователь не авторизован',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Подборка не найдена',
+  })
+  @ApiOperation({
+    summary: 'Получение блюд подборки',
+  })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  getCollectionDishes(
+    @Param('collectionId') collectionId: string,
+    @Body() params: PageableRequestParamsDto,
+    @Headers('authorization') authorization?: string,
+  ) {
+    return this.collectionsService.getCollectionDishes(
+      collectionId,
+      params,
+      authorization,
+    );
+  }
+
+  @Delete('/:collectionId/dishes/:dishId')
+  @ApiResponse({
+    status: 200,
+    description: 'Блюдо успешно удалено из подборки',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Пользователь не авторизован',
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Нет прав на изменение подборки',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Подборка или блюдо не найдено',
+  })
+  @ApiOperation({
+    summary: 'Удаление блюда из подборки',
+  })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  removeDishFromCollection(
+    @Param('collectionId') collectionId: string,
+    @Param('dishId') dishId: string,
+    @Headers('authorization') authorization?: string,
+  ) {
+    return this.collectionsService.removeDishFromCollection(
+      collectionId,
+      dishId,
+      authorization,
+    );
+  }
 }

@@ -1,11 +1,10 @@
 import { useAppDispatch } from '@hooks/redux';
-import { getCollectionsByDishId } from '@pages/collections/collectionsApi';
-import type { IDishCollection } from '@pages/collections/List/models';
-import { useUpdateDishCollectionsMutation } from '@pages/dishes/dishesApi';
+import { getDishCollections, useUpdateDishCollectionsMutation } from '@pages/dishes/dishesApi';
 import { Checkbox, Divider, Flex, Modal, Spin, theme, Typography } from 'antd';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './index.scss';
+import type { IDishCollection } from '@pages/dishes/models';
 
 const DEFAULT_PAGE_SIZE = 20;
 const SCROLL_LOAD_THRESHOLD = 80;
@@ -69,7 +68,7 @@ const DishCollectionsModal = ({ dishId, open, onCancel }: IProps) => {
     if (!open || !dishId) return;
     setLoading(true);
     dispatch(
-      getCollectionsByDishId.initiate({
+      getDishCollections.initiate({
         dishId,
         page,
         size: DEFAULT_PAGE_SIZE,
@@ -104,6 +103,7 @@ const DishCollectionsModal = ({ dishId, open, onCancel }: IProps) => {
 
   return (
     <Modal
+      getContainer={() => document.body}
       open={open}
       onOk={onOk}
       onCancel={onCancel}

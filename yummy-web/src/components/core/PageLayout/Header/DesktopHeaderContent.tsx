@@ -1,8 +1,9 @@
-import LogoLongIcon from '@components/icons/LogoLongIcon';
 import { RoutePath } from '@routes/models';
 import { useNavigate } from 'react-router-dom';
 import type { IUserProfile } from '@api/usersApi';
+import LogoHorizontalIcon from '@components/icons/LogoHorizontalIcon';
 import NavigationMenu from './NavigationMenu';
+
 import AvatarButton from './AvatarButton';
 import '../index.scss';
 
@@ -16,11 +17,8 @@ function DesktopHeaderContent({ user, onLogout }: DesktopHeaderContentProps) {
 
   return (
     <div className="page-layout__header--container page-layout__header--desktop-container">
-      <div className="page-layout__header--logo">
-        <LogoLongIcon
-          className="page-layout__header--logo-icon"
-          onClick={() => navigate(RoutePath.MAIN)}
-        />
+      <div className="page-layout__header--logo" onClick={() => navigate(RoutePath.MAIN)}>
+        <LogoHorizontalIcon size={32} />
       </div>
 
       <NavigationMenu mode="horizontal" />

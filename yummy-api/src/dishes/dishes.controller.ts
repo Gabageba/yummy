@@ -166,4 +166,25 @@ export class DishesController {
   ) {
     return this.dishesService.getDishCollections(dishId, params, authorization);
   }
+
+  @Post('search')
+  @ApiResponse({
+    status: 200,
+    description: 'Поиск блюд пользователя',
+  })
+  @ApiResponse({
+    status: 401,
+    description: 'Пользователь не авторизован',
+  })
+  @ApiOperation({
+    summary: 'Поиск блюд пользователя',
+  })
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  searchDishes(
+    @Body() params: PageableRequestParamsDto,
+    @Headers('authorization') authorization?: string,
+  ) {
+    return this.dishesService.searchDishes(params, authorization);
+  }
 }

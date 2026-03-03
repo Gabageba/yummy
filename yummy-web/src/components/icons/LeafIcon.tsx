@@ -2,6 +2,8 @@ import type { CustomIconComponentProps } from '@ant-design/icons/lib/components/
 import type { IIconProps } from './Icon';
 import Icon from './Icon';
 
+const ASPECT_RATIO = 13 / 23;
+
 function InternalIcon(props: CustomIconComponentProps | React.SVGProps<SVGSVGElement>) {
   const { width = '1em', height = '1em', ...rest } = props;
   return (
@@ -24,7 +26,7 @@ function InternalIcon(props: CustomIconComponentProps | React.SVGProps<SVGSVGEle
 interface IProps extends IIconProps {}
 
 function LeafIcon({ ...restProps }: IProps) {
-  return <Icon component={InternalIcon} {...restProps} />;
+  return <Icon component={InternalIcon} aspectRatio={ASPECT_RATIO} {...restProps} />;
 }
 
 export default LeafIcon;

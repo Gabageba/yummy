@@ -1,53 +1,30 @@
-import { DeleteOutlined, EditOutlined, FolderAddOutlined, PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import PageLayout from '@components/core/PageLayout';
-import DishModal from '@pages/dishes/DishModal';
 import { Button, Grid } from 'antd';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import CardsList from '@components/core/CardsList';
-import useCardListColumnsCount from '@hooks/useCardListColumnsCount';
 import DishCard from '@components/dishes/DishCard';
+import EditDishAction from '@components/dishes/actions/EditDishAction';
+import AddDishToCollectionAction from '@components/dishes/actions/AddDishToCollectionAction';
+import DeleteDishAction from '@components/dishes/actions/DeleteDishAction';
 import type { IDish } from '../models';
-import { useDeleteDishMutation, useGetDishesQuery } from '../dishesApi';
-import DishCollectionsModal from '../components/DishCollectionsModal';
+import { useGetDishesQuery } from '../dishesApi';
+import DishModal from '../DishModal';
 
 function DishesList() {
   const { t } = useTranslation();
   const screens = Grid.useBreakpoint();
-  const columnsCount = useCardListColumnsCount();
 
-  const [deleteDish] = useDeleteDishMutation();
-
-  const [dishModal, setDishModal] = useState<{ initialValues: IDish | undefined } | undefined>(
-    undefined,
-  );
-  const [dishCollectionsModal, setDishCollectionsModal] = useState<string | undefined>(undefined);
+  const [isDishModalOpen, setIsDishModalOpen] = useState<boolean>(false);
 
   const getCardActions = useCallback(
     (dish: IDish) => [
-      <EditOutlined
-        key="edit"
-        onClick={(e) => {
-          e.stopPropagation();
-          setDishModal({ initialValues: dish });
-        }}
-      />,
-      <FolderAddOutlined
-        key="addToCollection"
-        onClick={(e) => {
-          e.stopPropagation();
-          setDishCollectionsModal(dish.id);
-        }}
-      />,
-      <DeleteOutlined
-        key="delete"
-        onClick={(e) => {
-          e.stopPropagation();
-          deleteDish(dish.id);
-        }}
-      />,
+      <EditDishAction key="edit" dish={dish} />,
+      <AddDishToCollectionAction key="addToCollection" dishId={dish.id} />,
+      <DeleteDishAction key="delete" dishId={dish.id} />,
     ],
-    [deleteDish],
+    [],
   );
 
   return (
@@ -55,30 +32,17 @@ function DishesList() {
       title={t('yourDishes')}
       description={t('Выберите ваше блюдо')}
       actions={
-        <Button
-          type="primary"
-          icon={<PlusOutlined />}
-          onClick={() => setDishModal({ initialValues: undefined })}
-        >
-          {screens.sm && t('addDish')}
+        <Button type="primary" icon={<PlusOutlined />} onClick={() => setIsDishModalOpen(true)}>
+          {screens.sm && t('createDish')}
         </Button>
       }
     >
       <CardsList<IDish>
-        columnsCount={columnsCount}
         useQuery={useGetDishesQuery}
         cardRender={(dish) => <DishCard dish={dish} actions={getCardActions(dish)} />}
       />
-      <DishModal
-        initialValue={dishModal?.initialValues}
-        open={!!dishModal}
-        onCancel={() => setDishModal(undefined)}
-      />
-      <DishCollectionsModal
-        open={!!dishCollectionsModal}
-        onCancel={() => setDishCollectionsModal(undefined)}
-        dishId={dishCollectionsModal}
-      />
+
+      <DishModal open={isDishModalOpen} onCancel={() => setIsDishModalOpen(false)} />
     </PageLayout>
   );
 }

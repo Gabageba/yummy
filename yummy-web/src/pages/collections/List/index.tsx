@@ -7,14 +7,12 @@ import './index.scss';
 import PageLayout from '@components/core/PageLayout';
 import CollectionModal from '@components/collections/CollectionModal';
 import CollectionCard from '@components/collections/CollectionCard';
-import useCardListColumnsCount from '@hooks/useCardListColumnsCount';
 import type { ICollection } from './models';
 import { useGetCollectionsQuery } from '../collectionsApi';
 
 function CollectionsList() {
   const { t } = useTranslation();
   const screens = Grid.useBreakpoint();
-  const columnsCount = useCardListColumnsCount();
 
   const [isCollectionModal, setIsCollectionModal] = useState<boolean>(false);
 
@@ -29,7 +27,6 @@ function CollectionsList() {
       description={t('selectDishCollection')}
     >
       <CardsList<ICollection>
-        columnsCount={columnsCount}
         useQuery={useGetCollectionsQuery}
         cardRender={(collection) => <CollectionCard collection={collection} />}
       />

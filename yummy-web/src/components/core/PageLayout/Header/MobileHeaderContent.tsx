@@ -6,7 +6,7 @@ import type { IUserProfile } from '@api/usersApi';
 import toCapitalized from '@utils/toCapitalized';
 import { RoutePath } from '@routes/models';
 import { useNavigate } from 'react-router-dom';
-import LogoLongIcon from '@components/icons/LogoLongIcon';
+import LogoHorizontalIcon from '@components/icons/LogoHorizontalIcon';
 import NavigationMenu from './NavigationMenu';
 import '../index.scss';
 import Avatar from './Avatar';
@@ -30,7 +30,9 @@ function MobileHeaderContent({ user, onLogout }: MobileHeaderContentProps) {
         justify="space-between"
         className="page-layout__header--mobile-container"
       >
-        <LogoLongIcon />
+        <div className="page-layout__header--logo" onClick={() => navigate(RoutePath.MAIN)}>
+          <LogoHorizontalIcon size={32} />
+        </div>
         <Button
           icon={<MenuOutlined />}
           variant="text"

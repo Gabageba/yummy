@@ -1,9 +1,12 @@
+import type { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
 import type { IIconProps } from './Icon';
 import Icon from './Icon';
 
-function InternalIcon() {
+const ASPECT_RATIO = 90 / 74;
+
+function InternalIcon(props: CustomIconComponentProps | React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width="74" height="90" viewBox="0 0 74 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 74 90" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <mask id="path-1-inside-1_118_1436" fill="white">
         <path d="M5 9C5 4.58172 8.58172 1 13 1H60.9993C65.4176 1 68.9993 4.58172 68.9993 9V72.9997C68.9993 77.418 65.4176 80.9997 60.9993 80.9997H13C8.58172 80.9997 5 77.418 5 72.9997V9Z" />
       </mask>
@@ -100,7 +103,7 @@ function InternalIcon() {
 interface IProps extends IIconProps {}
 
 function MenuIcon({ ...restProps }: IProps) {
-  return <Icon component={InternalIcon} {...restProps} />;
+  return <Icon component={InternalIcon} {...restProps} aspectRatio={ASPECT_RATIO} />;
 }
 
 export default MenuIcon;

@@ -8,6 +8,7 @@ import DifficultyFormItem from '@components/core/fields/difficulty/DifficultyFor
 import { Difficulty } from '@components/core/fields/difficulty/models';
 import { useCreateDishMutation, useUpdateDishMutation } from '@pages/dishes/dishesApi';
 import type { IDish, IDishPayload } from '@pages/dishes/models';
+import useApiValidationErrors from '@hooks/useApiValidationErrors';
 
 interface IProps {
   initialValue?: IDish;
@@ -19,6 +20,7 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
   const { t } = useTranslation();
   const { required } = useValidation();
   const [form] = Form.useForm<IDishPayload>();
+  const { handleValidationErrors } = useApiValidationErrors(form);
 
   const [create] = useCreateDishMutation();
   const [update] = useUpdateDishMutation();
@@ -28,11 +30,13 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
       .validateFields()
       .then((dish) =>
         (initialValue?.id ? update({ ...dish, id: initialValue.id }) : create(dish)).then(onCancel),
-      );
+      )
+      .catch(handleValidationErrors);
   };
 
   return (
     <Modal
+      getContainer={() => document.body}
       open={open}
       afterClose={form.resetFields}
       title={
@@ -65,6 +69,7 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
         />
         <DifficultyFormItem rules={[required]} radioGroupProps={{ block: true }} />
         <SelectFormItem
+          rules={[required]}
           name="mainIngredients"
           label={t('mainIngredients')}
           selectProps={{

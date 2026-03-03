@@ -1,11 +1,11 @@
 import rootApi from '@api/rootApi';
 import type { IPageableRequestParams, IPageableResponse } from '@customTypes/pageable';
-import type { IDish, IDishPayload } from './models';
+import type { IDish, IDishCollection, IDishPayload } from './models';
 
 const DISH_BASE_PATH = '/dishes';
 
 const dishesApi = rootApi
-  .enhanceEndpoints({ addTagTypes: ['Dishes', 'DishCollections'] })
+  .enhanceEndpoints({ addTagTypes: ['Dishes', 'DishCollections', 'CollectionDishes'] })
   .injectEndpoints({
     endpoints: (build) => ({
       createDish: build.mutation<string, IDishPayload>({
@@ -48,7 +48,20 @@ const dishesApi = rootApi
           method: 'PUT',
           data: collections,
         }),
-        invalidatesTags: ['DishCollections'],
+        invalidatesTags: ['DishCollections', 'CollectionDishes'],
+      }),
+      getDishCollections: build.query<
+        IPageableResponse<IDishCollection>,
+        IPageableRequestParams & {
+          dishId: string;
+        }
+      >({
+        query: ({ dishId, ...restData }) => ({
+          url: `${DISH_BASE_PATH}/${dishId}/collections`,
+          method: 'POST',
+          data: restData,
+        }),
+        providesTags: ['DishCollections'],
       }),
     }),
   });
@@ -60,5 +73,7 @@ export const {
   useUpdateDishMutation,
   useUpdateDishCollectionsMutation,
 } = dishesApi;
+
+export const { getDishCollections } = dishesApi.endpoints;
 
 export default dishesApi;

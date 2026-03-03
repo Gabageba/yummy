@@ -96,4 +96,11 @@ export class DishesService {
     }
     return result;
   }
+
+  async searchDishes(params: PageableRequestParamsDto, authorization?: string) {
+    const userId =
+      this.authService.getUserIdFromAuthorizationHeader(authorization);
+
+    return this.dishesRepository.searchDishes(params, userId);
+  }
 }

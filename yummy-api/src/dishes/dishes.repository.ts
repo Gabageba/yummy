@@ -3,10 +3,14 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Dish, DishDocument } from './schemas/dish.schema';
 import { DeleteResult, Model, Types } from 'mongoose';
 import { PageableRequestParamsDto } from 'src/dto/pageable/pageable-request-params.dto';
-import { PageableDishesResponseDto } from './dto/pageable-dishes-response.dto';
+import {
+  PageableDishesResponseDto,
+  PageableSummaryDishesResponseDto,
+} from './dto/pageable-dishes-response.dto';
 import { DishDto } from './dto/dish.dto';
 import { BaseRepository } from 'src/base/base.repository';
 import { CreateAndUpdateDishDto } from './dto/create-and-update-dish.dto';
+import { SummaryDishDto } from './dto/summary-dish.dto';
 
 type PopulatedDishDocument = DishDocument & {
   collections: { _id: Types.ObjectId; name: string }[];
@@ -38,6 +42,18 @@ export class DishesRepository extends BaseRepository<DishDocument, DishDto> {
       difficulty: doc.difficulty,
       mainIngredients: doc.mainIngredients ?? [],
       collectionIds,
+    };
+  }
+
+  protected summaryMapper(
+    document: DishDocument | PopulatedDishDocument,
+  ): SummaryDishDto {
+    const doc = document as PopulatedDishDocument;
+
+    return {
+      id: doc._id.toString(),
+      name: doc.name,
+      description: doc.description ?? '',
     };
   }
 
@@ -91,5 +107,47 @@ export class DishesRepository extends BaseRepository<DishDocument, DishDto> {
     return this.dishModel
       .findByIdAndUpdate(id, { collections }, { new: true })
       .exec();
+  }
+
+  async getDishesByCollectionId(
+    collectionId: string,
+    params: PageableRequestParamsDto,
+  ): Promise<PageableDishesResponseDto> {
+    const filters = {
+      collections: new Types.ObjectId(collectionId),
+    };
+
+    return this.pageableSearch({
+      params,
+      filters,
+      mapper: (doc) => this.mapper(doc),
+    });
+  }
+
+  async removeDishFromCollection(
+    dishId: string,
+    collectionId: string,
+  ): Promise<boolean> {
+    const result = await this.dishModel
+      .findByIdAndUpdate(
+        dishId,
+        { $pull: { collections: new Types.ObjectId(collectionId) } },
+        { new: true },
+      )
+      .exec();
+    return result != null;
+  }
+
+  async searchDishes(
+    params: PageableRequestParamsDto,
+    userId: string,
+  ): Promise<PageableSummaryDishesResponseDto> {
+    const filters = { author: new Types.ObjectId(userId) };
+
+    return this.pageableSearch({
+      params,
+      filters,
+      mapper: (doc) => this.mapper(doc),
+    });
   }
 }

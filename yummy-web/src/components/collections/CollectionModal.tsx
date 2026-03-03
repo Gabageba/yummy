@@ -8,6 +8,7 @@ import {
   useUpdateCollectionMutation,
 } from '@pages/collections/collectionsApi';
 import type { ICollection } from '@pages/collections/List/models';
+import useApiValidationErrors from '@hooks/useApiValidationErrors';
 
 interface IProps {
   initialValue?: ICollection;
@@ -19,6 +20,7 @@ function CollectionModal({ initialValue, open, onCancel }: IProps) {
   const { t } = useTranslation();
   const { required } = useValidation();
   const [form] = Form.useForm<ICollection>();
+  const { handleValidationErrors } = useApiValidationErrors(form);
 
   const [create] = useCreateCollectionMutation();
   const [update] = useUpdateCollectionMutation();
@@ -29,7 +31,8 @@ function CollectionModal({ initialValue, open, onCancel }: IProps) {
       .then((collection) =>
         initialValue?.id ? update({ ...collection, id: initialValue.id }) : create(collection),
       )
-      .then(onCancel);
+      .then(onCancel)
+      .catch(handleValidationErrors);
   };
 
   return (

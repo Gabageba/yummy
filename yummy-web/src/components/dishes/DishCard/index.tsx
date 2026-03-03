@@ -20,12 +20,25 @@ function DishCard({ dish, actions }: IProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
+  const handleCardClick = (e: React.MouseEvent) => {
+    const target = e.target as Node;
+    if (
+      target instanceof Element &&
+      (target.closest('.ant-card-actions') ||
+        target.closest('.ant-modal-wrap') ||
+        target.closest('.ant-modal-content'))
+    ) {
+      return;
+    }
+    navigate(RoutePath.DISH_DETAIL.replace(':id', dish.id));
+  };
+
   return (
     <>
       <Card
         className="dish-card card"
         cover={<CoverIcon icon={CoverIconEnum.QUESTION} />}
-        onClick={() => navigate(RoutePath.DISH_DETAIL.replace(':id', dish.id))}
+        onClick={handleCardClick}
         actions={actions}
       >
         <Card.Meta
