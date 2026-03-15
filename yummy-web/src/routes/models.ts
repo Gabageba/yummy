@@ -10,4 +10,5 @@ export enum RoutePath {
   DISHES = '/dishes',
   DISH_DETAIL = '/dishes/:id',
   NOT_FOUND = '/not-found',
+  MORE = '/more',
 }

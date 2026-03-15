@@ -38,6 +38,7 @@ export default defineConfig({
       '@hooks': '/src/hooks',
       '@api': '/src/api',
       '@routes': '/src/routes',
+      '@icons': '/src/icons',
     },
   },
 });

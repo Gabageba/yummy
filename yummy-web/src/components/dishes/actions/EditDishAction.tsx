@@ -1,4 +1,4 @@
-import { EditOutlined } from '@ant-design/icons';
+import EditIcon from '@icons/EditIcon';
 import DishModal from '@pages/dishes/DishModal';
 import type { IDish } from '@pages/dishes/models';
 import { useState } from 'react';
@@ -11,7 +11,7 @@ function EditDishAction({ dish }: IProps) {
   const [isDishModalOpen, setIsDishModalOpen] = useState<boolean>(false);
   return (
     <>
-      <EditOutlined
+      <EditIcon
         onClick={(e) => {
           e.stopPropagation();
           setIsDishModalOpen(true);

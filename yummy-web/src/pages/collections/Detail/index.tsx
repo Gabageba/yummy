@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import PageLayout from '@components/core/PageLayout';
-import { EditOutlined, PlusOutlined } from '@ant-design/icons';
 import PrimaryTag from '@components/core/PrimaryTag';
 import { useTranslation } from 'react-i18next';
 import { IUserRoles } from '@pages/ProfilePage/models';
@@ -9,7 +8,9 @@ import CollectionModal from '@components/collections/CollectionModal';
 import { Button, Flex, Grid, Space, theme } from 'antd';
 import CardsList from '@components/core/CardsList';
 import DishCard from '@components/dishes/DishCard';
-import FolderRemoveOutlined from '@components/icons/FolderRemoveOutlined';
+import EditIcon from '@icons/EditIcon';
+import RemoveFolderIcon from '@icons/RemoveFolderIcon';
+import AddIcon from '@icons/AddIcon';
 import {
   useGetCollectionDishesQuery,
   useGetCollectionQuery,
@@ -40,8 +41,8 @@ function CollectionDetail() {
       isLoading={isFetching}
       actions={
         <Space>
-          <Button icon={<EditOutlined />} onClick={() => setIsEditCollectionModalOpen(true)} />
-          <Button icon={<PlusOutlined />} type="primary">
+          <Button icon={<EditIcon />} onClick={() => setIsEditCollectionModalOpen(true)} />
+          <Button icon={<AddIcon />} type="primary">
             {screens.md && t('addDishes')}
           </Button>
         </Space>
@@ -78,7 +79,7 @@ function CollectionDetail() {
               actions={
                 collection.actions.includes(CollectionActions.EDIT)
                   ? [
-                      <FolderRemoveOutlined
+                      <RemoveFolderIcon
                         size={15}
                         key="removeFromCollection"
                         onClick={(e) => {

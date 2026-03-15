@@ -1,4 +1,7 @@
-import { FireOutlined, MehOutlined, QuestionOutlined, SmileOutlined } from '@ant-design/icons';
+import FireIcon from '@icons/FireIcon';
+import NeutralFaceIcon from '@icons/NeutralFaceIcon';
+import QuestionIcon from '@icons/QuestionIcon';
+import SmileFaceIcon from '@icons/SmileFaceIcon';
 import type { TFunction } from 'i18next';
 
 export enum Difficulty {
@@ -10,13 +13,13 @@ export enum Difficulty {
 export const getIconByDifficulty = (difficulty: Difficulty) => {
   switch (difficulty) {
     case Difficulty.EASY:
-      return SmileOutlined;
+      return SmileFaceIcon;
     case Difficulty.MEDIUM:
-      return MehOutlined;
+      return NeutralFaceIcon;
     case Difficulty.HARD:
-      return FireOutlined;
+      return FireIcon;
     default:
-      return QuestionOutlined;
+      return QuestionIcon;
   }
 };
 

@@ -1,4 +1,4 @@
-import { DeleteOutlined } from '@ant-design/icons';
+import DeleteIcon from '@icons/DeleteIcon';
 import { useDeleteDishMutation } from '@pages/dishes/dishesApi';
 
 interface IProps {
@@ -9,7 +9,7 @@ function DeleteDishAction({ dishId }: IProps) {
   const [deleteDish] = useDeleteDishMutation();
 
   return (
-    <DeleteOutlined
+    <DeleteIcon
       onClick={(e) => {
         e.stopPropagation();
         deleteDish(dishId);

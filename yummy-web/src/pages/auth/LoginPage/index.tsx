@@ -6,10 +6,11 @@ import { RoutePath } from '@routes/models';
 import useApiValidationErrors from '@hooks/useApiValidationErrors';
 import useValidation from '@hooks/useValidation';
 import InputFormItem from '@components/core/fields/InputFormItem';
-import LogoIcon from '@components/icons/LogoIcon';
-import { AppleOutlined, GoogleOutlined, UserOutlined } from '@ant-design/icons';
+import { AppleOutlined, GoogleOutlined } from '@ant-design/icons';
 import PasswordFormItem from '@components/core/fields/PasswordFormItem';
-import VkIcon from '@components/icons/VkIcon';
+import VkIcon from '@icons/VkIcon';
+import UserIcon from '@icons/UserIcon';
+import LogoIcon from '@icons/LogoIcon';
 import { useLoginMutation } from '../authApi';
 import type { ILoginResponse } from '../models';
 import useAuth from '../../../hooks/useAuth';
@@ -70,7 +71,7 @@ function LoginPage() {
             </Col>
             {isDevMode && (
               <Col span={24}>
-                <Button block icon={<UserOutlined />} onClick={loginAsAdmin} />
+                <Button block icon={<UserIcon />} onClick={loginAsAdmin} />
               </Col>
             )}
           </Row>

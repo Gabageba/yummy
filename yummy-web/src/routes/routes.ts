@@ -7,6 +7,7 @@ import ProfilePage from '@pages/ProfilePage';
 import CollectionsList from '@pages/collections/List';
 import CollectionDetail from '@pages/collections/Detail';
 import DishesList from '@pages/dishes/List';
+import MorePage from '@pages/MorePage';
 import { RoutePath } from './models';
 
 export interface Routes {
@@ -50,6 +51,11 @@ export const userRoutes: Routes[] = [
     path: RoutePath.PROFILE,
     Element: ProfilePage,
     name: 'Профиль',
+  },
+  {
+    path: RoutePath.MORE,
+    Element: MorePage,
+    name: 'Ещё',
   },
   ...collectionRoutes,
 ];

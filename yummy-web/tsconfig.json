@@ -28,7 +28,8 @@
       "@utils/*": ["utils/*"],
       "@hooks/*": ["hooks/*"],
       "@api/*": ["api/*"],
-      "@routes/*": ["routes/*"]
+      "@routes/*": ["routes/*"],
+      "@icons/*": ["icons/*"]
     },
 
     /* Linting */

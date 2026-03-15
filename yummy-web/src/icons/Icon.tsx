@@ -29,19 +29,20 @@ function Icon({ component, size, color, style, aspectRatio, ...restProps }: IPro
   const ComponentWithComputedSize = (
     props: React.ComponentProps<NonNullable<typeof component>>,
   ) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- отбрасываем width/height от Ant Design
-    const { width, height, ...rest } = props;
     const computedSize =
       aspectRatio != null
         ? {
             width: `${1 / aspectRatio}em`,
             height: '1em',
-            preserveAspectRatio: 'xMidYMid meet',
+            preserveAspectRatio: 'xMidYMid meet' as const,
           }
         : {};
+    // При aspectRatio подменяем размеры; иначе оставляем width/height от Ant Design (1em), иначе SVG не отображается
+    const { width, height, ...rest } = props;
+    const sizeProps = aspectRatio != null ? computedSize : { width, height };
     return React.createElement(component as React.ComponentType<typeof rest>, {
       ...rest,
-      ...computedSize,
+      ...sizeProps,
     });
   };
 

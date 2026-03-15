@@ -1,4 +1,3 @@
-import { PlusOutlined } from '@ant-design/icons';
 import PageLayout from '@components/core/PageLayout';
 import { Button, Grid } from 'antd';
 import { useCallback, useState } from 'react';
@@ -8,6 +7,7 @@ import DishCard from '@components/dishes/DishCard';
 import EditDishAction from '@components/dishes/actions/EditDishAction';
 import AddDishToCollectionAction from '@components/dishes/actions/AddDishToCollectionAction';
 import DeleteDishAction from '@components/dishes/actions/DeleteDishAction';
+import AddIcon from '@icons/AddIcon';
 import type { IDish } from '../models';
 import { useGetDishesQuery } from '../dishesApi';
 import DishModal from '../DishModal';
@@ -32,7 +32,7 @@ function DishesList() {
       title={t('yourDishes')}
       description={t('Выберите ваше блюдо')}
       actions={
-        <Button type="primary" icon={<PlusOutlined />} onClick={() => setIsDishModalOpen(true)}>
+        <Button type="primary" icon={<AddIcon />} onClick={() => setIsDishModalOpen(true)}>
           {screens.sm && t('createDish')}
         </Button>
       }

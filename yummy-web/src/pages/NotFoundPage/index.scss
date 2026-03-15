@@ -85,5 +85,14 @@
     &__404 {
       font-size: 150px;
     }
+
+    .ant-space {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .ant-btn, .ant-space-item {
+      width: 100%;
+    }
   }
 }

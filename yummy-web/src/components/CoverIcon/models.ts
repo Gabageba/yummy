@@ -1,6 +1,6 @@
-import { QuestionOutlined } from '@ant-design/icons';
-import PizzaIcon from '@components/icons/PizzaIcon';
-import TrayIcon from '@components/icons/TrayIcon';
+import QuestionIcon from '@icons/QuestionIcon';
+import PizzaIcon from '@icons/PizzaIcon';
+import TrayIcon from '@icons/TrayIcon';
 
 export enum CoverIconEnum {
   PIZZA = 'PIZZA',
@@ -13,7 +13,7 @@ export const getComponentByCoverIcon = (icon?: CoverIconEnum) => {
     case CoverIconEnum.PIZZA:
       return PizzaIcon;
     case CoverIconEnum.QUESTION:
-      return QuestionOutlined;
+      return QuestionIcon;
     case CoverIconEnum.TRAY:
     default:
       return TrayIcon;

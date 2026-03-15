@@ -1,4 +1,4 @@
-import { EllipsisOutlined } from '@ant-design/icons';
+import MoreIcon from '@icons/MoreIcon';
 import { Button, Dropdown, Space, type ButtonProps } from 'antd';
 import type { MenuItemType } from 'antd/es/menu/interface';
 
@@ -39,7 +39,7 @@ function ButtonGroup({ actions = [], type }: IProps) {
         <InternalButton type={type} action={actions[1]} />
       ) : (
         <Dropdown menu={{ items: actions.slice(1) }}>
-          <Button type={type} icon={<EllipsisOutlined />} />
+          <Button type={type} icon={<MoreIcon />} />
         </Dropdown>
       )}
     </Space.Compact>

@@ -78,7 +78,7 @@
   </ol>
 </details> -->
 
-
+Иконки брать здесь https://fonts.google.com/icons?selected=Material+Symbols+Rounded:add:FILL@0;wght@400;GRAD@0;opsz@24&icon.query=add&icon.size=24&icon.color=%23e3e3e3&icon.style=Rounded&icon.set=Material+Symbols
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project

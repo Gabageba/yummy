@@ -2,7 +2,6 @@ import type { CardProps } from 'antd';
 import { Card, Flex, theme, Typography } from 'antd';
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { IUserRoles } from '@pages/ProfilePage/models';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from '@routes/models';
@@ -11,6 +10,8 @@ import { useDeleteCollectionMutation } from '@pages/collections/collectionsApi';
 import type { ICollection } from '@pages/collections/List/models';
 import { CollectionActions } from '@pages/collections/List/models';
 import CoverIcon from '@components/CoverIcon';
+import EditIcon from '@icons/EditIcon';
+import DeleteIcon from '@icons/DeleteIcon';
 import CollectionModal from '../CollectionModal';
 
 interface IProps {
@@ -31,7 +32,7 @@ function CollectionCard({ collection }: IProps) {
 
     if (collection.actions.includes(CollectionActions.EDIT)) {
       result.push(
-        <EditOutlined
+        <EditIcon
           key="edit"
           onClick={(e) => {
             e.stopPropagation();
@@ -42,7 +43,7 @@ function CollectionCard({ collection }: IProps) {
     }
     if (collection.actions.includes(CollectionActions.DELETE)) {
       result.push(
-        <DeleteOutlined
+        <DeleteIcon
           key="delete"
           onClick={(e) => {
             e.stopPropagation();

@@ -1,11 +1,12 @@
-import { LogoutOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Dropdown, Flex, theme } from 'antd';
-import '../index.scss';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
 import type { IUserProfile } from '@api/usersApi';
+import '../../index.scss';
+import SettingsIcon from '@icons/SettingsIcon';
+import LogoutIcon from '@icons/LogoutIcon';
 import Avatar from './Avatar';
 
 interface AvatarButtonProps {
@@ -22,13 +23,13 @@ const AvatarButton = ({ user, onLogout }: AvatarButtonProps) => {
     {
       key: 'settings',
       label: t('settings'),
-      icon: <SettingOutlined />,
+      icon: <SettingsIcon />,
       onClick: () => navigate(RoutePath.SETTINGS),
     },
     {
-      key: 'exit',
+      key: 'logout',
       label: t('exit'),
-      icon: <LogoutOutlined />,
+      icon: <LogoutIcon />,
       danger: true,
       onClick: onLogout,
     },

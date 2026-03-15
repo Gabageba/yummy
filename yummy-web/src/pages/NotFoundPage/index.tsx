@@ -4,7 +4,8 @@ import './index.scss';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
-import { ArrowLeftOutlined, HomeOutlined } from '@ant-design/icons';
+import ArrowLeftIcon from '@icons/ArrowLeftIcon';
+import HomeIcon from '@icons/HomeIcon';
 
 function NotFoundPage() {
   const { t } = useTranslation();
@@ -21,10 +22,10 @@ function NotFoundPage() {
           {t('pageNotFoundDescription')}
         </Typography.Text>
         <Space>
-          <Button type="primary" onClick={() => navigate(-1)} icon={<ArrowLeftOutlined />}>
+          <Button type="primary" onClick={() => navigate(-1)} icon={<ArrowLeftIcon />}>
             {t('goBack')}
           </Button>
-          <Button onClick={() => navigate(RoutePath.MAIN)} icon={<HomeOutlined />}>
+          <Button onClick={() => navigate(RoutePath.MAIN)} icon={<HomeIcon />}>
             {t('goToHome')}
           </Button>
         </Space>

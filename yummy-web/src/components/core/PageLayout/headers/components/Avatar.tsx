@@ -1,6 +1,6 @@
-import { UserOutlined } from '@ant-design/icons';
 import { Avatar as AntdAvatar } from 'antd';
 import type { IUserProfile } from '@api/usersApi';
+import UserIcon from '@icons/UserIcon';
 
 interface AvatarProps {
   user?: IUserProfile | null;
@@ -12,7 +12,7 @@ function Avatar({ user, size = 40 }: AvatarProps) {
 
   return (
     <AntdAvatar
-      icon={!displayName ? <UserOutlined /> : undefined}
+      icon={!displayName ? <UserIcon /> : undefined}
       size={size}
       className="page-layout__header--avatar"
     >

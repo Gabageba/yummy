@@ -1,12 +1,12 @@
 import { Button, Grid } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { PlusOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import CardsList from '@components/core/CardsList';
 import './index.scss';
 import PageLayout from '@components/core/PageLayout';
 import CollectionModal from '@components/collections/CollectionModal';
 import CollectionCard from '@components/collections/CollectionCard';
+import AddIcon from '@icons/AddIcon';
 import type { ICollection } from './models';
 import { useGetCollectionsQuery } from '../collectionsApi';
 
@@ -19,7 +19,7 @@ function CollectionsList() {
   return (
     <PageLayout
       actions={
-        <Button onClick={() => setIsCollectionModal(true)} icon={<PlusOutlined />} type="primary">
+        <Button onClick={() => setIsCollectionModal(true)} icon={<AddIcon />} type="primary">
           {screens.sm && t('createCollection')}
         </Button>
       }
