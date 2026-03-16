@@ -34,18 +34,22 @@ const MENU_ITEMS = [
   {
     key: MenuItemsKey.MAIN,
     routePath: RoutePath.MAIN,
+    includedPaths: [RoutePath.MAIN],
   },
   {
     key: MenuItemsKey.COLLECTIONS,
     routePath: RoutePath.COLLECTIONS,
+    includedPaths: [RoutePath.COLLECTIONS],
   },
   {
     key: MenuItemsKey.DISHES,
     routePath: RoutePath.DISHES,
+    includedPaths: [RoutePath.DISHES],
   },
   {
     key: MenuItemsKey.MORE,
     routePath: RoutePath.MORE,
+    includedPaths: [RoutePath.MORE, RoutePath.SETTINGS],
   },
 ];
 
@@ -65,9 +69,10 @@ export const getMobileMenuItems = (t: TFunction): MenuItemType[] =>
     icon: getIconByMenuKey(item.key),
   }));
 
-export const getSelectedKey = (pathname: string): string =>
-  MENU_ITEMS.find(
-    (item) =>
-      pathname === item?.routePath ||
-      (item?.routePath !== '/' && pathname.startsWith(`${item?.routePath}/`)),
+export const getSelectedKey = (pathname: string): MenuItemsKey | string =>
+  MENU_ITEMS.find((item) =>
+    item.includedPaths.some(
+      (routePath) =>
+        pathname === routePath || (routePath !== '/' && pathname.startsWith(`${routePath}/`)),
+    ),
   )?.routePath ?? pathname;

@@ -2,9 +2,6 @@ import { Button, Flex, Grid, Layout, Spin, theme, Typography } from 'antd';
 import { useMemo, type ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './index.scss';
-import { useGetProfileQuery } from '@api/usersApi';
-import useAuth from '@hooks/useAuth';
-import { useLogoutMutation } from '@pages/auth/authApi';
 import ArrowLeftIcon from '@icons/ArrowLeftIcon';
 import DesktopHeader from './headers/DesktopHeader';
 import MobileHeader from './headers/MobileHeader';
@@ -29,14 +26,6 @@ const PageLayout = ({
   const screens = Grid.useBreakpoint();
   const { token } = theme.useToken();
   const navigate = useNavigate();
-  const { onLogoutSuccess } = useAuth();
-
-  const { data: user } = useGetProfileQuery();
-  const [logout] = useLogoutMutation();
-
-  const onLogout = () => {
-    logout().unwrap().then(onLogoutSuccess);
-  };
 
   const isScreensCalculated = useMemo(
     () =>
@@ -51,7 +40,7 @@ const PageLayout = ({
 
   return (
     <Layout className="page-layout">
-      {screens.md && <DesktopHeader user={user} onLogout={onLogout} />}
+      {screens.md && <DesktopHeader />}
       <Layout.Content className="page-layout__content page-layout__container">
         {isLoading || !isScreensCalculated ? (
           <Spin spinning />
@@ -85,7 +74,7 @@ const PageLayout = ({
           </>
         )}
       </Layout.Content>
-      {!screens.md && <MobileHeader user={user} onLogout={onLogout} />}
+      {!screens.md && <MobileHeader />}
       {/* <Layout.Footer /> */}
     </Layout>
   );

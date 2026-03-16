@@ -2,7 +2,7 @@ import type { ThemeConfig } from 'antd';
 
 export const COLORS = {
   PRIMARY_COLOR: '#f7a348',
-  BACKGROUND_COLOR: '#F9FAFB',
+  BACKGROUND_COLOR: '#fff',
   SECONDARY_BG_COLOR: '#fff',
   TEXT_COLOR: '#111827',
   TEXT_WHITE_COLOR: '#fff',

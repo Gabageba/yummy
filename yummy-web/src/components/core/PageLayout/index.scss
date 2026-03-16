@@ -1,6 +1,8 @@
 @use '@styles/variables/breakpoints' as bp;
 
 .page-layout {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 
   .ant-layout-header {
@@ -13,7 +15,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 1px 6px var(--color-light-shadow);
+    border-bottom: 1px solid var(--color-light-gray);
 
     &--container {
       display: flex;
@@ -34,28 +36,6 @@
       color: var(--color-primary)
     }
      
-
-    &--avatar-wrap {
-      cursor: pointer;
-      display: inline-flex;
-      line-height: 0;
-
-      .ant-avatar {
-        background-color: transparent;
-      }
-
-      .ant-typography { 
-        font-size: var(--font-size);
-        color: var(--color-primary);
-      }
-    }
-
-    &--avatar {
-      background-color: var(--color-bg-secondary);
-      border: 2px solid var(--color-primary);
-      color: var(--color-primary);
-    }
-
     &--menu {
       flex: 1;
       margin: 0 var(--margin-xxl);
@@ -73,7 +53,7 @@
   &__header--mobile {
     top: auto;
     bottom: 0;
-    box-shadow: 0 -1px 6px var(--color-light-shadow);
+    border-top: 1px solid var(--color-light-gray);
     height: 60px;
 
     .page-layout__header--container {
@@ -109,6 +89,10 @@
   
 
   &__content {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
     padding: var(--padding-xl) var(--padding-xl);
   }
 

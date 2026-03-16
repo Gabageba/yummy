@@ -1,19 +1,16 @@
-import type { IUserProfile } from '@api/usersApi';
+import { useGetProfileQuery } from '@api/usersApi';
 import { Layout } from 'antd';
 import { RoutePath } from '@routes/models';
 import { useNavigate } from 'react-router-dom';
 import LogoHorizontalIcon from '@icons/LogoHorizontalIcon';
-import AvatarButton from '../components/AvatarButton';
+import AvatarButton from '@components/avatar/AvatarButton';
 import DesktopNavigationMenu from './DesktopNavigationMenu';
 import '../../index.scss';
 
-interface IProps {
-  user?: IUserProfile;
-  onLogout: () => void;
-}
-
-function DesktopHeader({ user, onLogout }: IProps) {
+function DesktopHeader() {
   const navigate = useNavigate();
+
+  const { data: user } = useGetProfileQuery();
 
   return (
     <Layout.Header className="page-layout__header">
@@ -22,7 +19,7 @@ function DesktopHeader({ user, onLogout }: IProps) {
           <LogoHorizontalIcon size={32} />
         </div>
         <DesktopNavigationMenu />
-        <AvatarButton user={user} onLogout={onLogout} />
+        <AvatarButton user={user} />
       </div>
     </Layout.Header>
   );

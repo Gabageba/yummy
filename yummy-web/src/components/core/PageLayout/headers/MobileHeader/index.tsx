@@ -1,21 +1,11 @@
-import type { IUserProfile } from '@api/usersApi';
-import { RoutePath } from '@routes/models';
-import { Button, Col, Drawer, Flex, Layout, Row, theme, Typography } from 'antd';
+import { Col, Flex, Layout, Row, theme, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
-import toCapitalized from '@utils/toCapitalized';
-import LogoutIcon from '@icons/LogoutIcon';
-import SettingsIcon from '@icons/SettingsIcon';
-import Avatar from '../components/Avatar';
+
 import '../../index.scss';
 import { getMobileMenuItems, getSelectedKey } from '../utils';
 
-interface IProps {
-  user?: IUserProfile;
-  onLogout: () => void;
-}
-
-function MobileHeader({ user, onLogout }: IProps) {
+function MobileHeader() {
   const { t } = useTranslation();
   const { token } = theme.useToken();
   const navigate = useNavigate();
@@ -46,33 +36,6 @@ function MobileHeader({ user, onLogout }: IProps) {
           </Col>
         ))}
       </Row>
-
-      {/* <div className="page-layout__header--container">sdaf</div> */}
-      <Drawer className="page-layout__header--drawer" size="80%">
-        <Flex
-          vertical
-          justify="space-between"
-          className="page-layout__header--drawer-content"
-          gap={token.marginLG}
-        >
-          <Flex align="center" justify="space-between">
-            <Flex className="page-layout__header--profile" align="center" gap={token.marginXS}>
-              <Avatar user={user} size={48} />
-              {user?.username && <Typography.Text>{toCapitalized(user.username)}</Typography.Text>}
-            </Flex>
-            <Button
-              className="page-layout__header--settings"
-              icon={<SettingsIcon />}
-              variant="text"
-              color="primary"
-              onClick={() => navigate(RoutePath.SETTINGS)}
-            />
-          </Flex>
-          <Button icon={<LogoutIcon />} color="danger" variant="filled" block onClick={onLogout}>
-            {t('exit')}
-          </Button>
-        </Flex>
-      </Drawer>
     </Layout.Header>
   );
 }
