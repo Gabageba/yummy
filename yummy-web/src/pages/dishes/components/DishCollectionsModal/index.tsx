@@ -108,8 +108,6 @@ const DishCollectionsModal = ({ dishId, open, onCancel }: IProps) => {
       onOk={onOk}
       onCancel={onCancel}
       title={<Typography.Title level={4}>{t('changeDishCollections')}</Typography.Title>}
-      okText={t('save')}
-      cancelText={t('cancel')}
     >
       <Flex
         ref={scrollRef}

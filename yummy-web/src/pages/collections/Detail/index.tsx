@@ -17,6 +17,7 @@ import {
   useRemoveDishFromCollectionMutation,
 } from '../collectionsApi';
 import { CollectionActions } from '../List/models';
+import AddDishesModal from './AddDishesModal';
 
 function CollectionDetail() {
   const { t } = useTranslation();
@@ -25,6 +26,7 @@ function CollectionDetail() {
   const screens = Grid.useBreakpoint();
 
   const [isEditCollectionModalOpen, setIsEditCollectionModalOpen] = useState<boolean>(false);
+  const [isAddDishesModalOpen, setIsAddDishesModalOpen] = useState<boolean>(false);
 
   const { data: collection, isFetching } = useGetCollectionQuery(id!, { skip: !id });
 
@@ -42,7 +44,7 @@ function CollectionDetail() {
       actions={
         <Space>
           <Button icon={<EditIcon />} onClick={() => setIsEditCollectionModalOpen(true)} />
-          <Button icon={<AddIcon />} type="primary">
+          <Button icon={<AddIcon />} type="primary" onClick={() => setIsAddDishesModalOpen(true)}>
             {screens.md && t('addDishes')}
           </Button>
         </Space>
@@ -63,12 +65,6 @@ function CollectionDetail() {
       }
       description={collection?.description}
     >
-      <CollectionModal
-        initialValue={collection}
-        open={isEditCollectionModalOpen}
-        onCancel={() => setIsEditCollectionModalOpen(false)}
-      />
-
       {collection && (
         <CardsList
           useQuery={useGetCollectionDishesQuery}
@@ -97,6 +93,12 @@ function CollectionDetail() {
           )}
         />
       )}
+      <CollectionModal
+        initialValue={collection}
+        open={isEditCollectionModalOpen}
+        onCancel={() => setIsEditCollectionModalOpen(false)}
+      />
+      <AddDishesModal open={isAddDishesModalOpen} onCancel={() => setIsAddDishesModalOpen(false)} />
     </PageLayout>
   );
 }

@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom/client';
 import '@styles/index.scss';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { ConfigProvider } from 'antd';
 import { setupStore, setStore } from '@api/store';
-import { antdTheme } from '@utils/antdTheme';
-import Empty from '@components/core/Empty';
+import AntdConfigProvider from '@components/core/AntdConfigProvider';
 import App from './App';
 import './i18n';
 
@@ -17,11 +15,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
       <Suspense fallback="...is loading">
-        <ConfigProvider theme={antdTheme} renderEmpty={() => <Empty />}>
+        <AntdConfigProvider>
           <BrowserRouter>
             <App />
           </BrowserRouter>
-        </ConfigProvider>
+        </AntdConfigProvider>
       </Suspense>
     </Provider>
   </React.StrictMode>,

@@ -33,15 +33,11 @@
   flex-direction: column;
 
   .ant-card-cover {
-    transition: margin 0.2s ease-in-out;
+    margin: 0;
   }
 
   &:hover {
     border-color: var(--color-primary);
-
-    .ant-card-cover {
-      margin: 0;
-    }
   }
   
 

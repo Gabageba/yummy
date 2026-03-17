@@ -47,7 +47,6 @@ function CollectionModal({ initialValue, open, onCancel }: IProps) {
       onCancel={onCancel}
       onOk={onOk}
       okText={initialValue?.id ? t('save') : t('create')}
-      cancelText={t('cancel')}
     >
       <Form form={form} layout="vertical" initialValues={initialValue}>
         <InputFormItem name="name" rules={[required]} label={t('title')} />

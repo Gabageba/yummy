@@ -47,7 +47,6 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
       onCancel={onCancel}
       onOk={onOk}
       okText={initialValue?.id ? t('save') : t('create')}
-      cancelText={t('cancel')}
     >
       <Form
         form={form}
