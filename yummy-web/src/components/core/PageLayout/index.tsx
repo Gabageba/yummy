@@ -1,4 +1,4 @@
-import { Button, Flex, Grid, Layout, Spin, Typography } from 'antd';
+import { Button, Flex, Grid, Layout, Skeleton, Typography } from 'antd';
 import { useMemo, type ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './index.scss';
@@ -43,7 +43,7 @@ const PageLayout = ({
       {screens.md && <DesktopHeader />}
       <Layout.Content className="page-layout__content page-layout__container">
         {isLoading || !isScreensCalculated ? (
-          <Spin spinning />
+          <Skeleton active />
         ) : (
           <>
             {(title || description || actions) && (

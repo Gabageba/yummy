@@ -1,6 +1,6 @@
 import type { IPageableResponse } from '@customTypes/pageable';
 import type { TypedUseQuery } from '@reduxjs/toolkit/query/react';
-import { Col, Pagination, Row, Spin } from 'antd';
+import { Card, Col, Pagination, Row } from 'antd';
 import type { ReactNode } from 'react';
 import { useMemo, useState } from 'react';
 import useCardListColumnsCount from '@hooks/useCardListColumnsCount';
@@ -41,8 +41,20 @@ function CardsList<T extends IItem>({
   const columnsCount = useMemo(() => count ?? defaultColumnsCount, [count, defaultColumnsCount]);
   const span = useMemo(() => 24 / columnsCount, [columnsCount]);
 
+  if (isFetching) {
+    return (
+      <Row gutter={[16, 16]} className="cards-list__content">
+        {Array.from({ length: columnsCount }, (_, i) => (
+          <Col span={span} key={i}>
+            <Card loading={isFetching} />
+          </Col>
+        ))}
+      </Row>
+    );
+  }
+
   return (
-    <Spin spinning={isFetching}>
+    <>
       <Row gutter={[16, 16]} className="cards-list__content">
         {data && data.results.length > 0 ? (
           data.results.map((item) => (
@@ -64,7 +76,7 @@ function CardsList<T extends IItem>({
         total={data?.total}
         pageSize={size}
       />
-    </Spin>
+    </>
   );
 }
 

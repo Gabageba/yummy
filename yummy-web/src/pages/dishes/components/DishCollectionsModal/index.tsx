@@ -132,7 +132,7 @@ const DishCollectionsModal = ({ dishId, open, onCancel }: IProps) => {
           </Checkbox>
         ))}
         {loading && page > 1 && (
-          <div style={{ display: 'flex', justifyContent: 'center', padding: 8 }}>
+          <div className="content-center" style={{ padding: token.paddingXS }}>
             <Spin size="small" />
           </div>
         )}
