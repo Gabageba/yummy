@@ -25,7 +25,7 @@ function CollectionCard({ collection }: IProps) {
 
   const [isCollectionModal, setIsCollectionModal] = useState<boolean>(false);
 
-  const [deleteCollection] = useDeleteCollectionMutation();
+  const [deleteCollection, { isLoading: isDeleting }] = useDeleteCollectionMutation();
 
   const actions = useMemo(() => {
     const result: CardProps['actions'] = [];
@@ -49,12 +49,13 @@ function CollectionCard({ collection }: IProps) {
             e.stopPropagation();
             deleteCollection(collection.id);
           }}
+          disabled={isDeleting}
         />,
       );
     }
 
     return result;
-  }, [collection.actions, deleteCollection, collection.id]);
+  }, [collection.actions, deleteCollection, collection.id, isDeleting]);
 
   const author = useMemo(() => {
     const creator = collection.allowedUsers?.find((user) => user.role === IUserRoles.CREATOR);

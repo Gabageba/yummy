@@ -20,11 +20,12 @@ function LoginPage() {
   const { t } = useTranslation();
   const [form] = Form.useForm<ILoginResponse>();
   const navigate = useNavigate();
-  const [login] = useLoginMutation();
   const { required, minLength } = useValidation();
   const { handleValidationErrors } = useApiValidationErrors(form);
   const { onAuthSuccess } = useAuth();
   const isDevMode = import.meta.env.DEV;
+
+  const [login, { isLoading: isLogging }] = useLoginMutation();
 
   const onLoginClick = () => {
     form
@@ -54,31 +55,31 @@ function LoginPage() {
               <Typography.Link>{t('forgotPassword')}</Typography.Link>
             </Flex>
 
-            <Button type="primary" block onClick={onLoginClick}>
+            <Button type="primary" block onClick={onLoginClick} loading={isLogging}>
               {t('signIn')}
             </Button>
           </Form>
           <Divider className="auth-page__divider">{t('orContinueWith')}</Divider>
           <Row className="auth-page__buttons" gutter={[token.marginXS, token.marginXS]}>
-            <Col span={8}>
-              <Button block icon={<GoogleOutlined />} />
+            <Col span={token.marginXS}>
+              <Button block icon={<GoogleOutlined />} loading={isLogging} />
             </Col>
-            <Col span={8}>
-              <Button block icon={<VkIcon />} />
+            <Col span={token.marginXS}>
+              <Button block icon={<VkIcon />} loading={isLogging} />
             </Col>
-            <Col span={8}>
-              <Button block icon={<AppleOutlined />} />
+            <Col span={token.marginXS}>
+              <Button block icon={<AppleOutlined />} loading={isLogging} />
             </Col>
             {isDevMode && (
-              <Col span={24}>
-                <Button block icon={<UserIcon />} onClick={loginAsAdmin} />
+              <Col span={token.marginLG}>
+                <Button block icon={<UserIcon />} onClick={loginAsAdmin} loading={isLogging} />
               </Col>
             )}
           </Row>
         </Flex>
         <div className="auth-page__footer">
           <Typography.Text>{t('noAccount')}</Typography.Text>{' '}
-          <Typography.Link onClick={() => navigate(RoutePath.REGISTER)}>
+          <Typography.Link onClick={() => navigate(RoutePath.REGISTER)} disabled={isLogging}>
             {t('signUp')}
           </Typography.Link>
         </div>

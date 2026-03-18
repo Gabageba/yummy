@@ -3,7 +3,7 @@ import { Dropdown, Flex, Skeleton } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
-import type { IUserProfile } from '@api/usersApi';
+import { useGetProfileQuery } from '@api/usersApi';
 import SettingsIcon from '@icons/SettingsIcon';
 import LogoutIcon from '@icons/LogoutIcon';
 import useLogout from '@hooks/useLogout';
@@ -11,15 +11,12 @@ import { token } from '@theme/token';
 import Avatar from './Avatar';
 import './index.scss';
 
-interface AvatarButtonProps {
-  user?: IUserProfile | null;
-  isLoading?: boolean;
-}
-
-const AvatarButton = ({ user, isLoading }: AvatarButtonProps) => {
+const AvatarButton = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { onLogout } = useLogout();
+  const { onLogout, isLoading: isLogoutLoading } = useLogout();
+
+  const { data: user, isLoading: isUserLoading } = useGetProfileQuery();
 
   const items: MenuProps['items'] = [
     {
@@ -34,10 +31,11 @@ const AvatarButton = ({ user, isLoading }: AvatarButtonProps) => {
       icon: <LogoutIcon />,
       danger: true,
       onClick: onLogout,
+      disabled: isLogoutLoading,
     },
   ];
 
-  if (isLoading) {
+  if (isUserLoading) {
     return <Skeleton.Avatar active size={40} />;
   }
 

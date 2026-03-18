@@ -30,7 +30,7 @@ function CollectionDetail() {
 
   const { data: collection, isFetching } = useGetCollectionQuery(id!, { skip: !id });
 
-  const [removeFromCollection] = useRemoveDishFromCollectionMutation();
+  const [removeFromCollection, { isLoading: isRemoving }] = useRemoveDishFromCollectionMutation();
 
   const author = useMemo(
     () => collection?.allowedUsers?.find((user) => user.role === IUserRoles.CREATOR)?.username,
@@ -85,6 +85,7 @@ function CollectionDetail() {
                             dishId: dish.id,
                           });
                         }}
+                        disabled={isRemoving}
                       />,
                     ]
                   : undefined

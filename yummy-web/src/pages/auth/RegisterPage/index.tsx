@@ -21,7 +21,7 @@ function RegisterPage() {
   const { handleValidationErrors } = useApiValidationErrors(form);
   const { onAuthSuccess } = useAuth();
 
-  const [register] = useRegisterMutation();
+  const [register, { isLoading: isRegistering }] = useRegisterMutation();
 
   const onRegisterClick = () =>
     form.validateFields().then(async (values) => {
@@ -42,14 +42,16 @@ function RegisterPage() {
             <InputFormItem label={t('username')} name="username" rules={[required]} />
             <InputFormItem label={t('email')} name="email" rules={[required, isEmail]} />
             <PasswordFormItem rules={[required, minLength(6)]} />
-            <Button type="primary" block onClick={onRegisterClick}>
+            <Button type="primary" block onClick={onRegisterClick} loading={isRegistering}>
               {t('register')}
             </Button>
           </Form>
         </Flex>
         <div className="auth-page__footer">
           <Typography.Text>{t('alreadyHaveAccount')}</Typography.Text>{' '}
-          <Typography.Link onClick={() => navigate(RoutePath.LOGIN)}>{t('signIn')}</Typography.Link>
+          <Typography.Link onClick={() => navigate(RoutePath.LOGIN)} disabled={isRegistering}>
+            {t('signIn')}
+          </Typography.Link>
         </div>
       </div>
     </div>

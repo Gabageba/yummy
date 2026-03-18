@@ -6,7 +6,7 @@ import LogoutIcon from '@icons/LogoutIcon';
 import SettingsIcon from '@icons/SettingsIcon';
 import { RoutePath } from '@routes/models';
 import toCapitalized from '@utils/toCapitalized';
-import { Button, Flex, Grid, Typography } from 'antd';
+import { Button, Flex, Grid, Skeleton, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import './index.scss';
@@ -15,10 +15,10 @@ import { token } from '@theme/token';
 function MorePage() {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { onLogout } = useLogout();
+  const { onLogout, isLoading: isLogoutLoading } = useLogout();
   const screens = Grid.useBreakpoint();
 
-  const { data: user } = useGetProfileQuery();
+  const { data: user, isLoading: isUserLoading } = useGetProfileQuery();
 
   if (screens.md) {
     navigate(RoutePath.NOT_FOUND);
@@ -29,8 +29,19 @@ function MorePage() {
       <Flex vertical justify="space-between" gap={token.marginLG} className="more-page__content">
         <Flex align="center" justify="space-between">
           <Flex align="center" gap={token.marginXS}>
-            <Avatar user={user} size={48} />
-            {user?.username && <Typography.Text>{toCapitalized(user.username)}</Typography.Text>}
+            {isUserLoading ? (
+              <>
+                <Skeleton.Avatar size={50} active />
+                <Skeleton.Node active style={{ height: '22px' }} />
+              </>
+            ) : (
+              <>
+                <Avatar user={user} size={48} />
+                {user?.username && (
+                  <Typography.Text>{toCapitalized(user.username)}</Typography.Text>
+                )}
+              </>
+            )}
           </Flex>
           <Button
             icon={<SettingsIcon size={20} />}
@@ -39,7 +50,14 @@ function MorePage() {
             onClick={() => navigate(RoutePath.SETTINGS)}
           />
         </Flex>
-        <Button icon={<LogoutIcon />} color="danger" variant="filled" block onClick={onLogout}>
+        <Button
+          icon={<LogoutIcon />}
+          color="danger"
+          variant="filled"
+          block
+          onClick={onLogout}
+          loading={isLogoutLoading}
+        >
           {t('exit')}
         </Button>
       </Flex>

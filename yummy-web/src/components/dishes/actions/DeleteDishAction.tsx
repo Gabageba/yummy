@@ -6,10 +6,11 @@ interface IProps {
 }
 
 function DeleteDishAction({ dishId }: IProps) {
-  const [deleteDish] = useDeleteDishMutation();
+  const [deleteDish, { isLoading }] = useDeleteDishMutation();
 
   return (
     <DeleteIcon
+      disabled={isLoading}
       onClick={(e) => {
         e.stopPropagation();
         deleteDish(dishId);

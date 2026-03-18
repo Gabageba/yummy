@@ -22,8 +22,8 @@ function CollectionModal({ initialValue, open, onCancel }: IProps) {
   const [form] = Form.useForm<ICollection>();
   const { handleValidationErrors } = useApiValidationErrors(form);
 
-  const [create] = useCreateCollectionMutation();
-  const [update] = useUpdateCollectionMutation();
+  const [create, { isLoading: isCreating }] = useCreateCollectionMutation();
+  const [update, { isLoading: isUpdating }] = useUpdateCollectionMutation();
 
   const onOk = () => {
     form
@@ -47,6 +47,7 @@ function CollectionModal({ initialValue, open, onCancel }: IProps) {
       onCancel={onCancel}
       onOk={onOk}
       okText={initialValue?.id ? t('save') : t('create')}
+      okButtonProps={{ loading: isUpdating || isCreating }}
     >
       <Form form={form} layout="vertical" initialValues={initialValue}>
         <InputFormItem name="name" rules={[required]} label={t('title')} />

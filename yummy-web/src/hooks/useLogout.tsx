@@ -3,13 +3,13 @@ import useAuth from './useAuth';
 
 function useLogout() {
   const { onLogoutSuccess } = useAuth();
-  const [logout] = useLogoutMutation();
+  const [logout, { isLoading }] = useLogoutMutation();
 
   const onLogout = () => {
     logout().unwrap().then(onLogoutSuccess);
   };
 
-  return { onLogout };
+  return { onLogout, isLoading };
 }
 
 export default useLogout;

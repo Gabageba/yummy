@@ -22,8 +22,8 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
   const [form] = Form.useForm<IDishPayload>();
   const { handleValidationErrors } = useApiValidationErrors(form);
 
-  const [create] = useCreateDishMutation();
-  const [update] = useUpdateDishMutation();
+  const [create, { isLoading: isCreating }] = useCreateDishMutation();
+  const [update, { isLoading: isUpdating }] = useUpdateDishMutation();
 
   const onOk = () => {
     form
@@ -47,6 +47,7 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
       onCancel={onCancel}
       onOk={onOk}
       okText={initialValue?.id ? t('save') : t('create')}
+      okButtonProps={{ loading: isCreating || isUpdating }}
     >
       <Form
         form={form}

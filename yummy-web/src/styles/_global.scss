@@ -69,3 +69,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.spinner {
+  display: flex;
+  align-items: center;
+  padding: var(--padding-xs)
+}

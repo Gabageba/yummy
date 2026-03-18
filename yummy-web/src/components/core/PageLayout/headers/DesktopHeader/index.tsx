@@ -1,4 +1,3 @@
-import { useGetProfileQuery } from '@api/usersApi';
 import { Layout } from 'antd';
 import { RoutePath } from '@routes/models';
 import { useNavigate } from 'react-router-dom';
@@ -10,8 +9,6 @@ import '../../index.scss';
 function DesktopHeader() {
   const navigate = useNavigate();
 
-  const { data: user } = useGetProfileQuery();
-
   return (
     <Layout.Header className="page-layout__header">
       <div className="page-layout__header--container">
@@ -19,7 +16,7 @@ function DesktopHeader() {
           <LogoHorizontalIcon size={32} />
         </div>
         <DesktopNavigationMenu />
-        <AvatarButton user={user} />
+        <AvatarButton />
       </div>
     </Layout.Header>
   );

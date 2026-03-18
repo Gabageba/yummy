@@ -27,7 +27,8 @@ const DishCollectionsModal = ({ dishId, open, onCancel }: IProps) => {
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const [updateDishCollections] = useUpdateDishCollectionsMutation();
+  const [updateDishCollections, { isLoading: isDishCollectionsUpdating }] =
+    useUpdateDishCollectionsMutation();
 
   const toggleCollection = (id: string) => {
     const collection = collections.find((c) => c.id === id);
@@ -108,6 +109,7 @@ const DishCollectionsModal = ({ dishId, open, onCancel }: IProps) => {
       onOk={onOk}
       onCancel={onCancel}
       title={<Typography.Title level={4}>{t('changeDishCollections')}</Typography.Title>}
+      okButtonProps={{ loading: isDishCollectionsUpdating }}
     >
       <Flex
         ref={scrollRef}
@@ -131,8 +133,8 @@ const DishCollectionsModal = ({ dishId, open, onCancel }: IProps) => {
             {collection.name}
           </Checkbox>
         ))}
-        {loading && page > 1 && (
-          <div className="content-center" style={{ padding: token.paddingXS }}>
+        {loading && (
+          <div className="spinner">
             <Spin size="small" />
           </div>
         )}
