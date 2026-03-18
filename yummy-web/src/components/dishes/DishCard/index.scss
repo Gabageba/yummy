@@ -1,4 +1,8 @@
 .dish-card {
+  .ant-card-meta-description {
+    min-width: 0;
+  }
+
   &__image {
     height: 192px;
     width: 100%;
@@ -6,9 +10,15 @@
   }
 
   &__title {
+    min-width: 0;
+
     .ant-typography {
       margin-bottom: 0;
     }
+  }
+
+  &__description {
+    margin-bottom: 0 !important;
   }
 
   &__main-ingredients {

@@ -26,18 +26,14 @@
 
 .card {
   cursor: pointer;
-  transition: border-color 0.2s ease-in-out;
   transform-origin: center;
   height: 100%;
   display: flex;
   flex-direction: column;
-
-  .ant-card-cover {
-    margin: 0;
-  }
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 
   &:hover {
-    border-color: var(--color-primary);
+    box-shadow: 0 6px 16px -8px #00000014, 0 9px 28px #0000000d, 0 12px 48px 16px #00000008;
   }
   
 

@@ -1,5 +1,5 @@
 .cover-icon {
-  height: 192px;
+  height: clamp(104px, 28vw, 192px);
   width: 100%;
   background: var(--color-primary-light-gradient);
   display: flex !important;
@@ -7,9 +7,9 @@
   justify-content: center;
 
   .anticon {
-    width: 60px;
-    height: 60px;
-    font-size: 60px;
+    width: clamp(36px, 11vw, 60px);
+    height: clamp(36px, 11vw, 60px);
+    font-size: clamp(36px, 11vw, 60px);
     color: var(--color-primary);
   }
 }

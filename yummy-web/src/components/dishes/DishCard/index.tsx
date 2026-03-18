@@ -44,7 +44,9 @@ function DishCard({ dish, actions }: IProps) {
         <Card.Meta
           title={
             <Flex vertical className="dish-card__title" gap={token.marginXXS}>
-              <Typography.Title level={4}>{dish.name}</Typography.Title>
+              <Typography.Title level={4} ellipsis={{ rows: 1, tooltip: true }}>
+                {dish.name}
+              </Typography.Title>
               <Space>
                 {dish.tags?.map((tag) => (
                   <PrimaryTag variant="filled" key={tag} icon="#">
@@ -56,7 +58,14 @@ function DishCard({ dish, actions }: IProps) {
           }
           description={
             <Flex vertical gap={token.marginSM}>
-              {dish.description && <Typography.Text>{dish.description}</Typography.Text>}
+              {dish.description && (
+                <Typography.Paragraph
+                  ellipsis={{ rows: 4, tooltip: true }}
+                  className="dish-card__description"
+                >
+                  {dish.description}
+                </Typography.Paragraph>
+              )}
               <Flex vertical gap={token.marginXS}>
                 <DifficultyLabel difficulty={dish.difficulty} />
                 <Flex vertical className="dish-card__main-ingredients" gap={token.marginXXS}>

@@ -73,13 +73,22 @@ function CollectionCard({ collection }: IProps) {
         <Card.Meta
           title={
             <Flex vertical className="collection-card__title">
-              <Typography.Title level={4}>{collection.name}</Typography.Title>
-              <Typography.Text type="secondary">{t('authorBy', { author })}</Typography.Text>
+              <Typography.Title level={4} ellipsis={{ rows: 1, tooltip: true }}>
+                {collection.name}
+              </Typography.Title>
+              <Typography.Text type="secondary" ellipsis={{ tooltip: true }}>
+                {t('authorBy', { author })}
+              </Typography.Text>
             </Flex>
           }
           description={
             <Flex vertical gap={token.marginXS}>
-              <Typography.Text>{collection.description}</Typography.Text>
+              <Typography.Paragraph
+                ellipsis={{ rows: 4, tooltip: true }}
+                className="collection-card__description"
+              >
+                {collection.description}
+              </Typography.Paragraph>
             </Flex>
           }
         />
