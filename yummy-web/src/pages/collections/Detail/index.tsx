@@ -5,12 +5,13 @@ import { useTranslation } from 'react-i18next';
 import { IUserRoles } from '@pages/ProfilePage/models';
 import { useMemo, useState } from 'react';
 import CollectionModal from '@components/collections/CollectionModal';
-import { Button, Flex, Grid, Space, theme } from 'antd';
+import { Button, Flex, Grid, Space } from 'antd';
 import CardsList from '@components/core/CardsList';
 import DishCard from '@components/dishes/DishCard';
 import EditIcon from '@icons/EditIcon';
 import RemoveFolderIcon from '@icons/RemoveFolderIcon';
 import AddIcon from '@icons/AddIcon';
+import { token } from '@theme/token';
 import {
   useGetCollectionDishesQuery,
   useGetCollectionQuery,
@@ -21,7 +22,6 @@ import AddDishesModal from './AddDishesModal';
 
 function CollectionDetail() {
   const { t } = useTranslation();
-  const { token } = theme.useToken();
   const { id } = useParams<{ id: string }>();
   const screens = Grid.useBreakpoint();
 

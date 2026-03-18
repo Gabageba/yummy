@@ -3,7 +3,8 @@ import {
   getIconByDifficulty,
   getLabelByDifficulty,
 } from '@components/core/fields/difficulty/models';
-import { Flex, theme } from 'antd';
+import { Flex } from 'antd';
+import { token } from '@theme/token';
 import { useTranslation } from 'react-i18next';
 import './index.scss';
 
@@ -13,7 +14,6 @@ interface IProps {
 
 function DifficultyLabel({ difficulty }: IProps) {
   const { t } = useTranslation();
-  const { token } = theme.useToken();
   const Icon = getIconByDifficulty(difficulty);
 
   return (

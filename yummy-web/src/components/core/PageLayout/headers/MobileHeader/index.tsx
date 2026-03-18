@@ -1,13 +1,13 @@
-import { Col, Flex, Layout, Row, theme, Typography } from 'antd';
+import { Col, Flex, Layout, Row, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import '../../index.scss';
+import { token } from '@theme/token';
 import { getMobileMenuItems, getSelectedKey } from '../utils';
 
 function MobileHeader() {
   const { t } = useTranslation();
-  const { token } = theme.useToken();
   const navigate = useNavigate();
   const location = useLocation();
 

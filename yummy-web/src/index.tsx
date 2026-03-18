@@ -5,8 +5,11 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { setupStore, setStore } from '@api/store';
 import AntdConfigProvider from '@components/core/AntdConfigProvider';
+import { injectCSSVariables } from '@theme/injectCSSVariables';
 import App from './App';
 import './i18n';
+
+injectCSSVariables();
 
 const store = setupStore();
 setStore(store);

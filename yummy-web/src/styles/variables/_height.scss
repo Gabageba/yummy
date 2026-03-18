@@ -1,4 +1,3 @@
 :root {
-  --height-header: 64px;
-  --height-layout-content: calc(100vh - var(--height-header) - var(--padding-xl) * 2)
+  --height-layout-content: calc(100vh - var(--height-header) - var(--padding-xl) * 2);
 }

@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
-    "dev": "vite",
+    "dev": "node scripts/generateCssVarSnippets.mjs && vite",
     "dev:mobile": "node scripts/dev-mobile.mjs",
     "fix": "eslint --ext ts,tsx --fix ",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prepare": "cd .. && husky install yummy-web/.husky",
     "preview": "vite preview --port 3000",
-    "start": "vite"
+    "start": "node scripts/generateCssVarSnippets.mjs && vite",
+    "generate:css-snippets": "node scripts/generateCssVarSnippets.mjs"
   },
   "lint-staged": {
     "*.scss": [

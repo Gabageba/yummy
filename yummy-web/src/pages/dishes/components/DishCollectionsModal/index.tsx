@@ -1,10 +1,11 @@
 import { useAppDispatch } from '@hooks/redux';
 import { getDishCollections, useUpdateDishCollectionsMutation } from '@pages/dishes/dishesApi';
-import { Checkbox, Divider, Flex, Modal, Spin, theme, Typography } from 'antd';
+import { Checkbox, Divider, Flex, Modal, Spin, Typography } from 'antd';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './index.scss';
 import type { IDishCollection } from '@pages/dishes/models';
+import { token } from '@theme/token';
 
 const DEFAULT_PAGE_SIZE = 20;
 const SCROLL_LOAD_THRESHOLD = 80;
@@ -19,7 +20,6 @@ const DishCollectionsModal = ({ dishId, open, onCancel }: IProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { token } = theme.useToken();
 
   const [page, setPage] = useState<number>(1);
   const [collections, setCollections] = useState<IDishCollection[]>([]);

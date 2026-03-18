@@ -1,4 +1,4 @@
-import { Button, Checkbox, Col, Divider, Flex, Form, Row, theme, Typography } from 'antd';
+import { Button, Checkbox, Col, Divider, Flex, Form, Row, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import '../index.scss';
 import { useNavigate } from 'react-router-dom';
@@ -11,13 +11,13 @@ import PasswordFormItem from '@components/core/fields/PasswordFormItem';
 import VkIcon from '@icons/VkIcon';
 import UserIcon from '@icons/UserIcon';
 import LogoIcon from '@icons/LogoIcon';
+import { token } from '@theme/token';
 import { useLoginMutation } from '../authApi';
 import type { ILoginResponse } from '../models';
 import useAuth from '../../../hooks/useAuth';
 
 function LoginPage() {
   const { t } = useTranslation();
-  const { token } = theme.useToken();
   const [form] = Form.useForm<ILoginResponse>();
   const navigate = useNavigate();
   const [login] = useLoginMutation();

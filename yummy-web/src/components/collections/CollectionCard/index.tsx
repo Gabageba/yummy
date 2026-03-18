@@ -1,5 +1,5 @@
 import type { CardProps } from 'antd';
-import { Card, Flex, theme, Typography } from 'antd';
+import { Card, Flex, Typography } from 'antd';
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IUserRoles } from '@pages/ProfilePage/models';
@@ -12,6 +12,7 @@ import { CollectionActions } from '@pages/collections/List/models';
 import CoverIcon from '@components/CoverIcon';
 import EditIcon from '@icons/EditIcon';
 import DeleteIcon from '@icons/DeleteIcon';
+import { token } from '@theme/token';
 import CollectionModal from '../CollectionModal';
 
 interface IProps {
@@ -20,7 +21,6 @@ interface IProps {
 
 function CollectionCard({ collection }: IProps) {
   const { t } = useTranslation();
-  const { token } = theme.useToken();
   const navigate = useNavigate();
 
   const [isCollectionModal, setIsCollectionModal] = useState<boolean>(false);

@@ -1,8 +1,8 @@
-import { COLORS } from '@utils/antdTheme';
 import type { TagProps } from 'antd';
 import { Tag } from 'antd';
 import { useMemo } from 'react';
 import './index.scss';
+import { token } from '@theme/token';
 
 interface IProps extends Omit<TagProps, 'color' | 'className'> {}
 
@@ -11,20 +11,20 @@ function PrimaryTag({ variant, ...restProps }: IProps) {
     switch (variant) {
       case 'outlined':
         return {
-          background: COLORS.PRIMARY_LIGHT_COLOR,
-          color: COLORS.PRIMARY_COLOR,
-          borderColor: COLORS.PRIMARY_COLOR,
+          background: token.colorPrimaryLight,
+          color: token.colorPrimary,
+          borderColor: token.colorPrimary,
         };
       case 'solid':
         return {
-          backgroundColor: COLORS.PRIMARY_COLOR,
-          color: COLORS.BACKGROUND_COLOR,
+          backgroundColor: token.colorPrimary,
+          color: token.colorBg,
         };
       case 'filled':
       default:
         return {
-          backgroundColor: COLORS.PRIMARY_LIGHT_COLOR,
-          color: COLORS.PRIMARY_COLOR,
+          backgroundColor: token.colorPrimaryLight,
+          color: token.colorPrimary,
         };
     }
   }, [variant]);

@@ -1,4 +1,4 @@
-import { theme } from 'antd';
+import { token } from '@theme/token';
 import type { IIconProps } from './Icon';
 import Icon from './Icon';
 
@@ -19,8 +19,6 @@ function InternalIcon(props: React.SVGProps<SVGSVGElement>) {
 interface IProps extends IIconProps {}
 
 function LogoIcon({ color, ...restProps }: IProps) {
-  const { token } = theme.useToken();
-
   return (
     <Icon
       component={InternalIcon}

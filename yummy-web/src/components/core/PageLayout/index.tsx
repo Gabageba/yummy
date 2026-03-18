@@ -1,8 +1,9 @@
-import { Button, Flex, Grid, Layout, Spin, theme, Typography } from 'antd';
+import { Button, Flex, Grid, Layout, Spin, Typography } from 'antd';
 import { useMemo, type ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './index.scss';
 import ArrowLeftIcon from '@icons/ArrowLeftIcon';
+import { token } from '@theme/token';
 import DesktopHeader from './headers/DesktopHeader';
 import MobileHeader from './headers/MobileHeader';
 
@@ -24,7 +25,6 @@ const PageLayout = ({
   actions,
 }: IProps) => {
   const screens = Grid.useBreakpoint();
-  const { token } = theme.useToken();
   const navigate = useNavigate();
 
   const isScreensCalculated = useMemo(

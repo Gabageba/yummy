@@ -1,4 +1,4 @@
-import { Button, Flex, Form, theme, Typography } from 'antd';
+import { Button, Flex, Form, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import '../index.scss';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,7 @@ import useApiValidationErrors from '@hooks/useApiValidationErrors';
 import InputFormItem from '@components/core/fields/InputFormItem';
 import PasswordFormItem from '@components/core/fields/PasswordFormItem';
 import LogoIcon from '@icons/LogoIcon';
+import { token } from '@theme/token';
 import { useRegisterMutation } from '../authApi';
 import type { IRegisterResponse } from '../models';
 import useAuth from '../../../hooks/useAuth';
@@ -19,7 +20,6 @@ function RegisterPage() {
   const { required, isEmail, minLength } = useValidation();
   const { handleValidationErrors } = useApiValidationErrors(form);
   const { onAuthSuccess } = useAuth();
-  const { token } = theme.useToken();
 
   const [register] = useRegisterMutation();
 

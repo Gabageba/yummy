@@ -6,13 +6,13 @@ import LogoutIcon from '@icons/LogoutIcon';
 import SettingsIcon from '@icons/SettingsIcon';
 import { RoutePath } from '@routes/models';
 import toCapitalized from '@utils/toCapitalized';
-import { Button, Flex, Grid, theme, Typography } from 'antd';
+import { Button, Flex, Grid, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import './index.scss';
+import { token } from '@theme/token';
 
 function MorePage() {
-  const { token } = theme.useToken();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { onLogout } = useLogout();

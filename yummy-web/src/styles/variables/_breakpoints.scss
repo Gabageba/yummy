@@ -136,17 +136,4 @@ $bp-max: (
   }
 }
 
-:root {
-  --bp-xxs: #{$bp-xxs};
-  --bp-xxs-max: #{$bp-xxs-max};
-  --bp-xs: #{$bp-xs};
-  --bp-xs-max: #{$bp-xs-max};
-  --bp-sm: #{$bp-sm};
-  --bp-sm-max: #{$bp-sm-max};
-  --bp-md: #{$bp-md};
-  --bp-md-max: #{$bp-md-max};
-  --bp-lg: #{$bp-lg};
-  --bp-lg-max: #{$bp-lg-max};
-  --bp-xl: #{$bp-xl};
-  --bp-xl-max: #{$bp-xl-max};
-}
+/* CSS variables (--bp-*) are injected at runtime from src/utils/tokens.ts */

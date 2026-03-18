@@ -1,6 +1,6 @@
 import type { IDish } from '@pages/dishes/models';
 import type { CardProps } from 'antd';
-import { Card, Flex, Space, Tag, theme, Typography } from 'antd';
+import { Card, Flex, Space, Tag, Typography } from 'antd';
 import './index.scss';
 import PrimaryTag from '@components/core/PrimaryTag';
 import DifficultyLabel from '@components/DifficultyLabel';
@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
 import CoverIcon from '@components/CoverIcon';
 import { CoverIconEnum } from '@components/CoverIcon/models';
+import { token } from '@theme/token';
 
 interface IProps {
   dish: IDish;
@@ -16,7 +17,6 @@ interface IProps {
 }
 
 function DishCard({ dish, actions }: IProps) {
-  const { token } = theme.useToken();
   const { t } = useTranslation();
   const navigate = useNavigate();
 

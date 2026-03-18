@@ -1,0 +1,314 @@
+{
+  "--color-white": {
+    "prefix": "--color-white",
+    "body": "--color-white",
+    "description": "#fff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-primary": {
+    "prefix": "--color-primary",
+    "body": "--color-primary",
+    "description": "#F7A348",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg": {
+    "prefix": "--color-bg",
+    "body": "--color-bg",
+    "description": "#fff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-secondary": {
+    "prefix": "--color-bg-secondary",
+    "body": "--color-bg-secondary",
+    "description": "#fff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text": {
+    "prefix": "--color-text",
+    "body": "--color-text",
+    "description": "#111827",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text-white": {
+    "prefix": "--color-text-white",
+    "body": "--color-text-white",
+    "description": "#fff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-icon-secondary": {
+    "prefix": "--color-icon-secondary",
+    "body": "--color-icon-secondary",
+    "description": "rgba(0,0,0,.25)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text-secondary": {
+    "prefix": "--color-text-secondary",
+    "body": "--color-text-secondary",
+    "description": "rgba(0,0,0,.45)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-primary-light": {
+    "prefix": "--color-primary-light",
+    "body": "--color-primary-light",
+    "description": "#FEF6ED",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-primary-light-gradient": {
+    "prefix": "--color-primary-light-gradient",
+    "body": "--color-primary-light-gradient",
+    "description": "linear-gradient(180deg, #FFEDD5 0%, #FFF7ED 100%)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-success": {
+    "prefix": "--color-success",
+    "body": "--color-success",
+    "description": "#52c41a",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-warning": {
+    "prefix": "--color-warning",
+    "body": "--color-warning",
+    "description": "#faad14",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error": {
+    "prefix": "--color-error",
+    "body": "--color-error",
+    "description": "#ff4d4f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-light-gray": {
+    "prefix": "--color-light-gray",
+    "body": "--color-light-gray",
+    "description": "#EDEFF2",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-light-shadow": {
+    "prefix": "--color-light-shadow",
+    "body": "--color-light-shadow",
+    "description": "rgba(0, 0, 0, 0.1)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-xxs": {
+    "prefix": "--padding-xxs",
+    "body": "--padding-xxs",
+    "description": "4px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-xs": {
+    "prefix": "--padding-xs",
+    "body": "--padding-xs",
+    "description": "8px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-sm": {
+    "prefix": "--padding-sm",
+    "body": "--padding-sm",
+    "description": "12px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding": {
+    "prefix": "--padding",
+    "body": "--padding",
+    "description": "16px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-md": {
+    "prefix": "--padding-md",
+    "body": "--padding-md",
+    "description": "20px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-lg": {
+    "prefix": "--padding-lg",
+    "body": "--padding-lg",
+    "description": "24px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-xl": {
+    "prefix": "--padding-xl",
+    "body": "--padding-xl",
+    "description": "32px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-xxl": {
+    "prefix": "--padding-xxl",
+    "body": "--padding-xxl",
+    "description": "48px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-xxs": {
+    "prefix": "--margin-xxs",
+    "body": "--margin-xxs",
+    "description": "4px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-xs": {
+    "prefix": "--margin-xs",
+    "body": "--margin-xs",
+    "description": "8px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-sm": {
+    "prefix": "--margin-sm",
+    "body": "--margin-sm",
+    "description": "12px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin": {
+    "prefix": "--margin",
+    "body": "--margin",
+    "description": "16px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-md": {
+    "prefix": "--margin-md",
+    "body": "--margin-md",
+    "description": "20px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-lg": {
+    "prefix": "--margin-lg",
+    "body": "--margin-lg",
+    "description": "24px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-xl": {
+    "prefix": "--margin-xl",
+    "body": "--margin-xl",
+    "description": "32px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-xxl": {
+    "prefix": "--margin-xxl",
+    "body": "--margin-xxl",
+    "description": "48px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-xxs": {
+    "prefix": "--font-size-xxs",
+    "body": "--font-size-xxs",
+    "description": "10px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-xs": {
+    "prefix": "--font-size-xs",
+    "body": "--font-size-xs",
+    "description": "12px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-sm": {
+    "prefix": "--font-size-sm",
+    "body": "--font-size-sm",
+    "description": "14px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size": {
+    "prefix": "--font-size",
+    "body": "--font-size",
+    "description": "16px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-lg": {
+    "prefix": "--font-size-lg",
+    "body": "--font-size-lg",
+    "description": "20px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-xl": {
+    "prefix": "--font-size-xl",
+    "body": "--font-size-xl",
+    "description": "24px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-xxl": {
+    "prefix": "--font-size-xxl",
+    "body": "--font-size-xxl",
+    "description": "32px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-xxxl": {
+    "prefix": "--font-size-xxxl",
+    "body": "--font-size-xxxl",
+    "description": "48px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--breakpoint-xxs": {
+    "prefix": "--breakpoint-xxs",
+    "body": "--breakpoint-xxs",
+    "description": "480px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--breakpoint-xxs-max": {
+    "prefix": "--breakpoint-xxs-max",
+    "body": "--breakpoint-xxs-max",
+    "description": "479px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--breakpoint-xs": {
+    "prefix": "--breakpoint-xs",
+    "body": "--breakpoint-xs",
+    "description": "576px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--breakpoint-xs-max": {
+    "prefix": "--breakpoint-xs-max",
+    "body": "--breakpoint-xs-max",
+    "description": "575px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--breakpoint-sm": {
+    "prefix": "--breakpoint-sm",
+    "body": "--breakpoint-sm",
+    "description": "768px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--breakpoint-sm-max": {
+    "prefix": "--breakpoint-sm-max",
+    "body": "--breakpoint-sm-max",
+    "description": "767px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--breakpoint-md": {
+    "prefix": "--breakpoint-md",
+    "body": "--breakpoint-md",
+    "description": "992px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--breakpoint-md-max": {
+    "prefix": "--breakpoint-md-max",
+    "body": "--breakpoint-md-max",
+    "description": "991px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--breakpoint-lg": {
+    "prefix": "--breakpoint-lg",
+    "body": "--breakpoint-lg",
+    "description": "1200px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--breakpoint-lg-max": {
+    "prefix": "--breakpoint-lg-max",
+    "body": "--breakpoint-lg-max",
+    "description": "1199px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--breakpoint-xl": {
+    "prefix": "--breakpoint-xl",
+    "body": "--breakpoint-xl",
+    "description": "1600px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--breakpoint-xl-max": {
+    "prefix": "--breakpoint-xl-max",
+    "body": "--breakpoint-xl-max",
+    "description": "1599px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--height-header": {
+    "prefix": "--height-header",
+    "body": "--height-header",
+    "description": "64px",
+    "scope": "css,scss,less,postcss"
+  }
+}

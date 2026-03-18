@@ -1,5 +1,5 @@
 import type { MenuProps } from 'antd';
-import { Dropdown, Flex, theme } from 'antd';
+import { Dropdown, Flex } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
@@ -7,6 +7,7 @@ import type { IUserProfile } from '@api/usersApi';
 import SettingsIcon from '@icons/SettingsIcon';
 import LogoutIcon from '@icons/LogoutIcon';
 import useLogout from '@hooks/useLogout';
+import { token } from '@theme/token';
 import Avatar from './Avatar';
 import './index.scss';
 
@@ -17,7 +18,6 @@ interface AvatarButtonProps {
 const AvatarButton = ({ user }: AvatarButtonProps) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { token } = theme.useToken();
   const { onLogout } = useLogout();
 
   const items: MenuProps['items'] = [

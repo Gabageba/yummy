@@ -39,6 +39,7 @@ export default defineConfig({
       '@api': '/src/api',
       '@routes': '/src/routes',
       '@icons': '/src/icons',
+      '@theme': '/src/theme',
     },
   },
 });
