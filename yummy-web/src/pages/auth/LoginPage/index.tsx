@@ -40,7 +40,7 @@ function LoginPage() {
   return (
     <div className="auth-page">
       <div className="auth-page__container">
-        <Flex vertical align="center" gap={24} className="auth-page__content">
+        <Flex vertical align="center" gap={token.marginLG} className="auth-page__content">
           <LogoIcon className="auth-page__icon" size={64} />
           <Flex vertical align="center" gap={token.marginXS} className="auth-page__title">
             <Typography.Title level={2}>{t('welcomeBack')}</Typography.Title>

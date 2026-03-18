@@ -87,6 +87,16 @@ const BREAKPOINTS = {
 
 const HEIGHTS = {
   header: 64,
+  dishCardImage: 192,
+} as const satisfies Record<string, number>;
+
+const SIZES = {
+  avatar: 40,
+} as const satisfies Record<string, number>;
+
+const BORDER_SIZES = {
+  header: 1,
+  avatar: 2,
 } as const satisfies Record<string, number>;
 
 export const _colorToken = prepareToken('color', COLORS);
@@ -95,13 +105,17 @@ export const _marginToken = prepareToken('margin', MARGINS);
 export const _fontSizeToken = prepareToken('fontSize', FONT_SIZES);
 export const _breakpointToken = prepareToken('breakpoint', BREAKPOINTS);
 export const _heightToken = prepareToken('height', HEIGHTS);
+export const _sizeToken = prepareToken('size', SIZES);
+export const _borderSizeToken = prepareToken('borderSize', BORDER_SIZES);
 
 export type DesignToken = PrefixedKeys<'color', typeof COLORS> &
   PrefixedKeys<'padding', typeof PADDINGS> &
   PrefixedKeys<'margin', typeof MARGINS> &
   PrefixedKeys<'fontSize', typeof FONT_SIZES> &
   PrefixedKeys<'breakpoint', typeof BREAKPOINTS> &
-  PrefixedKeys<'height', typeof HEIGHTS>;
+  PrefixedKeys<'height', typeof HEIGHTS> &
+  PrefixedKeys<'size', typeof SIZES> &
+  PrefixedKeys<'borderSize', typeof BORDER_SIZES>;
 
 export const token: DesignToken = {
   ..._colorToken,
@@ -110,4 +124,6 @@ export const token: DesignToken = {
   ..._fontSizeToken,
   ..._breakpointToken,
   ..._heightToken,
+  ..._sizeToken,
+  ..._borderSizeToken,
 };

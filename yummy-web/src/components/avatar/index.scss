@@ -1,6 +1,6 @@
 .avatar {
   background-color: var(--color-bg);
-  border: 2px solid var(--color-primary);
+  border: var(--border-size-avatar) solid var(--color-primary);
   color: var(--color-primary);
 
   &__wrap {

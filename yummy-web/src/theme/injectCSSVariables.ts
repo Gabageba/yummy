@@ -1,11 +1,13 @@
 import camelToKebab from '@utils/camelToKebab';
 import {
+  _borderSizeToken,
   _breakpointToken,
   _colorToken,
   _fontSizeToken,
   _heightToken,
   _marginToken,
   _paddingToken,
+  _sizeToken,
 } from './token';
 
 const toCssVars = (token: Record<string, number | string>, suffix: string = ''): string[] =>
@@ -18,6 +20,8 @@ export const cssVars = [
   ...toCssVars(_fontSizeToken, 'px'),
   ...toCssVars(_breakpointToken, 'px'),
   ...toCssVars(_heightToken, 'px'),
+  ...toCssVars(_sizeToken, 'px'),
+  ...toCssVars(_borderSizeToken, 'px'),
 ];
 
 export const injectCSSVariables = (): void => {

@@ -35,7 +35,7 @@ function AntdConfigProvider({ children }: IProps) {
       fontSizeLG: token.fontSizeSM,
     },
     Dropdown: {
-      fontSizeIcon: 16,
+      fontSizeIcon: token.fontSize,
     },
   };
   const antdTheme: ThemeConfig = {

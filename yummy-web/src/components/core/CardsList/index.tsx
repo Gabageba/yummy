@@ -4,6 +4,7 @@ import { Card, Col, Pagination, Row } from 'antd';
 import type { ReactNode } from 'react';
 import { useMemo, useState } from 'react';
 import useCardListColumnsCount from '@hooks/useCardListColumnsCount';
+import { token } from '@theme/token';
 import Empty from '../Empty';
 import './index.scss';
 
@@ -43,7 +44,7 @@ function CardsList<T extends IItem>({
 
   if (isFetching) {
     return (
-      <Row gutter={[16, 16]} className="cards-list__content">
+      <Row gutter={[token.margin, token.margin]} className="cards-list__content">
         {Array.from({ length: columnsCount }, (_, i) => (
           <Col span={span} key={i}>
             <Card loading={isFetching} />
@@ -55,7 +56,7 @@ function CardsList<T extends IItem>({
 
   return (
     <>
-      <Row gutter={[16, 16]} className="cards-list__content">
+      <Row gutter={[token.margin, token.margin]} className="cards-list__content">
         {data && data.results.length > 0 ? (
           data.results.map((item) => (
             <Col span={span} key={item.id}>

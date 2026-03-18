@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
 import ArrowLeftIcon from '@icons/ArrowLeftIcon';
 import HomeIcon from '@icons/HomeIcon';
+import { token } from '@theme/token';
 
 function NotFoundPage() {
   const { t } = useTranslation();
@@ -13,7 +14,7 @@ function NotFoundPage() {
 
   return (
     <PageLayout>
-      <Flex className="not-found-page" vertical align="center" gap={16}>
+      <Flex className="not-found-page" vertical align="center" gap={token.margin}>
         <Flex vertical align="center" className="not-found-page__title">
           <Typography.Text className="not-found-page__404">404</Typography.Text>
           <Typography.Title level={1}>{t('pageNotFound')}</Typography.Title>

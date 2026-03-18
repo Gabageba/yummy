@@ -36,7 +36,7 @@ const AvatarButton = () => {
   ];
 
   if (isUserLoading) {
-    return <Skeleton.Avatar active size={40} />;
+    return <Skeleton.Avatar active size={token.sizeAvatar} />;
   }
 
   return (

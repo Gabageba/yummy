@@ -310,5 +310,29 @@
     "body": "--height-header",
     "description": "64px",
     "scope": "css,scss,less,postcss"
+  },
+  "--height-dish-card-image": {
+    "prefix": "--height-dish-card-image",
+    "body": "--height-dish-card-image",
+    "description": "192px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size-avatar": {
+    "prefix": "--size-avatar",
+    "body": "--size-avatar",
+    "description": "40px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--border-size-header": {
+    "prefix": "--border-size-header",
+    "body": "--border-size-header",
+    "description": "1px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--border-size-avatar": {
+    "prefix": "--border-size-avatar",
+    "body": "--border-size-avatar",
+    "description": "2px",
+    "scope": "css,scss,less,postcss"
   }
 }
