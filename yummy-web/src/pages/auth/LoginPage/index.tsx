@@ -62,17 +62,17 @@ function LoginPage() {
           <Divider className="auth-page__divider">{t('orContinueWith')}</Divider>
           <Row className="auth-page__buttons" gutter={[token.marginXS, token.marginXS]}>
             <Col span={token.marginXS}>
-              <Button block icon={<GoogleOutlined />} loading={isLogging} />
+              <Button block icon={<GoogleOutlined />} disabled={isLogging} />
             </Col>
             <Col span={token.marginXS}>
-              <Button block icon={<VkIcon />} loading={isLogging} />
+              <Button block icon={<VkIcon />} disabled={isLogging} />
             </Col>
             <Col span={token.marginXS}>
-              <Button block icon={<AppleOutlined />} loading={isLogging} />
+              <Button block icon={<AppleOutlined />} disabled={isLogging} />
             </Col>
             {isDevMode && (
               <Col span={token.marginLG}>
-                <Button block icon={<UserIcon />} onClick={loginAsAdmin} loading={isLogging} />
+                <Button block icon={<UserIcon />} onClick={loginAsAdmin} disabled={isLogging} />
               </Col>
             )}
           </Row>

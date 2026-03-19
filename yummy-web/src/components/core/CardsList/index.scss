@@ -2,4 +2,9 @@
   &__content {
     margin-bottom: var(--margin);
   }
+
+  &__item {
+    animation: card-fade-in 0.4s ease-out both;
+    animation-delay: calc(var(--card-index, 0) * 60ms);
+  }
 }

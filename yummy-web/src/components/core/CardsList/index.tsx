@@ -58,8 +58,13 @@ function CardsList<T extends IItem>({
     <>
       <Row gutter={[token.margin, token.margin]} className="cards-list__content">
         {data && data.results.length > 0 ? (
-          data.results.map((item) => (
-            <Col span={span} key={item.id}>
+          data.results.map((item, index) => (
+            <Col
+              span={span}
+              key={item.id}
+              className="cards-list__item"
+              style={{ '--card-index': index } as React.CSSProperties}
+            >
               {cardRender(item)}
             </Col>
           ))
