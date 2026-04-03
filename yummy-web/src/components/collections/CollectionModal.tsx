@@ -1,5 +1,5 @@
 import useValidation from '@hooks/useValidation';
-import { Form, Modal, Typography } from 'antd';
+import { App, Form, Modal, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import InputFormItem from '@components/core/fields/InputFormItem';
 import TextAreaFormItem from '@components/core/fields/TextAreaFormItem';
@@ -9,6 +9,7 @@ import {
 } from '@pages/collections/collectionsApi';
 import type { ICollection } from '@pages/collections/List/models';
 import useApiValidationErrors from '@hooks/useApiValidationErrors';
+import useAutoFocus from '@hooks/useAutoFocus';
 
 interface IProps {
   initialValue?: ICollection;
@@ -21,6 +22,8 @@ function CollectionModal({ initialValue, open, onCancel }: IProps) {
   const { required } = useValidation();
   const [form] = Form.useForm<ICollection>();
   const { handleValidationErrors } = useApiValidationErrors(form);
+  const { afterOpenChange } = useAutoFocus('name', form);
+  const { notification } = App.useApp();
 
   const [create, { isLoading: isCreating }] = useCreateCollectionMutation();
   const [update, { isLoading: isUpdating }] = useUpdateCollectionMutation();
@@ -31,13 +34,20 @@ function CollectionModal({ initialValue, open, onCancel }: IProps) {
       .then((collection) =>
         initialValue?.id ? update({ ...collection, id: initialValue.id }) : create(collection),
       )
-      .then(onCancel)
+      .then(() => {
+        notification.success({
+          message: t('collectionSuccessfullyCreated'),
+          placement: 'bottomLeft',
+        });
+        onCancel();
+      })
       .catch(handleValidationErrors);
   };
 
   return (
     <Modal
       open={open}
+      afterOpenChange={afterOpenChange}
       afterClose={form.resetFields}
       title={
         <Typography.Title level={4}>

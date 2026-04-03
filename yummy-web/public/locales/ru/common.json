@@ -49,5 +49,10 @@
   "goToHome": "Перейти на главную",
   "goBack": "Вернуться назад",
   "changeDishCollections": "Изменить подборки блюда",
-  "more": "Ещё"
+  "more": "Ещё",
+  "collectionSuccessfullyCreated": "Подборка успешно создана",
+  "dishSuccessfullyCreated": "Блюдо успешно создано",
+  "confirmDelete": "Подтвердите удаление",
+  "deleteWarning": "Вы уверены? Это действие нельзя будет отменить.",
+  "delete": "Удалить"
 }

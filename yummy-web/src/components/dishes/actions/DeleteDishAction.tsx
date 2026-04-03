@@ -1,3 +1,4 @@
+import useConfirmModal from '@hooks/useConfirmModal';
 import DeleteIcon from '@icons/DeleteIcon';
 import { useDeleteDishMutation } from '@pages/dishes/dishesApi';
 
@@ -6,6 +7,7 @@ interface IProps {
 }
 
 function DeleteDishAction({ dishId }: IProps) {
+  const { confirmDeletion } = useConfirmModal();
   const [deleteDish, { isLoading }] = useDeleteDishMutation();
 
   return (
@@ -13,7 +15,7 @@ function DeleteDishAction({ dishId }: IProps) {
       disabled={isLoading}
       onClick={(e) => {
         e.stopPropagation();
-        deleteDish(dishId);
+        confirmDeletion(() => deleteDish(dishId));
       }}
     />
   );

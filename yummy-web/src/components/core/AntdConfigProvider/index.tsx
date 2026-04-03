@@ -1,5 +1,5 @@
 import type { ThemeConfig } from 'antd';
-import { ConfigProvider } from 'antd';
+import { App, ConfigProvider } from 'antd';
 import enUS from 'antd/locale/en_US';
 import ruRU from 'antd/locale/ru_RU';
 import { useTranslation } from 'react-i18next';
@@ -56,7 +56,7 @@ function AntdConfigProvider({ children }: IProps) {
 
   return (
     <ConfigProvider theme={antdTheme} renderEmpty={() => <Empty />} locale={locale}>
-      {children}
+      <App>{children}</App>
     </ConfigProvider>
   );
 }

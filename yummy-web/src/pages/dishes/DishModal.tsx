@@ -1,5 +1,5 @@
 import useValidation from '@hooks/useValidation';
-import { Form, Modal, Typography } from 'antd';
+import { App, Form, Modal, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import InputFormItem from '@components/core/fields/InputFormItem';
 import TextAreaFormItem from '@components/core/fields/TextAreaFormItem';
@@ -9,6 +9,7 @@ import { Difficulty } from '@components/core/fields/difficulty/models';
 import { useCreateDishMutation, useUpdateDishMutation } from '@pages/dishes/dishesApi';
 import type { IDish, IDishPayload } from '@pages/dishes/models';
 import useApiValidationErrors from '@hooks/useApiValidationErrors';
+import useAutoFocus from '@hooks/useAutoFocus';
 
 interface IProps {
   initialValue?: IDish;
@@ -21,6 +22,8 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
   const { required } = useValidation();
   const [form] = Form.useForm<IDishPayload>();
   const { handleValidationErrors } = useApiValidationErrors(form);
+  const { afterOpenChange } = useAutoFocus('name', form);
+  const { notification } = App.useApp();
 
   const [create, { isLoading: isCreating }] = useCreateDishMutation();
   const [update, { isLoading: isUpdating }] = useUpdateDishMutation();
@@ -29,7 +32,13 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
     form
       .validateFields()
       .then((dish) =>
-        (initialValue?.id ? update({ ...dish, id: initialValue.id }) : create(dish)).then(onCancel),
+        (initialValue?.id ? update({ ...dish, id: initialValue.id }) : create(dish)).then(() => {
+          notification.success({
+            message: t('dishSuccessfullyCreated'),
+            placement: 'bottomLeft',
+          });
+          onCancel();
+        }),
       )
       .catch(handleValidationErrors);
   };
@@ -38,6 +47,7 @@ function DishModal({ initialValue, open, onCancel }: IProps) {
     <Modal
       getContainer={() => document.body}
       open={open}
+      afterOpenChange={afterOpenChange}
       afterClose={form.resetFields}
       title={
         <Typography.Title level={4}>

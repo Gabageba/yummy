@@ -13,6 +13,7 @@ import CoverIcon from '@components/CoverIcon';
 import EditIcon from '@icons/EditIcon';
 import DeleteIcon from '@icons/DeleteIcon';
 import { token } from '@theme/token';
+import useConfirmModal from '@hooks/useConfirmModal';
 import CollectionModal from '../CollectionModal';
 
 interface IProps {
@@ -22,11 +23,11 @@ interface IProps {
 function CollectionCard({ collection }: IProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { confirmDeletion } = useConfirmModal();
 
   const [isCollectionModal, setIsCollectionModal] = useState<boolean>(false);
 
   const [deleteCollection, { isLoading: isDeleting }] = useDeleteCollectionMutation();
-
   const actions = useMemo(() => {
     const result: CardProps['actions'] = [];
 
@@ -47,7 +48,7 @@ function CollectionCard({ collection }: IProps) {
           key="delete"
           onClick={(e) => {
             e.stopPropagation();
-            deleteCollection(collection.id);
+            confirmDeletion(() => deleteCollection(collection.id));
           }}
           disabled={isDeleting}
         />,
