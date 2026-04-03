@@ -10,13 +10,14 @@ import { Button, Flex, Grid, Skeleton, Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import './index.scss';
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 
 function MorePage() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { onLogout, isLoading: isLogoutLoading } = useLogout();
   const screens = Grid.useBreakpoint();
+  const token = useToken();
 
   const { data: user, isLoading: isUserLoading } = useGetProfileQuery();
 

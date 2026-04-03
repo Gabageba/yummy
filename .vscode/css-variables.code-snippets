@@ -1,62 +1,86 @@
 {
-  "--color-white": {
-    "prefix": "--color-white",
-    "body": "--color-white",
-    "description": "#fff",
+  "--blue": {
+    "prefix": "--blue",
+    "body": "--blue",
+    "description": "#1677FF",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple": {
+    "prefix": "--purple",
+    "body": "--purple",
+    "description": "#722ED1",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan": {
+    "prefix": "--cyan",
+    "body": "--cyan",
+    "description": "#13C2C2",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green": {
+    "prefix": "--green",
+    "body": "--green",
+    "description": "#52C41A",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta": {
+    "prefix": "--magenta",
+    "body": "--magenta",
+    "description": "#EB2F96",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink": {
+    "prefix": "--pink",
+    "body": "--pink",
+    "description": "#EB2F96",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red": {
+    "prefix": "--red",
+    "body": "--red",
+    "description": "#F5222D",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange": {
+    "prefix": "--orange",
+    "body": "--orange",
+    "description": "#FA8C16",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow": {
+    "prefix": "--yellow",
+    "body": "--yellow",
+    "description": "#FADB14",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano": {
+    "prefix": "--volcano",
+    "body": "--volcano",
+    "description": "#FA541C",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue": {
+    "prefix": "--geekblue",
+    "body": "--geekblue",
+    "description": "#2F54EB",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold": {
+    "prefix": "--gold",
+    "body": "--gold",
+    "description": "#FAAD14",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime": {
+    "prefix": "--lime",
+    "body": "--lime",
+    "description": "#A0D911",
     "scope": "css,scss,less,postcss"
   },
   "--color-primary": {
     "prefix": "--color-primary",
     "body": "--color-primary",
-    "description": "#F7A348",
-    "scope": "css,scss,less,postcss"
-  },
-  "--color-bg": {
-    "prefix": "--color-bg",
-    "body": "--color-bg",
-    "description": "#fff",
-    "scope": "css,scss,less,postcss"
-  },
-  "--color-bg-secondary": {
-    "prefix": "--color-bg-secondary",
-    "body": "--color-bg-secondary",
-    "description": "#fff",
-    "scope": "css,scss,less,postcss"
-  },
-  "--color-text": {
-    "prefix": "--color-text",
-    "body": "--color-text",
-    "description": "#111827",
-    "scope": "css,scss,less,postcss"
-  },
-  "--color-text-white": {
-    "prefix": "--color-text-white",
-    "body": "--color-text-white",
-    "description": "#fff",
-    "scope": "css,scss,less,postcss"
-  },
-  "--color-icon-secondary": {
-    "prefix": "--color-icon-secondary",
-    "body": "--color-icon-secondary",
-    "description": "rgba(0,0,0,.25)",
-    "scope": "css,scss,less,postcss"
-  },
-  "--color-text-secondary": {
-    "prefix": "--color-text-secondary",
-    "body": "--color-text-secondary",
-    "description": "rgba(0,0,0,.45)",
-    "scope": "css,scss,less,postcss"
-  },
-  "--color-primary-light": {
-    "prefix": "--color-primary-light",
-    "body": "--color-primary-light",
-    "description": "#FEF6ED",
-    "scope": "css,scss,less,postcss"
-  },
-  "--color-primary-light-gradient": {
-    "prefix": "--color-primary-light-gradient",
-    "body": "--color-primary-light-gradient",
-    "description": "linear-gradient(180deg, #FFEDD5 0%, #FFF7ED 100%)",
+    "description": "#1677ff",
     "scope": "css,scss,less,postcss"
   },
   "--color-success": {
@@ -77,244 +101,2302 @@
     "description": "#ff4d4f",
     "scope": "css,scss,less,postcss"
   },
-  "--color-light-gray": {
-    "prefix": "--color-light-gray",
-    "body": "--color-light-gray",
-    "description": "#EDEFF2",
+  "--color-info": {
+    "prefix": "--color-info",
+    "body": "--color-info",
+    "description": "#1677ff",
     "scope": "css,scss,less,postcss"
   },
-  "--color-light-shadow": {
-    "prefix": "--color-light-shadow",
-    "body": "--color-light-shadow",
-    "description": "rgba(0, 0, 0, 0.1)",
+  "--color-link": {
+    "prefix": "--color-link",
+    "body": "--color-link",
+    "description": "#1677ff",
     "scope": "css,scss,less,postcss"
   },
-  "--padding-xxs": {
-    "prefix": "--padding-xxs",
-    "body": "--padding-xxs",
-    "description": "4px",
+  "--color-text-base": {
+    "prefix": "--color-text-base",
+    "body": "--color-text-base",
+    "description": "#000",
     "scope": "css,scss,less,postcss"
   },
-  "--padding-xs": {
-    "prefix": "--padding-xs",
-    "body": "--padding-xs",
-    "description": "8px",
+  "--color-bg-base": {
+    "prefix": "--color-bg-base",
+    "body": "--color-bg-base",
+    "description": "#fff",
     "scope": "css,scss,less,postcss"
   },
-  "--padding-sm": {
-    "prefix": "--padding-sm",
-    "body": "--padding-sm",
-    "description": "12px",
+  "--font-family": {
+    "prefix": "--font-family",
+    "body": "--font-family",
+    "description": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,\n'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',\n'Noto Color Emoji'",
     "scope": "css,scss,less,postcss"
   },
-  "--padding": {
-    "prefix": "--padding",
-    "body": "--padding",
-    "description": "16px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--padding-md": {
-    "prefix": "--padding-md",
-    "body": "--padding-md",
-    "description": "20px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--padding-lg": {
-    "prefix": "--padding-lg",
-    "body": "--padding-lg",
-    "description": "24px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--padding-xl": {
-    "prefix": "--padding-xl",
-    "body": "--padding-xl",
-    "description": "32px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--padding-xxl": {
-    "prefix": "--padding-xxl",
-    "body": "--padding-xxl",
-    "description": "48px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--margin-xxs": {
-    "prefix": "--margin-xxs",
-    "body": "--margin-xxs",
-    "description": "4px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--margin-xs": {
-    "prefix": "--margin-xs",
-    "body": "--margin-xs",
-    "description": "8px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--margin-sm": {
-    "prefix": "--margin-sm",
-    "body": "--margin-sm",
-    "description": "12px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--margin": {
-    "prefix": "--margin",
-    "body": "--margin",
-    "description": "16px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--margin-md": {
-    "prefix": "--margin-md",
-    "body": "--margin-md",
-    "description": "20px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--margin-lg": {
-    "prefix": "--margin-lg",
-    "body": "--margin-lg",
-    "description": "24px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--margin-xl": {
-    "prefix": "--margin-xl",
-    "body": "--margin-xl",
-    "description": "32px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--margin-xxl": {
-    "prefix": "--margin-xxl",
-    "body": "--margin-xxl",
-    "description": "48px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--font-size-xxs": {
-    "prefix": "--font-size-xxs",
-    "body": "--font-size-xxs",
-    "description": "10px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--font-size-xs": {
-    "prefix": "--font-size-xs",
-    "body": "--font-size-xs",
-    "description": "12px",
-    "scope": "css,scss,less,postcss"
-  },
-  "--font-size-sm": {
-    "prefix": "--font-size-sm",
-    "body": "--font-size-sm",
-    "description": "14px",
+  "--font-family-code": {
+    "prefix": "--font-family-code",
+    "body": "--font-family-code",
+    "description": "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace",
     "scope": "css,scss,less,postcss"
   },
   "--font-size": {
     "prefix": "--font-size",
     "body": "--font-size",
-    "description": "16px",
+    "description": "14",
+    "scope": "css,scss,less,postcss"
+  },
+  "--line-width": {
+    "prefix": "--line-width",
+    "body": "--line-width",
+    "description": "1",
+    "scope": "css,scss,less,postcss"
+  },
+  "--line-type": {
+    "prefix": "--line-type",
+    "body": "--line-type",
+    "description": "solid",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-unit": {
+    "prefix": "--motion-unit",
+    "body": "--motion-unit",
+    "description": "0.1",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-base": {
+    "prefix": "--motion-base",
+    "body": "--motion-base",
+    "description": "0",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-ease-out-circ": {
+    "prefix": "--motion-ease-out-circ",
+    "body": "--motion-ease-out-circ",
+    "description": "cubic-bezier(0.08, 0.82, 0.17, 1)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-ease-in-out-circ": {
+    "prefix": "--motion-ease-in-out-circ",
+    "body": "--motion-ease-in-out-circ",
+    "description": "cubic-bezier(0.78, 0.14, 0.15, 0.86)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-ease-out": {
+    "prefix": "--motion-ease-out",
+    "body": "--motion-ease-out",
+    "description": "cubic-bezier(0.215, 0.61, 0.355, 1)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-ease-in-out": {
+    "prefix": "--motion-ease-in-out",
+    "body": "--motion-ease-in-out",
+    "description": "cubic-bezier(0.645, 0.045, 0.355, 1)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-ease-out-back": {
+    "prefix": "--motion-ease-out-back",
+    "body": "--motion-ease-out-back",
+    "description": "cubic-bezier(0.12, 0.4, 0.29, 1.46)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-ease-in-back": {
+    "prefix": "--motion-ease-in-back",
+    "body": "--motion-ease-in-back",
+    "description": "cubic-bezier(0.71, -0.46, 0.88, 0.6)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-ease-in-quint": {
+    "prefix": "--motion-ease-in-quint",
+    "body": "--motion-ease-in-quint",
+    "description": "cubic-bezier(0.755, 0.05, 0.855, 0.06)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-ease-out-quint": {
+    "prefix": "--motion-ease-out-quint",
+    "body": "--motion-ease-out-quint",
+    "description": "cubic-bezier(0.23, 1, 0.32, 1)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--border-radius": {
+    "prefix": "--border-radius",
+    "body": "--border-radius",
+    "description": "6",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size-unit": {
+    "prefix": "--size-unit",
+    "body": "--size-unit",
+    "description": "4",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size-step": {
+    "prefix": "--size-step",
+    "body": "--size-step",
+    "description": "4",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size-popup-arrow": {
+    "prefix": "--size-popup-arrow",
+    "body": "--size-popup-arrow",
+    "description": "16",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-height": {
+    "prefix": "--control-height",
+    "body": "--control-height",
+    "description": "32",
+    "scope": "css,scss,less,postcss"
+  },
+  "--z-index-base": {
+    "prefix": "--z-index-base",
+    "body": "--z-index-base",
+    "description": "0",
+    "scope": "css,scss,less,postcss"
+  },
+  "--z-index-popup-base": {
+    "prefix": "--z-index-popup-base",
+    "body": "--z-index-popup-base",
+    "description": "1000",
+    "scope": "css,scss,less,postcss"
+  },
+  "--opacity-image": {
+    "prefix": "--opacity-image",
+    "body": "--opacity-image",
+    "description": "1",
+    "scope": "css,scss,less,postcss"
+  },
+  "--blue-1": {
+    "prefix": "--blue-1",
+    "body": "--blue-1",
+    "description": "#e6f4ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--blue-2": {
+    "prefix": "--blue-2",
+    "body": "--blue-2",
+    "description": "#bae0ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--blue-3": {
+    "prefix": "--blue-3",
+    "body": "--blue-3",
+    "description": "#91caff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--blue-4": {
+    "prefix": "--blue-4",
+    "body": "--blue-4",
+    "description": "#69b1ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--blue-5": {
+    "prefix": "--blue-5",
+    "body": "--blue-5",
+    "description": "#4096ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--blue-6": {
+    "prefix": "--blue-6",
+    "body": "--blue-6",
+    "description": "#1677ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--blue-7": {
+    "prefix": "--blue-7",
+    "body": "--blue-7",
+    "description": "#0958d9",
+    "scope": "css,scss,less,postcss"
+  },
+  "--blue-8": {
+    "prefix": "--blue-8",
+    "body": "--blue-8",
+    "description": "#003eb3",
+    "scope": "css,scss,less,postcss"
+  },
+  "--blue-9": {
+    "prefix": "--blue-9",
+    "body": "--blue-9",
+    "description": "#002c8c",
+    "scope": "css,scss,less,postcss"
+  },
+  "--blue-10": {
+    "prefix": "--blue-10",
+    "body": "--blue-10",
+    "description": "#001d66",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple-1": {
+    "prefix": "--purple-1",
+    "body": "--purple-1",
+    "description": "#f9f0ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple-2": {
+    "prefix": "--purple-2",
+    "body": "--purple-2",
+    "description": "#efdbff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple-3": {
+    "prefix": "--purple-3",
+    "body": "--purple-3",
+    "description": "#d3adf7",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple-4": {
+    "prefix": "--purple-4",
+    "body": "--purple-4",
+    "description": "#b37feb",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple-5": {
+    "prefix": "--purple-5",
+    "body": "--purple-5",
+    "description": "#9254de",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple-6": {
+    "prefix": "--purple-6",
+    "body": "--purple-6",
+    "description": "#722ed1",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple-7": {
+    "prefix": "--purple-7",
+    "body": "--purple-7",
+    "description": "#531dab",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple-8": {
+    "prefix": "--purple-8",
+    "body": "--purple-8",
+    "description": "#391085",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple-9": {
+    "prefix": "--purple-9",
+    "body": "--purple-9",
+    "description": "#22075e",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple-10": {
+    "prefix": "--purple-10",
+    "body": "--purple-10",
+    "description": "#120338",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan-1": {
+    "prefix": "--cyan-1",
+    "body": "--cyan-1",
+    "description": "#e6fffb",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan-2": {
+    "prefix": "--cyan-2",
+    "body": "--cyan-2",
+    "description": "#b5f5ec",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan-3": {
+    "prefix": "--cyan-3",
+    "body": "--cyan-3",
+    "description": "#87e8de",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan-4": {
+    "prefix": "--cyan-4",
+    "body": "--cyan-4",
+    "description": "#5cdbd3",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan-5": {
+    "prefix": "--cyan-5",
+    "body": "--cyan-5",
+    "description": "#36cfc9",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan-6": {
+    "prefix": "--cyan-6",
+    "body": "--cyan-6",
+    "description": "#13c2c2",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan-7": {
+    "prefix": "--cyan-7",
+    "body": "--cyan-7",
+    "description": "#08979c",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan-8": {
+    "prefix": "--cyan-8",
+    "body": "--cyan-8",
+    "description": "#006d75",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan-9": {
+    "prefix": "--cyan-9",
+    "body": "--cyan-9",
+    "description": "#00474f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan-10": {
+    "prefix": "--cyan-10",
+    "body": "--cyan-10",
+    "description": "#002329",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green-1": {
+    "prefix": "--green-1",
+    "body": "--green-1",
+    "description": "#f6ffed",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green-2": {
+    "prefix": "--green-2",
+    "body": "--green-2",
+    "description": "#d9f7be",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green-3": {
+    "prefix": "--green-3",
+    "body": "--green-3",
+    "description": "#b7eb8f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green-4": {
+    "prefix": "--green-4",
+    "body": "--green-4",
+    "description": "#95de64",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green-5": {
+    "prefix": "--green-5",
+    "body": "--green-5",
+    "description": "#73d13d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green-6": {
+    "prefix": "--green-6",
+    "body": "--green-6",
+    "description": "#52c41a",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green-7": {
+    "prefix": "--green-7",
+    "body": "--green-7",
+    "description": "#389e0d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green-8": {
+    "prefix": "--green-8",
+    "body": "--green-8",
+    "description": "#237804",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green-9": {
+    "prefix": "--green-9",
+    "body": "--green-9",
+    "description": "#135200",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green-10": {
+    "prefix": "--green-10",
+    "body": "--green-10",
+    "description": "#092b00",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta-1": {
+    "prefix": "--magenta-1",
+    "body": "--magenta-1",
+    "description": "#fff0f6",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta-2": {
+    "prefix": "--magenta-2",
+    "body": "--magenta-2",
+    "description": "#ffd6e7",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta-3": {
+    "prefix": "--magenta-3",
+    "body": "--magenta-3",
+    "description": "#ffadd2",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta-4": {
+    "prefix": "--magenta-4",
+    "body": "--magenta-4",
+    "description": "#ff85c0",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta-5": {
+    "prefix": "--magenta-5",
+    "body": "--magenta-5",
+    "description": "#f759ab",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta-6": {
+    "prefix": "--magenta-6",
+    "body": "--magenta-6",
+    "description": "#eb2f96",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta-7": {
+    "prefix": "--magenta-7",
+    "body": "--magenta-7",
+    "description": "#c41d7f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta-8": {
+    "prefix": "--magenta-8",
+    "body": "--magenta-8",
+    "description": "#9e1068",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta-9": {
+    "prefix": "--magenta-9",
+    "body": "--magenta-9",
+    "description": "#780650",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta-10": {
+    "prefix": "--magenta-10",
+    "body": "--magenta-10",
+    "description": "#520339",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink-1": {
+    "prefix": "--pink-1",
+    "body": "--pink-1",
+    "description": "#fff0f6",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink-2": {
+    "prefix": "--pink-2",
+    "body": "--pink-2",
+    "description": "#ffd6e7",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink-3": {
+    "prefix": "--pink-3",
+    "body": "--pink-3",
+    "description": "#ffadd2",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink-4": {
+    "prefix": "--pink-4",
+    "body": "--pink-4",
+    "description": "#ff85c0",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink-5": {
+    "prefix": "--pink-5",
+    "body": "--pink-5",
+    "description": "#f759ab",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink-6": {
+    "prefix": "--pink-6",
+    "body": "--pink-6",
+    "description": "#eb2f96",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink-7": {
+    "prefix": "--pink-7",
+    "body": "--pink-7",
+    "description": "#c41d7f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink-8": {
+    "prefix": "--pink-8",
+    "body": "--pink-8",
+    "description": "#9e1068",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink-9": {
+    "prefix": "--pink-9",
+    "body": "--pink-9",
+    "description": "#780650",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink-10": {
+    "prefix": "--pink-10",
+    "body": "--pink-10",
+    "description": "#520339",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red-1": {
+    "prefix": "--red-1",
+    "body": "--red-1",
+    "description": "#fff1f0",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red-2": {
+    "prefix": "--red-2",
+    "body": "--red-2",
+    "description": "#ffccc7",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red-3": {
+    "prefix": "--red-3",
+    "body": "--red-3",
+    "description": "#ffa39e",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red-4": {
+    "prefix": "--red-4",
+    "body": "--red-4",
+    "description": "#ff7875",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red-5": {
+    "prefix": "--red-5",
+    "body": "--red-5",
+    "description": "#ff4d4f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red-6": {
+    "prefix": "--red-6",
+    "body": "--red-6",
+    "description": "#f5222d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red-7": {
+    "prefix": "--red-7",
+    "body": "--red-7",
+    "description": "#cf1322",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red-8": {
+    "prefix": "--red-8",
+    "body": "--red-8",
+    "description": "#a8071a",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red-9": {
+    "prefix": "--red-9",
+    "body": "--red-9",
+    "description": "#820014",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red-10": {
+    "prefix": "--red-10",
+    "body": "--red-10",
+    "description": "#5c0011",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange-1": {
+    "prefix": "--orange-1",
+    "body": "--orange-1",
+    "description": "#fff7e6",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange-2": {
+    "prefix": "--orange-2",
+    "body": "--orange-2",
+    "description": "#ffe7ba",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange-3": {
+    "prefix": "--orange-3",
+    "body": "--orange-3",
+    "description": "#ffd591",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange-4": {
+    "prefix": "--orange-4",
+    "body": "--orange-4",
+    "description": "#ffc069",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange-5": {
+    "prefix": "--orange-5",
+    "body": "--orange-5",
+    "description": "#ffa940",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange-6": {
+    "prefix": "--orange-6",
+    "body": "--orange-6",
+    "description": "#fa8c16",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange-7": {
+    "prefix": "--orange-7",
+    "body": "--orange-7",
+    "description": "#d46b08",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange-8": {
+    "prefix": "--orange-8",
+    "body": "--orange-8",
+    "description": "#ad4e00",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange-9": {
+    "prefix": "--orange-9",
+    "body": "--orange-9",
+    "description": "#873800",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange-10": {
+    "prefix": "--orange-10",
+    "body": "--orange-10",
+    "description": "#612500",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow-1": {
+    "prefix": "--yellow-1",
+    "body": "--yellow-1",
+    "description": "#feffe6",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow-2": {
+    "prefix": "--yellow-2",
+    "body": "--yellow-2",
+    "description": "#ffffb8",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow-3": {
+    "prefix": "--yellow-3",
+    "body": "--yellow-3",
+    "description": "#fffb8f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow-4": {
+    "prefix": "--yellow-4",
+    "body": "--yellow-4",
+    "description": "#fff566",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow-5": {
+    "prefix": "--yellow-5",
+    "body": "--yellow-5",
+    "description": "#ffec3d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow-6": {
+    "prefix": "--yellow-6",
+    "body": "--yellow-6",
+    "description": "#fadb14",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow-7": {
+    "prefix": "--yellow-7",
+    "body": "--yellow-7",
+    "description": "#d4b106",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow-8": {
+    "prefix": "--yellow-8",
+    "body": "--yellow-8",
+    "description": "#ad8b00",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow-9": {
+    "prefix": "--yellow-9",
+    "body": "--yellow-9",
+    "description": "#876800",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow-10": {
+    "prefix": "--yellow-10",
+    "body": "--yellow-10",
+    "description": "#614700",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano-1": {
+    "prefix": "--volcano-1",
+    "body": "--volcano-1",
+    "description": "#fff2e8",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano-2": {
+    "prefix": "--volcano-2",
+    "body": "--volcano-2",
+    "description": "#ffd8bf",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano-3": {
+    "prefix": "--volcano-3",
+    "body": "--volcano-3",
+    "description": "#ffbb96",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano-4": {
+    "prefix": "--volcano-4",
+    "body": "--volcano-4",
+    "description": "#ff9c6e",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano-5": {
+    "prefix": "--volcano-5",
+    "body": "--volcano-5",
+    "description": "#ff7a45",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano-6": {
+    "prefix": "--volcano-6",
+    "body": "--volcano-6",
+    "description": "#fa541c",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano-7": {
+    "prefix": "--volcano-7",
+    "body": "--volcano-7",
+    "description": "#d4380d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano-8": {
+    "prefix": "--volcano-8",
+    "body": "--volcano-8",
+    "description": "#ad2102",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano-9": {
+    "prefix": "--volcano-9",
+    "body": "--volcano-9",
+    "description": "#871400",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano-10": {
+    "prefix": "--volcano-10",
+    "body": "--volcano-10",
+    "description": "#610b00",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue-1": {
+    "prefix": "--geekblue-1",
+    "body": "--geekblue-1",
+    "description": "#f0f5ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue-2": {
+    "prefix": "--geekblue-2",
+    "body": "--geekblue-2",
+    "description": "#d6e4ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue-3": {
+    "prefix": "--geekblue-3",
+    "body": "--geekblue-3",
+    "description": "#adc6ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue-4": {
+    "prefix": "--geekblue-4",
+    "body": "--geekblue-4",
+    "description": "#85a5ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue-5": {
+    "prefix": "--geekblue-5",
+    "body": "--geekblue-5",
+    "description": "#597ef7",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue-6": {
+    "prefix": "--geekblue-6",
+    "body": "--geekblue-6",
+    "description": "#2f54eb",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue-7": {
+    "prefix": "--geekblue-7",
+    "body": "--geekblue-7",
+    "description": "#1d39c4",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue-8": {
+    "prefix": "--geekblue-8",
+    "body": "--geekblue-8",
+    "description": "#10239e",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue-9": {
+    "prefix": "--geekblue-9",
+    "body": "--geekblue-9",
+    "description": "#061178",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue-10": {
+    "prefix": "--geekblue-10",
+    "body": "--geekblue-10",
+    "description": "#030852",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold-1": {
+    "prefix": "--gold-1",
+    "body": "--gold-1",
+    "description": "#fffbe6",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold-2": {
+    "prefix": "--gold-2",
+    "body": "--gold-2",
+    "description": "#fff1b8",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold-3": {
+    "prefix": "--gold-3",
+    "body": "--gold-3",
+    "description": "#ffe58f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold-4": {
+    "prefix": "--gold-4",
+    "body": "--gold-4",
+    "description": "#ffd666",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold-5": {
+    "prefix": "--gold-5",
+    "body": "--gold-5",
+    "description": "#ffc53d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold-6": {
+    "prefix": "--gold-6",
+    "body": "--gold-6",
+    "description": "#faad14",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold-7": {
+    "prefix": "--gold-7",
+    "body": "--gold-7",
+    "description": "#d48806",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold-8": {
+    "prefix": "--gold-8",
+    "body": "--gold-8",
+    "description": "#ad6800",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold-9": {
+    "prefix": "--gold-9",
+    "body": "--gold-9",
+    "description": "#874d00",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold-10": {
+    "prefix": "--gold-10",
+    "body": "--gold-10",
+    "description": "#613400",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime-1": {
+    "prefix": "--lime-1",
+    "body": "--lime-1",
+    "description": "#fcffe6",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime-2": {
+    "prefix": "--lime-2",
+    "body": "--lime-2",
+    "description": "#f4ffb8",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime-3": {
+    "prefix": "--lime-3",
+    "body": "--lime-3",
+    "description": "#eaff8f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime-4": {
+    "prefix": "--lime-4",
+    "body": "--lime-4",
+    "description": "#d3f261",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime-5": {
+    "prefix": "--lime-5",
+    "body": "--lime-5",
+    "description": "#bae637",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime-6": {
+    "prefix": "--lime-6",
+    "body": "--lime-6",
+    "description": "#a0d911",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime-7": {
+    "prefix": "--lime-7",
+    "body": "--lime-7",
+    "description": "#7cb305",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime-8": {
+    "prefix": "--lime-8",
+    "body": "--lime-8",
+    "description": "#5b8c00",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime-9": {
+    "prefix": "--lime-9",
+    "body": "--lime-9",
+    "description": "#3f6600",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime-10": {
+    "prefix": "--lime-10",
+    "body": "--lime-10",
+    "description": "#254000",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text": {
+    "prefix": "--color-text",
+    "body": "--color-text",
+    "description": "rgba(0,0,0,0.88)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text-secondary": {
+    "prefix": "--color-text-secondary",
+    "body": "--color-text-secondary",
+    "description": "rgba(0,0,0,0.65)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text-tertiary": {
+    "prefix": "--color-text-tertiary",
+    "body": "--color-text-tertiary",
+    "description": "rgba(0,0,0,0.45)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text-quaternary": {
+    "prefix": "--color-text-quaternary",
+    "body": "--color-text-quaternary",
+    "description": "rgba(0,0,0,0.25)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-fill": {
+    "prefix": "--color-fill",
+    "body": "--color-fill",
+    "description": "rgba(0,0,0,0.15)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-fill-secondary": {
+    "prefix": "--color-fill-secondary",
+    "body": "--color-fill-secondary",
+    "description": "rgba(0,0,0,0.06)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-fill-tertiary": {
+    "prefix": "--color-fill-tertiary",
+    "body": "--color-fill-tertiary",
+    "description": "rgba(0,0,0,0.04)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-fill-quaternary": {
+    "prefix": "--color-fill-quaternary",
+    "body": "--color-fill-quaternary",
+    "description": "rgba(0,0,0,0.02)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-solid": {
+    "prefix": "--color-bg-solid",
+    "body": "--color-bg-solid",
+    "description": "rgb(0,0,0)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-solid-hover": {
+    "prefix": "--color-bg-solid-hover",
+    "body": "--color-bg-solid-hover",
+    "description": "rgba(0,0,0,0.75)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-solid-active": {
+    "prefix": "--color-bg-solid-active",
+    "body": "--color-bg-solid-active",
+    "description": "rgba(0,0,0,0.95)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-layout": {
+    "prefix": "--color-bg-layout",
+    "body": "--color-bg-layout",
+    "description": "#f5f5f5",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-container": {
+    "prefix": "--color-bg-container",
+    "body": "--color-bg-container",
+    "description": "#ffffff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-elevated": {
+    "prefix": "--color-bg-elevated",
+    "body": "--color-bg-elevated",
+    "description": "#ffffff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-spotlight": {
+    "prefix": "--color-bg-spotlight",
+    "body": "--color-bg-spotlight",
+    "description": "rgba(0,0,0,0.85)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-blur": {
+    "prefix": "--color-bg-blur",
+    "body": "--color-bg-blur",
+    "description": "transparent",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-border": {
+    "prefix": "--color-border",
+    "body": "--color-border",
+    "description": "#d9d9d9",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-border-disabled": {
+    "prefix": "--color-border-disabled",
+    "body": "--color-border-disabled",
+    "description": "#d9d9d9",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-border-secondary": {
+    "prefix": "--color-border-secondary",
+    "body": "--color-border-secondary",
+    "description": "#f0f0f0",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-primary-bg": {
+    "prefix": "--color-primary-bg",
+    "body": "--color-primary-bg",
+    "description": "#e6f4ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-primary-bg-hover": {
+    "prefix": "--color-primary-bg-hover",
+    "body": "--color-primary-bg-hover",
+    "description": "#bae0ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-primary-border": {
+    "prefix": "--color-primary-border",
+    "body": "--color-primary-border",
+    "description": "#91caff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-primary-border-hover": {
+    "prefix": "--color-primary-border-hover",
+    "body": "--color-primary-border-hover",
+    "description": "#69b1ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-primary-hover": {
+    "prefix": "--color-primary-hover",
+    "body": "--color-primary-hover",
+    "description": "#4096ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-primary-active": {
+    "prefix": "--color-primary-active",
+    "body": "--color-primary-active",
+    "description": "#0958d9",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-primary-text-hover": {
+    "prefix": "--color-primary-text-hover",
+    "body": "--color-primary-text-hover",
+    "description": "#4096ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-primary-text": {
+    "prefix": "--color-primary-text",
+    "body": "--color-primary-text",
+    "description": "#1677ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-primary-text-active": {
+    "prefix": "--color-primary-text-active",
+    "body": "--color-primary-text-active",
+    "description": "#0958d9",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-success-bg": {
+    "prefix": "--color-success-bg",
+    "body": "--color-success-bg",
+    "description": "#f6ffed",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-success-bg-hover": {
+    "prefix": "--color-success-bg-hover",
+    "body": "--color-success-bg-hover",
+    "description": "#d9f7be",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-success-border": {
+    "prefix": "--color-success-border",
+    "body": "--color-success-border",
+    "description": "#b7eb8f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-success-border-hover": {
+    "prefix": "--color-success-border-hover",
+    "body": "--color-success-border-hover",
+    "description": "#95de64",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-success-hover": {
+    "prefix": "--color-success-hover",
+    "body": "--color-success-hover",
+    "description": "#95de64",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-success-active": {
+    "prefix": "--color-success-active",
+    "body": "--color-success-active",
+    "description": "#389e0d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-success-text-hover": {
+    "prefix": "--color-success-text-hover",
+    "body": "--color-success-text-hover",
+    "description": "#73d13d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-success-text": {
+    "prefix": "--color-success-text",
+    "body": "--color-success-text",
+    "description": "#52c41a",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-success-text-active": {
+    "prefix": "--color-success-text-active",
+    "body": "--color-success-text-active",
+    "description": "#389e0d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error-bg": {
+    "prefix": "--color-error-bg",
+    "body": "--color-error-bg",
+    "description": "#fff2f0",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error-bg-hover": {
+    "prefix": "--color-error-bg-hover",
+    "body": "--color-error-bg-hover",
+    "description": "#fff1f0",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error-bg-filled-hover": {
+    "prefix": "--color-error-bg-filled-hover",
+    "body": "--color-error-bg-filled-hover",
+    "description": "#ffdfdc",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error-bg-active": {
+    "prefix": "--color-error-bg-active",
+    "body": "--color-error-bg-active",
+    "description": "#ffccc7",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error-border": {
+    "prefix": "--color-error-border",
+    "body": "--color-error-border",
+    "description": "#ffccc7",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error-border-hover": {
+    "prefix": "--color-error-border-hover",
+    "body": "--color-error-border-hover",
+    "description": "#ffa39e",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error-hover": {
+    "prefix": "--color-error-hover",
+    "body": "--color-error-hover",
+    "description": "#ff7875",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error-active": {
+    "prefix": "--color-error-active",
+    "body": "--color-error-active",
+    "description": "#d9363e",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error-text-hover": {
+    "prefix": "--color-error-text-hover",
+    "body": "--color-error-text-hover",
+    "description": "#ff7875",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error-text": {
+    "prefix": "--color-error-text",
+    "body": "--color-error-text",
+    "description": "#ff4d4f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error-text-active": {
+    "prefix": "--color-error-text-active",
+    "body": "--color-error-text-active",
+    "description": "#d9363e",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-warning-bg": {
+    "prefix": "--color-warning-bg",
+    "body": "--color-warning-bg",
+    "description": "#fffbe6",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-warning-bg-hover": {
+    "prefix": "--color-warning-bg-hover",
+    "body": "--color-warning-bg-hover",
+    "description": "#fff1b8",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-warning-border": {
+    "prefix": "--color-warning-border",
+    "body": "--color-warning-border",
+    "description": "#ffe58f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-warning-border-hover": {
+    "prefix": "--color-warning-border-hover",
+    "body": "--color-warning-border-hover",
+    "description": "#ffd666",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-warning-hover": {
+    "prefix": "--color-warning-hover",
+    "body": "--color-warning-hover",
+    "description": "#ffd666",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-warning-active": {
+    "prefix": "--color-warning-active",
+    "body": "--color-warning-active",
+    "description": "#d48806",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-warning-text-hover": {
+    "prefix": "--color-warning-text-hover",
+    "body": "--color-warning-text-hover",
+    "description": "#ffc53d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-warning-text": {
+    "prefix": "--color-warning-text",
+    "body": "--color-warning-text",
+    "description": "#faad14",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-warning-text-active": {
+    "prefix": "--color-warning-text-active",
+    "body": "--color-warning-text-active",
+    "description": "#d48806",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-info-bg": {
+    "prefix": "--color-info-bg",
+    "body": "--color-info-bg",
+    "description": "#e6f4ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-info-bg-hover": {
+    "prefix": "--color-info-bg-hover",
+    "body": "--color-info-bg-hover",
+    "description": "#bae0ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-info-border": {
+    "prefix": "--color-info-border",
+    "body": "--color-info-border",
+    "description": "#91caff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-info-border-hover": {
+    "prefix": "--color-info-border-hover",
+    "body": "--color-info-border-hover",
+    "description": "#69b1ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-info-hover": {
+    "prefix": "--color-info-hover",
+    "body": "--color-info-hover",
+    "description": "#69b1ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-info-active": {
+    "prefix": "--color-info-active",
+    "body": "--color-info-active",
+    "description": "#0958d9",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-info-text-hover": {
+    "prefix": "--color-info-text-hover",
+    "body": "--color-info-text-hover",
+    "description": "#4096ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-info-text": {
+    "prefix": "--color-info-text",
+    "body": "--color-info-text",
+    "description": "#1677ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-info-text-active": {
+    "prefix": "--color-info-text-active",
+    "body": "--color-info-text-active",
+    "description": "#0958d9",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-link-hover": {
+    "prefix": "--color-link-hover",
+    "body": "--color-link-hover",
+    "description": "#69b1ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-link-active": {
+    "prefix": "--color-link-active",
+    "body": "--color-link-active",
+    "description": "#0958d9",
+    "scope": "css,scss,less,postcss"
+  },
+  "--blue-hover": {
+    "prefix": "--blue-hover",
+    "body": "--blue-hover",
+    "description": "#4096ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--blue-active": {
+    "prefix": "--blue-active",
+    "body": "--blue-active",
+    "description": "#0958d9",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple-hover": {
+    "prefix": "--purple-hover",
+    "body": "--purple-hover",
+    "description": "#9254de",
+    "scope": "css,scss,less,postcss"
+  },
+  "--purple-active": {
+    "prefix": "--purple-active",
+    "body": "--purple-active",
+    "description": "#531dab",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan-hover": {
+    "prefix": "--cyan-hover",
+    "body": "--cyan-hover",
+    "description": "#36cfc9",
+    "scope": "css,scss,less,postcss"
+  },
+  "--cyan-active": {
+    "prefix": "--cyan-active",
+    "body": "--cyan-active",
+    "description": "#08979c",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green-hover": {
+    "prefix": "--green-hover",
+    "body": "--green-hover",
+    "description": "#73d13d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--green-active": {
+    "prefix": "--green-active",
+    "body": "--green-active",
+    "description": "#389e0d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta-hover": {
+    "prefix": "--magenta-hover",
+    "body": "--magenta-hover",
+    "description": "#f759ab",
+    "scope": "css,scss,less,postcss"
+  },
+  "--magenta-active": {
+    "prefix": "--magenta-active",
+    "body": "--magenta-active",
+    "description": "#c41d7f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink-hover": {
+    "prefix": "--pink-hover",
+    "body": "--pink-hover",
+    "description": "#f759ab",
+    "scope": "css,scss,less,postcss"
+  },
+  "--pink-active": {
+    "prefix": "--pink-active",
+    "body": "--pink-active",
+    "description": "#c41d7f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red-hover": {
+    "prefix": "--red-hover",
+    "body": "--red-hover",
+    "description": "#ff4d4f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--red-active": {
+    "prefix": "--red-active",
+    "body": "--red-active",
+    "description": "#cf1322",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange-hover": {
+    "prefix": "--orange-hover",
+    "body": "--orange-hover",
+    "description": "#ffa940",
+    "scope": "css,scss,less,postcss"
+  },
+  "--orange-active": {
+    "prefix": "--orange-active",
+    "body": "--orange-active",
+    "description": "#d46b08",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow-hover": {
+    "prefix": "--yellow-hover",
+    "body": "--yellow-hover",
+    "description": "#ffec3d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--yellow-active": {
+    "prefix": "--yellow-active",
+    "body": "--yellow-active",
+    "description": "#d4b106",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano-hover": {
+    "prefix": "--volcano-hover",
+    "body": "--volcano-hover",
+    "description": "#ff7a45",
+    "scope": "css,scss,less,postcss"
+  },
+  "--volcano-active": {
+    "prefix": "--volcano-active",
+    "body": "--volcano-active",
+    "description": "#d4380d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue-hover": {
+    "prefix": "--geekblue-hover",
+    "body": "--geekblue-hover",
+    "description": "#597ef7",
+    "scope": "css,scss,less,postcss"
+  },
+  "--geekblue-active": {
+    "prefix": "--geekblue-active",
+    "body": "--geekblue-active",
+    "description": "#1d39c4",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime-hover": {
+    "prefix": "--lime-hover",
+    "body": "--lime-hover",
+    "description": "#bae637",
+    "scope": "css,scss,less,postcss"
+  },
+  "--lime-active": {
+    "prefix": "--lime-active",
+    "body": "--lime-active",
+    "description": "#7cb305",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold-hover": {
+    "prefix": "--gold-hover",
+    "body": "--gold-hover",
+    "description": "#ffc53d",
+    "scope": "css,scss,less,postcss"
+  },
+  "--gold-active": {
+    "prefix": "--gold-active",
+    "body": "--gold-active",
+    "description": "#d48806",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-mask": {
+    "prefix": "--color-bg-mask",
+    "body": "--color-bg-mask",
+    "description": "rgba(0,0,0,0.45)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-white": {
+    "prefix": "--color-white",
+    "body": "--color-white",
+    "description": "#fff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-sm": {
+    "prefix": "--font-size-sm",
+    "body": "--font-size-sm",
+    "description": "12",
     "scope": "css,scss,less,postcss"
   },
   "--font-size-lg": {
     "prefix": "--font-size-lg",
     "body": "--font-size-lg",
-    "description": "20px",
+    "description": "16",
     "scope": "css,scss,less,postcss"
   },
   "--font-size-xl": {
     "prefix": "--font-size-xl",
     "body": "--font-size-xl",
-    "description": "24px",
+    "description": "20",
     "scope": "css,scss,less,postcss"
   },
-  "--font-size-xxl": {
-    "prefix": "--font-size-xxl",
-    "body": "--font-size-xxl",
-    "description": "32px",
+  "--font-size-heading-1": {
+    "prefix": "--font-size-heading-1",
+    "body": "--font-size-heading-1",
+    "description": "38",
     "scope": "css,scss,less,postcss"
   },
-  "--font-size-xxxl": {
-    "prefix": "--font-size-xxxl",
-    "body": "--font-size-xxxl",
-    "description": "48px",
+  "--font-size-heading-2": {
+    "prefix": "--font-size-heading-2",
+    "body": "--font-size-heading-2",
+    "description": "30",
     "scope": "css,scss,less,postcss"
   },
-  "--breakpoint-xxs": {
-    "prefix": "--breakpoint-xxs",
-    "body": "--breakpoint-xxs",
-    "description": "480px",
+  "--font-size-heading-3": {
+    "prefix": "--font-size-heading-3",
+    "body": "--font-size-heading-3",
+    "description": "24",
     "scope": "css,scss,less,postcss"
   },
-  "--breakpoint-xxs-max": {
-    "prefix": "--breakpoint-xxs-max",
-    "body": "--breakpoint-xxs-max",
-    "description": "479px",
+  "--font-size-heading-4": {
+    "prefix": "--font-size-heading-4",
+    "body": "--font-size-heading-4",
+    "description": "20",
     "scope": "css,scss,less,postcss"
   },
-  "--breakpoint-xs": {
-    "prefix": "--breakpoint-xs",
-    "body": "--breakpoint-xs",
-    "description": "576px",
+  "--font-size-heading-5": {
+    "prefix": "--font-size-heading-5",
+    "body": "--font-size-heading-5",
+    "description": "16",
     "scope": "css,scss,less,postcss"
   },
-  "--breakpoint-xs-max": {
-    "prefix": "--breakpoint-xs-max",
-    "body": "--breakpoint-xs-max",
-    "description": "575px",
+  "--line-height": {
+    "prefix": "--line-height",
+    "body": "--line-height",
+    "description": "1.5714285714285714",
     "scope": "css,scss,less,postcss"
   },
-  "--breakpoint-sm": {
-    "prefix": "--breakpoint-sm",
-    "body": "--breakpoint-sm",
-    "description": "768px",
+  "--line-height-lg": {
+    "prefix": "--line-height-lg",
+    "body": "--line-height-lg",
+    "description": "1.5",
     "scope": "css,scss,less,postcss"
   },
-  "--breakpoint-sm-max": {
-    "prefix": "--breakpoint-sm-max",
-    "body": "--breakpoint-sm-max",
-    "description": "767px",
+  "--line-height-sm": {
+    "prefix": "--line-height-sm",
+    "body": "--line-height-sm",
+    "description": "1.6666666666666667",
     "scope": "css,scss,less,postcss"
   },
-  "--breakpoint-md": {
-    "prefix": "--breakpoint-md",
-    "body": "--breakpoint-md",
-    "description": "992px",
+  "--font-height": {
+    "prefix": "--font-height",
+    "body": "--font-height",
+    "description": "22",
     "scope": "css,scss,less,postcss"
   },
-  "--breakpoint-md-max": {
-    "prefix": "--breakpoint-md-max",
-    "body": "--breakpoint-md-max",
-    "description": "991px",
+  "--font-height-lg": {
+    "prefix": "--font-height-lg",
+    "body": "--font-height-lg",
+    "description": "24",
     "scope": "css,scss,less,postcss"
   },
-  "--breakpoint-lg": {
-    "prefix": "--breakpoint-lg",
-    "body": "--breakpoint-lg",
-    "description": "1200px",
+  "--font-height-sm": {
+    "prefix": "--font-height-sm",
+    "body": "--font-height-sm",
+    "description": "20",
     "scope": "css,scss,less,postcss"
   },
-  "--breakpoint-lg-max": {
-    "prefix": "--breakpoint-lg-max",
-    "body": "--breakpoint-lg-max",
-    "description": "1199px",
+  "--line-height-heading-1": {
+    "prefix": "--line-height-heading-1",
+    "body": "--line-height-heading-1",
+    "description": "1.2105263157894737",
     "scope": "css,scss,less,postcss"
   },
-  "--breakpoint-xl": {
-    "prefix": "--breakpoint-xl",
-    "body": "--breakpoint-xl",
-    "description": "1600px",
+  "--line-height-heading-2": {
+    "prefix": "--line-height-heading-2",
+    "body": "--line-height-heading-2",
+    "description": "1.2666666666666666",
     "scope": "css,scss,less,postcss"
   },
-  "--breakpoint-xl-max": {
-    "prefix": "--breakpoint-xl-max",
-    "body": "--breakpoint-xl-max",
-    "description": "1599px",
+  "--line-height-heading-3": {
+    "prefix": "--line-height-heading-3",
+    "body": "--line-height-heading-3",
+    "description": "1.3333333333333333",
     "scope": "css,scss,less,postcss"
   },
-  "--height-header": {
-    "prefix": "--height-header",
-    "body": "--height-header",
-    "description": "64px",
+  "--line-height-heading-4": {
+    "prefix": "--line-height-heading-4",
+    "body": "--line-height-heading-4",
+    "description": "1.4",
     "scope": "css,scss,less,postcss"
   },
-  "--height-dish-card-image": {
-    "prefix": "--height-dish-card-image",
-    "body": "--height-dish-card-image",
-    "description": "192px",
+  "--line-height-heading-5": {
+    "prefix": "--line-height-heading-5",
+    "body": "--line-height-heading-5",
+    "description": "1.5",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size-xxl": {
+    "prefix": "--size-xxl",
+    "body": "--size-xxl",
+    "description": "48",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size-xl": {
+    "prefix": "--size-xl",
+    "body": "--size-xl",
+    "description": "32",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size-lg": {
+    "prefix": "--size-lg",
+    "body": "--size-lg",
+    "description": "24",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size-md": {
+    "prefix": "--size-md",
+    "body": "--size-md",
+    "description": "20",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size-ms": {
+    "prefix": "--size-ms",
+    "body": "--size-ms",
+    "description": "16",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size": {
+    "prefix": "--size",
+    "body": "--size",
+    "description": "16",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size-sm": {
+    "prefix": "--size-sm",
+    "body": "--size-sm",
+    "description": "12",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size-xs": {
+    "prefix": "--size-xs",
+    "body": "--size-xs",
+    "description": "8",
+    "scope": "css,scss,less,postcss"
+  },
+  "--size-xxs": {
+    "prefix": "--size-xxs",
+    "body": "--size-xxs",
+    "description": "4",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-height-sm": {
+    "prefix": "--control-height-sm",
+    "body": "--control-height-sm",
+    "description": "24",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-height-xs": {
+    "prefix": "--control-height-xs",
+    "body": "--control-height-xs",
+    "description": "16",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-height-lg": {
+    "prefix": "--control-height-lg",
+    "body": "--control-height-lg",
+    "description": "40",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-duration-fast": {
+    "prefix": "--motion-duration-fast",
+    "body": "--motion-duration-fast",
+    "description": "0.1s",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-duration-mid": {
+    "prefix": "--motion-duration-mid",
+    "body": "--motion-duration-mid",
+    "description": "0.2s",
+    "scope": "css,scss,less,postcss"
+  },
+  "--motion-duration-slow": {
+    "prefix": "--motion-duration-slow",
+    "body": "--motion-duration-slow",
+    "description": "0.3s",
+    "scope": "css,scss,less,postcss"
+  },
+  "--line-width-bold": {
+    "prefix": "--line-width-bold",
+    "body": "--line-width-bold",
+    "description": "2",
+    "scope": "css,scss,less,postcss"
+  },
+  "--border-radius-xs": {
+    "prefix": "--border-radius-xs",
+    "body": "--border-radius-xs",
+    "description": "2",
+    "scope": "css,scss,less,postcss"
+  },
+  "--border-radius-sm": {
+    "prefix": "--border-radius-sm",
+    "body": "--border-radius-sm",
+    "description": "4",
+    "scope": "css,scss,less,postcss"
+  },
+  "--border-radius-lg": {
+    "prefix": "--border-radius-lg",
+    "body": "--border-radius-lg",
+    "description": "8",
+    "scope": "css,scss,less,postcss"
+  },
+  "--border-radius-outer": {
+    "prefix": "--border-radius-outer",
+    "body": "--border-radius-outer",
+    "description": "4",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-fill-content": {
+    "prefix": "--color-fill-content",
+    "body": "--color-fill-content",
+    "description": "rgba(0,0,0,0.06)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-fill-content-hover": {
+    "prefix": "--color-fill-content-hover",
+    "body": "--color-fill-content-hover",
+    "description": "rgba(0,0,0,0.15)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-fill-alter": {
+    "prefix": "--color-fill-alter",
+    "body": "--color-fill-alter",
+    "description": "rgba(0,0,0,0.02)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-container-disabled": {
+    "prefix": "--color-bg-container-disabled",
+    "body": "--color-bg-container-disabled",
+    "description": "rgba(0,0,0,0.04)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-border-bg": {
+    "prefix": "--color-border-bg",
+    "body": "--color-border-bg",
+    "description": "#ffffff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-split": {
+    "prefix": "--color-split",
+    "body": "--color-split",
+    "description": "rgba(5,5,5,0.06)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text-placeholder": {
+    "prefix": "--color-text-placeholder",
+    "body": "--color-text-placeholder",
+    "description": "rgba(0,0,0,0.25)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text-disabled": {
+    "prefix": "--color-text-disabled",
+    "body": "--color-text-disabled",
+    "description": "rgba(0,0,0,0.25)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text-heading": {
+    "prefix": "--color-text-heading",
+    "body": "--color-text-heading",
+    "description": "rgba(0,0,0,0.88)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text-label": {
+    "prefix": "--color-text-label",
+    "body": "--color-text-label",
+    "description": "rgba(0,0,0,0.65)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text-description": {
+    "prefix": "--color-text-description",
+    "body": "--color-text-description",
+    "description": "rgba(0,0,0,0.45)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text-light-solid": {
+    "prefix": "--color-text-light-solid",
+    "body": "--color-text-light-solid",
+    "description": "#fff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-highlight": {
+    "prefix": "--color-highlight",
+    "body": "--color-highlight",
+    "description": "#ff4d4f",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-text-hover": {
+    "prefix": "--color-bg-text-hover",
+    "body": "--color-bg-text-hover",
+    "description": "rgba(0,0,0,0.06)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-bg-text-active": {
+    "prefix": "--color-bg-text-active",
+    "body": "--color-bg-text-active",
+    "description": "rgba(0,0,0,0.15)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-icon": {
+    "prefix": "--color-icon",
+    "body": "--color-icon",
+    "description": "rgba(0,0,0,0.45)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-icon-hover": {
+    "prefix": "--color-icon-hover",
+    "body": "--color-icon-hover",
+    "description": "rgba(0,0,0,0.88)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-error-outline": {
+    "prefix": "--color-error-outline",
+    "body": "--color-error-outline",
+    "description": "rgba(255,38,5,0.06)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-warning-outline": {
+    "prefix": "--color-warning-outline",
+    "body": "--color-warning-outline",
+    "description": "rgba(255,215,5,0.1)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-icon": {
+    "prefix": "--font-size-icon",
+    "body": "--font-size-icon",
+    "description": "12",
+    "scope": "css,scss,less,postcss"
+  },
+  "--line-width-focus": {
+    "prefix": "--line-width-focus",
+    "body": "--line-width-focus",
+    "description": "3",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-outline-width": {
+    "prefix": "--control-outline-width",
+    "body": "--control-outline-width",
+    "description": "2",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-interactive-size": {
+    "prefix": "--control-interactive-size",
+    "body": "--control-interactive-size",
+    "description": "16",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-item-bg-hover": {
+    "prefix": "--control-item-bg-hover",
+    "body": "--control-item-bg-hover",
+    "description": "rgba(0,0,0,0.04)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-item-bg-active": {
+    "prefix": "--control-item-bg-active",
+    "body": "--control-item-bg-active",
+    "description": "#e6f4ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-item-bg-active-hover": {
+    "prefix": "--control-item-bg-active-hover",
+    "body": "--control-item-bg-active-hover",
+    "description": "#bae0ff",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-item-bg-active-disabled": {
+    "prefix": "--control-item-bg-active-disabled",
+    "body": "--control-item-bg-active-disabled",
+    "description": "rgba(0,0,0,0.15)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-tmp-outline": {
+    "prefix": "--control-tmp-outline",
+    "body": "--control-tmp-outline",
+    "description": "rgba(0,0,0,0.02)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-outline": {
+    "prefix": "--control-outline",
+    "body": "--control-outline",
+    "description": "rgba(5,145,255,0.1)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-weight-strong": {
+    "prefix": "--font-weight-strong",
+    "body": "--font-weight-strong",
+    "description": "600",
+    "scope": "css,scss,less,postcss"
+  },
+  "--opacity-loading": {
+    "prefix": "--opacity-loading",
+    "body": "--opacity-loading",
+    "description": "0.65",
+    "scope": "css,scss,less,postcss"
+  },
+  "--link-decoration": {
+    "prefix": "--link-decoration",
+    "body": "--link-decoration",
+    "description": "none",
+    "scope": "css,scss,less,postcss"
+  },
+  "--link-hover-decoration": {
+    "prefix": "--link-hover-decoration",
+    "body": "--link-hover-decoration",
+    "description": "none",
+    "scope": "css,scss,less,postcss"
+  },
+  "--link-focus-decoration": {
+    "prefix": "--link-focus-decoration",
+    "body": "--link-focus-decoration",
+    "description": "none",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-padding-horizontal": {
+    "prefix": "--control-padding-horizontal",
+    "body": "--control-padding-horizontal",
+    "description": "12",
+    "scope": "css,scss,less,postcss"
+  },
+  "--control-padding-horizontal-sm": {
+    "prefix": "--control-padding-horizontal-sm",
+    "body": "--control-padding-horizontal-sm",
+    "description": "8",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-xxs": {
+    "prefix": "--padding-xxs",
+    "body": "--padding-xxs",
+    "description": "4",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-xs": {
+    "prefix": "--padding-xs",
+    "body": "--padding-xs",
+    "description": "8",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-sm": {
+    "prefix": "--padding-sm",
+    "body": "--padding-sm",
+    "description": "12",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding": {
+    "prefix": "--padding",
+    "body": "--padding",
+    "description": "16",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-md": {
+    "prefix": "--padding-md",
+    "body": "--padding-md",
+    "description": "20",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-lg": {
+    "prefix": "--padding-lg",
+    "body": "--padding-lg",
+    "description": "24",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-xl": {
+    "prefix": "--padding-xl",
+    "body": "--padding-xl",
+    "description": "32",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-content-horizontal-lg": {
+    "prefix": "--padding-content-horizontal-lg",
+    "body": "--padding-content-horizontal-lg",
+    "description": "24",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-content-vertical-lg": {
+    "prefix": "--padding-content-vertical-lg",
+    "body": "--padding-content-vertical-lg",
+    "description": "16",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-content-horizontal": {
+    "prefix": "--padding-content-horizontal",
+    "body": "--padding-content-horizontal",
+    "description": "16",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-content-vertical": {
+    "prefix": "--padding-content-vertical",
+    "body": "--padding-content-vertical",
+    "description": "12",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-content-horizontal-sm": {
+    "prefix": "--padding-content-horizontal-sm",
+    "body": "--padding-content-horizontal-sm",
+    "description": "16",
+    "scope": "css,scss,less,postcss"
+  },
+  "--padding-content-vertical-sm": {
+    "prefix": "--padding-content-vertical-sm",
+    "body": "--padding-content-vertical-sm",
+    "description": "8",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-xxs": {
+    "prefix": "--margin-xxs",
+    "body": "--margin-xxs",
+    "description": "4",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-xs": {
+    "prefix": "--margin-xs",
+    "body": "--margin-xs",
+    "description": "8",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-sm": {
+    "prefix": "--margin-sm",
+    "body": "--margin-sm",
+    "description": "12",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin": {
+    "prefix": "--margin",
+    "body": "--margin",
+    "description": "16",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-md": {
+    "prefix": "--margin-md",
+    "body": "--margin-md",
+    "description": "20",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-lg": {
+    "prefix": "--margin-lg",
+    "body": "--margin-lg",
+    "description": "24",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-xl": {
+    "prefix": "--margin-xl",
+    "body": "--margin-xl",
+    "description": "32",
+    "scope": "css,scss,less,postcss"
+  },
+  "--margin-xxl": {
+    "prefix": "--margin-xxl",
+    "body": "--margin-xxl",
+    "description": "48",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow": {
+    "prefix": "--box-shadow",
+    "body": "--box-shadow",
+    "description": "\n      0 6px 16px 0 rgba(0, 0, 0, 0.08),\n      0 3px 6px -4px rgba(0, 0, 0, 0.12),\n      0 9px 28px 8px rgba(0, 0, 0, 0.05)\n    ",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow-secondary": {
+    "prefix": "--box-shadow-secondary",
+    "body": "--box-shadow-secondary",
+    "description": "\n      0 6px 16px 0 rgba(0, 0, 0, 0.08),\n      0 3px 6px -4px rgba(0, 0, 0, 0.12),\n      0 9px 28px 8px rgba(0, 0, 0, 0.05)\n    ",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow-tertiary": {
+    "prefix": "--box-shadow-tertiary",
+    "body": "--box-shadow-tertiary",
+    "description": "\n      0 1px 2px 0 rgba(0, 0, 0, 0.03),\n      0 1px 6px -1px rgba(0, 0, 0, 0.02),\n      0 2px 4px 0 rgba(0, 0, 0, 0.02)\n    ",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-xs": {
+    "prefix": "--screen-xs",
+    "body": "--screen-xs",
+    "description": "480",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-xs-min": {
+    "prefix": "--screen-xs-min",
+    "body": "--screen-xs-min",
+    "description": "480",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-xs-max": {
+    "prefix": "--screen-xs-max",
+    "body": "--screen-xs-max",
+    "description": "575",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-sm": {
+    "prefix": "--screen-sm",
+    "body": "--screen-sm",
+    "description": "576",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-sm-min": {
+    "prefix": "--screen-sm-min",
+    "body": "--screen-sm-min",
+    "description": "576",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-sm-max": {
+    "prefix": "--screen-sm-max",
+    "body": "--screen-sm-max",
+    "description": "767",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-md": {
+    "prefix": "--screen-md",
+    "body": "--screen-md",
+    "description": "768",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-md-min": {
+    "prefix": "--screen-md-min",
+    "body": "--screen-md-min",
+    "description": "768",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-md-max": {
+    "prefix": "--screen-md-max",
+    "body": "--screen-md-max",
+    "description": "991",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-lg": {
+    "prefix": "--screen-lg",
+    "body": "--screen-lg",
+    "description": "992",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-lg-min": {
+    "prefix": "--screen-lg-min",
+    "body": "--screen-lg-min",
+    "description": "992",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-lg-max": {
+    "prefix": "--screen-lg-max",
+    "body": "--screen-lg-max",
+    "description": "1199",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-xl": {
+    "prefix": "--screen-xl",
+    "body": "--screen-xl",
+    "description": "1200",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-xl-min": {
+    "prefix": "--screen-xl-min",
+    "body": "--screen-xl-min",
+    "description": "1200",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-xl-max": {
+    "prefix": "--screen-xl-max",
+    "body": "--screen-xl-max",
+    "description": "1599",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-xxl": {
+    "prefix": "--screen-xxl",
+    "body": "--screen-xxl",
+    "description": "1600",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-xxl-min": {
+    "prefix": "--screen-xxl-min",
+    "body": "--screen-xxl-min",
+    "description": "1600",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-xxl-max": {
+    "prefix": "--screen-xxl-max",
+    "body": "--screen-xxl-max",
+    "description": "1919",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-xxxl": {
+    "prefix": "--screen-xxxl",
+    "body": "--screen-xxxl",
+    "description": "1920",
+    "scope": "css,scss,less,postcss"
+  },
+  "--screen-xxxl-min": {
+    "prefix": "--screen-xxxl-min",
+    "body": "--screen-xxxl-min",
+    "description": "1920",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow-popover-arrow": {
+    "prefix": "--box-shadow-popover-arrow",
+    "body": "--box-shadow-popover-arrow",
+    "description": "2px 2px 5px rgba(0, 0, 0, 0.05)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow-card": {
+    "prefix": "--box-shadow-card",
+    "body": "--box-shadow-card",
+    "description": "\n      0 1px 2px -2px rgba(0,0,0,0.16),\n      0 3px 6px 0 rgba(0,0,0,0.12),\n      0 5px 12px 4px rgba(0,0,0,0.09)\n    ",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow-drawer-right": {
+    "prefix": "--box-shadow-drawer-right",
+    "body": "--box-shadow-drawer-right",
+    "description": "\n      -6px 0 16px 0 rgba(0, 0, 0, 0.08),\n      -3px 0 6px -4px rgba(0, 0, 0, 0.12),\n      -9px 0 28px 8px rgba(0, 0, 0, 0.05)\n    ",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow-drawer-left": {
+    "prefix": "--box-shadow-drawer-left",
+    "body": "--box-shadow-drawer-left",
+    "description": "\n      6px 0 16px 0 rgba(0, 0, 0, 0.08),\n      3px 0 6px -4px rgba(0, 0, 0, 0.12),\n      9px 0 28px 8px rgba(0, 0, 0, 0.05)\n    ",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow-drawer-up": {
+    "prefix": "--box-shadow-drawer-up",
+    "body": "--box-shadow-drawer-up",
+    "description": "\n      0 6px 16px 0 rgba(0, 0, 0, 0.08),\n      0 3px 6px -4px rgba(0, 0, 0, 0.12),\n      0 9px 28px 8px rgba(0, 0, 0, 0.05)\n    ",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow-drawer-down": {
+    "prefix": "--box-shadow-drawer-down",
+    "body": "--box-shadow-drawer-down",
+    "description": "\n      0 -6px 16px 0 rgba(0, 0, 0, 0.08),\n      0 -3px 6px -4px rgba(0, 0, 0, 0.12),\n      0 -9px 28px 8px rgba(0, 0, 0, 0.05)\n    ",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow-tabs-overflow-left": {
+    "prefix": "--box-shadow-tabs-overflow-left",
+    "body": "--box-shadow-tabs-overflow-left",
+    "description": "inset 10px 0 8px -8px rgba(0, 0, 0, 0.08)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow-tabs-overflow-right": {
+    "prefix": "--box-shadow-tabs-overflow-right",
+    "body": "--box-shadow-tabs-overflow-right",
+    "description": "inset -10px 0 8px -8px rgba(0, 0, 0, 0.08)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow-tabs-overflow-top": {
+    "prefix": "--box-shadow-tabs-overflow-top",
+    "body": "--box-shadow-tabs-overflow-top",
+    "description": "inset 0 10px 8px -8px rgba(0, 0, 0, 0.08)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--box-shadow-tabs-overflow-bottom": {
+    "prefix": "--box-shadow-tabs-overflow-bottom",
+    "body": "--box-shadow-tabs-overflow-bottom",
+    "description": "inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)",
+    "scope": "css,scss,less,postcss"
+  },
+  "--color-text-white": {
+    "prefix": "--color-text-white",
+    "body": "--color-text-white",
+    "description": "#fff",
     "scope": "css,scss,less,postcss"
   },
   "--size-avatar": {
@@ -333,6 +2415,42 @@
     "prefix": "--border-size-avatar",
     "body": "--border-size-avatar",
     "description": "2px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--height-header": {
+    "prefix": "--height-header",
+    "body": "--height-header",
+    "description": "64px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--height-dish-card-image": {
+    "prefix": "--height-dish-card-image",
+    "body": "--height-dish-card-image",
+    "description": "192px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-xxs": {
+    "prefix": "--font-size-xxs",
+    "body": "--font-size-xxs",
+    "description": "10px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-xs": {
+    "prefix": "--font-size-xs",
+    "body": "--font-size-xs",
+    "description": "12px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-xxl": {
+    "prefix": "--font-size-xxl",
+    "body": "--font-size-xxl",
+    "description": "32px",
+    "scope": "css,scss,less,postcss"
+  },
+  "--font-size-xxxl": {
+    "prefix": "--font-size-xxxl",
+    "body": "--font-size-xxxl",
+    "description": "48px",
     "scope": "css,scss,less,postcss"
   }
 }

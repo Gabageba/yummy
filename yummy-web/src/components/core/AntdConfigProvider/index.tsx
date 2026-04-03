@@ -1,10 +1,12 @@
 import type { ThemeConfig } from 'antd';
-import { App, ConfigProvider } from 'antd';
+import { App, ConfigProvider, theme } from 'antd';
 import enUS from 'antd/locale/en_US';
 import ruRU from 'antd/locale/ru_RU';
 import { useTranslation } from 'react-i18next';
 import Empty from '@components/core/Empty';
-import { token } from '@theme/token';
+import { ADDITIONAL_COLORS, COLORS } from '@theme/variables';
+import useThemeMode from '@components/themeMode/hooks/useThemeMode';
+import { ThemeMode } from '@components/themeMode/models';
 
 interface IProps {
   children: React.ReactNode;
@@ -12,34 +14,51 @@ interface IProps {
 
 function AntdConfigProvider({ children }: IProps) {
   const { t, i18n } = useTranslation();
+  const { themeMode } = useThemeMode();
+  const { token: antdToken } = theme.useToken();
 
-  const antdToken: ThemeConfig['token'] = {
-    colorPrimary: token.colorPrimary,
-    colorText: token.colorText,
-    colorLink: token.colorPrimary,
+  const colors = COLORS[themeMode];
+  const additionalColors = ADDITIONAL_COLORS[themeMode];
+
+  const token: ThemeConfig['token'] = {
+    colorPrimary: colors.primary,
+    colorLink: colors.primary,
     fontWeightStrong: 500,
+    colorBgBase: colors.bg,
+    colorTextBase: colors.text,
+    colorText: colors.text,
+    colorTextSecondary: colors.textSecondary,
+    colorBgContainer: colors.bg,
   };
+
   const components: ThemeConfig['components'] = {
     Layout: {
-      headerBg: token.colorBgSecondary,
-      bodyBg: token.colorBg,
+      headerBg: token.colorBgBase,
+      bodyBg: token.colorBgBase,
     },
     Input: {
-      colorIcon: token.colorIconSecondary,
+      colorIcon: additionalColors.iconSecondary,
     },
     Select: {
-      colorIcon: token.colorIconSecondary,
+      colorIcon: additionalColors.iconSecondary,
     },
     Divider: {
       colorTextHeading: token.colorTextSecondary,
-      fontSizeLG: token.fontSizeSM,
+      fontSizeLG: antdToken.fontSizeSM,
     },
     Dropdown: {
-      fontSizeIcon: token.fontSize,
+      fontSizeIcon: antdToken.fontSize,
+    },
+    Modal: {
+      contentBg: token.colorBgBase,
     },
   };
   const antdTheme: ThemeConfig = {
-    token: antdToken,
+    cssVar: {
+      prefix: '',
+    },
+    algorithm: themeMode === ThemeMode.DARK ? theme.darkAlgorithm : theme.defaultAlgorithm,
+    token,
     components,
   };
 

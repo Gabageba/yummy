@@ -1,31 +1,36 @@
 import camelToKebab from '@utils/camelToKebab';
 import {
   _borderSizeToken,
-  _breakpointToken,
-  _colorToken,
+  _colorDarkToken,
+  _colorGeneralToken,
+  _colorLightToken,
+  _fontFamilyToken,
   _fontSizeToken,
   _heightToken,
-  _marginToken,
-  _paddingToken,
   _sizeToken,
-} from './token';
+} from './variables';
 
 const toCssVars = (token: Record<string, number | string>, suffix: string = ''): string[] =>
   Object.entries(token).map(([key, value]) => `--${camelToKebab(key)}:${value}${suffix}`);
 
 export const cssVars = [
-  ...toCssVars(_colorToken),
-  ...toCssVars(_paddingToken, 'px'),
-  ...toCssVars(_marginToken, 'px'),
-  ...toCssVars(_fontSizeToken, 'px'),
-  ...toCssVars(_breakpointToken, 'px'),
-  ...toCssVars(_heightToken, 'px'),
+  ...toCssVars(_colorGeneralToken),
   ...toCssVars(_sizeToken, 'px'),
   ...toCssVars(_borderSizeToken, 'px'),
+  ...toCssVars(_heightToken, 'px'),
+  ...toCssVars(_fontSizeToken, 'px'),
+  ...toCssVars(_fontFamilyToken),
 ];
+
+const darkCssVars = [...toCssVars(_colorDarkToken)];
+const lightCssVars = [...toCssVars(_colorLightToken)];
 
 export const injectCSSVariables = (): void => {
   const style = document.createElement('style');
-  style.textContent = `:root{${cssVars.join(';')}}`;
+  style.textContent = `
+  :root{${cssVars.join(';')}}
+  :root[data-yummy-theme="dark"]{${darkCssVars.join(';')}}
+  :root[data-yummy-theme="light"]{${lightCssVars.join(';')}}
+  `;
   document.head.appendChild(style);
 };

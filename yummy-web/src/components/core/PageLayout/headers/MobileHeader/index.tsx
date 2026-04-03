@@ -3,13 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import '../../index.scss';
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 import { getMobileMenuItems, getSelectedKey } from '../utils';
 
 function MobileHeader() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const token = useToken();
 
   const menuItems = getMobileMenuItems(t);
   const selectedKey = getSelectedKey(location.pathname);

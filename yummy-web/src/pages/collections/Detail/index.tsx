@@ -11,7 +11,7 @@ import DishCard from '@components/dishes/DishCard';
 import EditIcon from '@icons/EditIcon';
 import RemoveFolderIcon from '@icons/RemoveFolderIcon';
 import AddIcon from '@icons/AddIcon';
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 import {
   useGetCollectionDishesQuery,
   useGetCollectionQuery,
@@ -24,6 +24,7 @@ function CollectionDetail() {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const screens = Grid.useBreakpoint();
+  const token = useToken();
 
   const [isEditCollectionModalOpen, setIsEditCollectionModalOpen] = useState<boolean>(false);
   const [isAddDishesModalOpen, setIsAddDishesModalOpen] = useState<boolean>(false);

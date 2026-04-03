@@ -1,4 +1,4 @@
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 import type { IIconProps } from './Icon';
 import Icon from './Icon';
 
@@ -19,6 +19,8 @@ function InternalIcon(props: React.SVGProps<SVGSVGElement>) {
 interface IProps extends IIconProps {}
 
 function LogoIcon({ color, ...restProps }: IProps) {
+  const token = useToken();
+
   return (
     <Icon
       component={InternalIcon}

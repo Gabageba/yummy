@@ -3,6 +3,7 @@ import { writeFileSync, unlinkSync } from 'fs';
 import { resolve, dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { tmpdir } from 'os';
+import { theme } from 'antd';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const srcDir = resolve(__dirname, '../src');
@@ -20,8 +21,20 @@ await esbuild.build({
   },
 });
 
-const { cssVars } = await import(tmpFile);
+const { cssVars: customCssVars } = await import(tmpFile);
 unlinkSync(tmpFile);
+
+const toKebabCase = (value) =>
+  value
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .replace(/([A-Z]+)([A-Z][a-z0-9]+)/g, '$1-$2')
+    .replace(/([a-zA-Z])(\d)/g, '$1-$2')
+    .toLowerCase();
+const antdToken = theme.getDesignToken();
+const antdCssVars = Object.entries(antdToken)
+  .filter(([, value]) => typeof value === 'string' || typeof value === 'number')
+  .map(([key, value]) => `--${toKebabCase(key)}:${value}`);
+const cssVars = [...antdCssVars, ...customCssVars];
 
 const snippets = {};
 for (const entry of cssVars) {

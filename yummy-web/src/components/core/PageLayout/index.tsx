@@ -3,7 +3,7 @@ import { useMemo, type ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './index.scss';
 import ArrowLeftIcon from '@icons/ArrowLeftIcon';
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 import DesktopHeader from './headers/DesktopHeader';
 import MobileHeader from './headers/MobileHeader';
 
@@ -26,6 +26,7 @@ const PageLayout = ({
 }: IProps) => {
   const screens = Grid.useBreakpoint();
   const navigate = useNavigate();
+  const token = useToken();
 
   const isScreensCalculated = useMemo(
     () =>

@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './index.scss';
 import type { IDishCollection } from '@pages/dishes/models';
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 
 const DEFAULT_PAGE_SIZE = 20;
 const SCROLL_LOAD_THRESHOLD = 80;
@@ -20,6 +20,7 @@ const DishCollectionsModal = ({ dishId, open, onCancel }: IProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const scrollRef = useRef<HTMLDivElement>(null);
+  const token = useToken();
 
   const [page, setPage] = useState<number>(1);
   const [collections, setCollections] = useState<IDishCollection[]>([]);

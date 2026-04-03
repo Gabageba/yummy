@@ -15,7 +15,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid var(--color-light-gray);
+    border-bottom: var(--border-size-header) solid var(--color-border-secondary);
 
     &--container {
       display: flex;
@@ -39,13 +39,13 @@
     &--menu {
       flex: 1;
       margin: 0 var(--margin-xxl);
-      background-color: var(--color-bg-secondary);
-      font-size: var(--font-size);
+      background-color: var(--color-bg-base);
+      font-size: var(--font-size-lg);
       border: none;
       justify-content: center;
 
       svg {
-        font-size: var(--font-size);
+        font-size: var(--font-size-lg);
       }
     }
   }
@@ -53,7 +53,7 @@
   &__header--mobile {
     top: auto;
     bottom: 0;
-    border-top: var(--border-size-header) solid var(--color-light-gray);
+    border-top: var(--border-size-header) solid var(--color-border-secondary);
     box-sizing: border-box;
     min-height: calc(var(--height-header) + env(safe-area-inset-bottom, 0px));
     padding-bottom: env(safe-area-inset-bottom, 0px);

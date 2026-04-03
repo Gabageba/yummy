@@ -1,3 +1,5 @@
+$padding-xl: 32px;
+
 :root {
-  --height-layout-content: calc(100vh - var(--height-header) - var(--padding-xl) * 2);
+  --height-layout-content: calc(100vh - var(--height-header) - #{$padding-xl * 2});
 }

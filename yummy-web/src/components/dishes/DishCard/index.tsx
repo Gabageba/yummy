@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
 import CoverIcon from '@components/CoverIcon';
 import { CoverIconEnum } from '@components/CoverIcon/models';
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 
 interface IProps {
   dish: IDish;
@@ -19,6 +19,7 @@ interface IProps {
 function DishCard({ dish, actions }: IProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const token = useToken();
 
   const handleCardClick = (e: React.MouseEvent) => {
     const target = e.target as Node;

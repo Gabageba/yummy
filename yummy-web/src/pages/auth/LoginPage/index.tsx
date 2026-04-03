@@ -11,7 +11,7 @@ import PasswordFormItem from '@components/core/fields/PasswordFormItem';
 import VkIcon from '@icons/VkIcon';
 import UserIcon from '@icons/UserIcon';
 import LogoIcon from '@icons/LogoIcon';
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 import { useLoginMutation } from '../authApi';
 import type { ILoginResponse } from '../models';
 import useAuth from '../../../hooks/useAuth';
@@ -23,6 +23,8 @@ function LoginPage() {
   const { required, minLength } = useValidation();
   const { handleValidationErrors } = useApiValidationErrors(form);
   const { onAuthSuccess } = useAuth();
+  const token = useToken();
+
   const isDevMode = import.meta.env.DEV;
 
   const [login, { isLoading: isLogging }] = useLoginMutation();

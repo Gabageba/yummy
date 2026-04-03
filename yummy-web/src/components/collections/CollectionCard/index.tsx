@@ -12,8 +12,8 @@ import { CollectionActions } from '@pages/collections/List/models';
 import CoverIcon from '@components/CoverIcon';
 import EditIcon from '@icons/EditIcon';
 import DeleteIcon from '@icons/DeleteIcon';
-import { token } from '@theme/token';
 import useConfirmModal from '@hooks/useConfirmModal';
+import useToken from '@hooks/useToken';
 import CollectionModal from '../CollectionModal';
 
 interface IProps {
@@ -24,6 +24,7 @@ function CollectionCard({ collection }: IProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { confirmDeletion } = useConfirmModal();
+  const token = useToken();
 
   const [isCollectionModal, setIsCollectionModal] = useState<boolean>(false);
 
@@ -56,7 +57,7 @@ function CollectionCard({ collection }: IProps) {
     }
 
     return result;
-  }, [collection.actions, deleteCollection, collection.id, isDeleting]);
+  }, [collection.actions, deleteCollection, collection.id, isDeleting, confirmDeletion]);
 
   const author = useMemo(() => {
     const creator = collection.allowedUsers?.find((user) => user.role === IUserRoles.CREATOR);

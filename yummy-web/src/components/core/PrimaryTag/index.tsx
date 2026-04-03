@@ -2,11 +2,13 @@ import type { TagProps } from 'antd';
 import { Tag } from 'antd';
 import { useMemo } from 'react';
 import './index.scss';
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 
 interface IProps extends Omit<TagProps, 'color' | 'className'> {}
 
 function PrimaryTag({ variant, ...restProps }: IProps) {
+  const token = useToken();
+
   const style = useMemo((): TagProps['style'] => {
     switch (variant) {
       case 'outlined':
@@ -18,7 +20,7 @@ function PrimaryTag({ variant, ...restProps }: IProps) {
       case 'solid':
         return {
           backgroundColor: token.colorPrimary,
-          color: token.colorBg,
+          color: token.colorBgBase,
         };
       case 'filled':
       default:
@@ -27,7 +29,7 @@ function PrimaryTag({ variant, ...restProps }: IProps) {
           color: token.colorPrimary,
         };
     }
-  }, [variant]);
+  }, [variant, token]);
 
   return <Tag style={style} className="primary-tag" {...restProps} />;
 }

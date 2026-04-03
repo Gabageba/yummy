@@ -1,7 +1,9 @@
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 import { Spin } from 'antd';
 
 function FullScreenSpin() {
+  const token = useToken();
+
   return (
     <Spin
       spinning
@@ -9,7 +11,7 @@ function FullScreenSpin() {
       size="large"
       styles={{
         root: {
-          backgroundColor: token.colorBg,
+          backgroundColor: token.colorBgBase,
         },
         indicator: {
           color: token.colorPrimary,

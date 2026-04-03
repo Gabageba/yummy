@@ -1,5 +1,5 @@
 .avatar {
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-base);
   border: var(--border-size-avatar) solid var(--color-primary);
   color: var(--color-primary);
 
@@ -13,7 +13,7 @@
     }
 
     .ant-typography { 
-      font-size: var(--font-size);
+      font-size: var(--font-size-lg);
       color: var(--color-primary);
     }
   }

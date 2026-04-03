@@ -4,7 +4,7 @@ import { Card, Col, Pagination, Row } from 'antd';
 import type { ReactNode } from 'react';
 import { useMemo, useState } from 'react';
 import useCardListColumnsCount from '@hooks/useCardListColumnsCount';
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 import Empty from '../Empty';
 import './index.scss';
 
@@ -34,6 +34,7 @@ function CardsList<T extends IItem>({
   additionalParams = {},
 }: IProps<T>) {
   const defaultColumnsCount = useCardListColumnsCount();
+  const token = useToken();
 
   const [page, setPage] = useState<number>(1);
 

@@ -1,7 +1,7 @@
 @use "default_variables";
 
 * {
-  font-family: var(--ant-font-family);
+  font-family: var(--font-family-root);
 }
 
 @keyframes float-tl {
@@ -91,5 +91,5 @@
 .spinner {
   display: flex;
   align-items: center;
-  padding: var(--padding-xs)
+  padding: var(--padding-xs);
 }

@@ -1,10 +1,11 @@
-import { Layout } from 'antd';
+import { Layout, Space } from 'antd';
 import { RoutePath } from '@routes/models';
 import { useNavigate } from 'react-router-dom';
 import LogoHorizontalIcon from '@icons/LogoHorizontalIcon';
 import AvatarButton from '@components/avatar/AvatarButton';
 import DesktopNavigationMenu from './DesktopNavigationMenu';
 import '../../index.scss';
+import ThemeButton from './ThemeButton';
 
 function DesktopHeader() {
   const navigate = useNavigate();
@@ -16,7 +17,10 @@ function DesktopHeader() {
           <LogoHorizontalIcon size={32} />
         </div>
         <DesktopNavigationMenu />
-        <AvatarButton />
+        <Space>
+          <ThemeButton />
+          <AvatarButton />
+        </Space>
       </div>
     </Layout.Header>
   );

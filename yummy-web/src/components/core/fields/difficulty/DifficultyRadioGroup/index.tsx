@@ -1,7 +1,7 @@
 import type { RadioGroupProps } from 'antd';
 import { Flex, Radio } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 import { getDifficultyOptions } from '../models';
 import './index.scss';
 
@@ -12,6 +12,7 @@ export interface IDifficultyRadioGroupProps extends Omit<
 
 function DifficultyRadioGroup({ className, ...restProps }: IDifficultyRadioGroupProps) {
   const { t } = useTranslation();
+  const token = useToken();
 
   return (
     <Radio.Group

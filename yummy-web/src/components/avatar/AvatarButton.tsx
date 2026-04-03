@@ -7,7 +7,7 @@ import { useGetProfileQuery } from '@api/usersApi';
 import SettingsIcon from '@icons/SettingsIcon';
 import LogoutIcon from '@icons/LogoutIcon';
 import useLogout from '@hooks/useLogout';
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 import Avatar from './Avatar';
 import './index.scss';
 
@@ -15,6 +15,7 @@ const AvatarButton = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { onLogout, isLoading: isLogoutLoading } = useLogout();
+  const token = useToken();
 
   const { data: user, isLoading: isUserLoading } = useGetProfileQuery();
 

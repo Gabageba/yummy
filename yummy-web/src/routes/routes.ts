@@ -8,6 +8,7 @@ import CollectionsList from '@pages/collections/List';
 import CollectionDetail from '@pages/collections/Detail';
 import DishesList from '@pages/dishes/List';
 import MorePage from '@pages/MorePage';
+import ComponentsPage from '@pages/ComponentsPage';
 import { RoutePath } from './models';
 
 export interface Routes {
@@ -41,6 +42,11 @@ export const userRoutes: Routes[] = [
     path: RoutePath.MAIN,
     Element: MainPage,
     name: 'Главная',
+  },
+  {
+    path: RoutePath.COMPONENTS,
+    Element: ComponentsPage,
+    name: 'Компоненты',
   },
   {
     path: RoutePath.SETTINGS,

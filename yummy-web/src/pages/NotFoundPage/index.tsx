@@ -6,11 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from '@routes/models';
 import ArrowLeftIcon from '@icons/ArrowLeftIcon';
 import HomeIcon from '@icons/HomeIcon';
-import { token } from '@theme/token';
+import useToken from '@hooks/useToken';
 
 function NotFoundPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const token = useToken();
 
   return (
     <PageLayout>

@@ -15,7 +15,7 @@
 
   &__container {
     overflow: hidden;
-    border: 1px solid var(--color-bg-secondary);
+    border: 1px solid var(--color-bg-base);
     width: 380px;
     border-radius: 16px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -31,7 +31,7 @@
   }
 
   &__content {
-    background-color: var(--color-bg-secondary);
+    background-color: var(--color-bg-base);
     padding-top: var(--padding-xl);
     padding-bottom: var(--padding-lg);
     padding-left: var(--padding-xl);
@@ -78,7 +78,7 @@
     width: 100%;
 
     .ant-btn {
-      font-size: var(--font-size-lg) !important;
+      font-size: var(--font-size-xl) !important;
     }
 
     .vk-icon {
@@ -94,6 +94,6 @@
   &__footer {
     padding: var(--padding-lg) var(--padding-xl);
     text-align: center;
-    background-color: var(--color-bg);
+    background-color: var(--color-bg-base);
   }
 }

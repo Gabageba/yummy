@@ -4,8 +4,8 @@ import {
   getLabelByDifficulty,
 } from '@components/core/fields/difficulty/models';
 import { Flex } from 'antd';
-import { token } from '@theme/token';
 import { useTranslation } from 'react-i18next';
+import useToken from '@hooks/useToken';
 import './index.scss';
 
 interface IProps {
@@ -14,6 +14,7 @@ interface IProps {
 
 function DifficultyLabel({ difficulty }: IProps) {
   const { t } = useTranslation();
+  const token = useToken();
   const Icon = getIconByDifficulty(difficulty);
 
   return (
