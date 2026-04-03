@@ -14,7 +14,7 @@ enum MenuItemsKey {
 }
 
 const getIconByMenuKey = (key: MenuItemsKey): React.ReactNode => {
-  const ICON_SIZE = 24;
+  const ICON_SIZE = 30;
 
   switch (key) {
     case MenuItemsKey.MAIN:

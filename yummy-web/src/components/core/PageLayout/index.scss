@@ -54,7 +54,9 @@
     top: auto;
     bottom: 0;
     border-top: var(--border-size-header) solid var(--color-light-gray);
-    height: var(--height-header);
+    box-sizing: border-box;
+    min-height: calc(var(--height-header) + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
 
     .page-layout__header--container {
       padding: 0;
@@ -63,10 +65,12 @@
     &-menu {
       width: 100%;
       margin-inline: 0;
+      min-height: var(--height-header);
     }
 
     &-menu-item {
       cursor: pointer;
+      position: relative;
 
       &-active,
       &:hover {
@@ -78,11 +82,17 @@
       }
 
       .ant-typography {
+        margin-top: calc(var(--margin-xxs) * -1);
         font-size: var(--font-size-xxs);
       }
 
       .ant-flex {
         height: 100%;
+        transition: transform 0.12s ease-out;
+
+        &:active {
+          transform: scale(0.96);
+        }
       }
     }
   }
